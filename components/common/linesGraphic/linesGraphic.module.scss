@@ -1,0 +1,13 @@
+@import '../../../styles/variables.scss';
+
+.graphicContainer {
+    width: 40rem;
+    height: 40rem;
+    margin-left: 20rem;
+    .line1 {
+        height: 100%;
+        width: 1px;
+        border: 1px solid $white;
+        border-radius: 50%;
+    }
+}

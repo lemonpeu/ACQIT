@@ -1,0 +1,174 @@
+@import '../../../styles/variables.scss';
+
+.containerBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    &.boxUserNameStyle {
+        bottom: 23rem;
+        position: absolute;
+        .container {
+            padding-bottom: 5rem;
+            background-color: $white;
+            padding: 2rem 6rem 4rem 6rem;
+            border-radius: 25px;
+            text-align: center;
+        }
+    }
+    &.boxIconText {
+        .container {
+            .text {
+                text-align: center;
+                background-color: $white;
+                padding: 4rem 2rem 2rem 2rem;
+                border-radius: 25px;
+                width: 100%;
+                margin-top: -40px;
+            }
+        }
+        &:last-child {
+            .container {
+                padding-bottom: 6rem;
+            }
+        }
+    }
+    .container {
+        padding: 1.5rem;
+        position: relative;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .welcomeContainer {
+            background-color: inherit;
+            width: 100%;
+        }
+        p,
+        label {
+            font-size: 1.5rem;
+            margin: 0;
+            font-family: $montserrat;
+            font-weight: 300;
+            color: #706f6f;
+            margin-bottom: 0.5rem;
+        }
+        label {
+            font-weight: 500;
+        }
+        .text {
+            // text-align: center;
+            // background-color: $white;
+            // padding: 4rem 2rem 2rem 2rem;
+            // border-radius: 25px;
+            // width: 100%;
+            // margin-top: -40px;
+        }
+        .iconContainer {
+            // position: relative !important;
+            // top: 0;
+            // left: 50%;
+            // transform: translate(-50%, -50%);
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    .containerBox {
+        &.boxUserNameStyle {
+            bottom: 26.5rem;
+            .container {
+                padding: 2rem;
+                width: 80% !important;
+                .text {
+                    text-align: left;
+                }
+            }
+        }
+        .container {
+            padding-bottom: 1.5rem;
+            .welcomeContainer {
+                .desktopVersion {
+                    display: flex;
+                    .text {
+                        margin-right: 1rem !important;
+                    }
+                }
+            }
+            .text {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    .containerBox {
+        .container {
+            padding: 2rem 5rem;
+            .iconContainer {
+                position: absolute;
+                width: 10rem;
+                top: -20px;
+                left: -30px;
+                transform: unset;
+            }
+            .welcomeContainer {
+                .text {
+                    font-size: 1.2rem;
+                    text-align: left;
+                }
+            }
+        }
+        &.boxIconText {
+            align-items: flex-start;
+            .text {
+                // padding-left: 3rem;
+                font-size: 1.5rem;
+                margin-left: -55px;
+                margin-top: 0px !important;
+            }
+            .container {
+                flex-direction: row;
+                padding: 0;
+                .text {
+                    padding: 2rem 4rem 2rem 5rem;
+                }
+            }
+        }
+        &.boxUserNameStyle {
+            .container {
+                width: 70% !important;
+                padding: 2rem 5rem;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .containerBox {
+        .container {
+            .welcomeContainer {
+                .text {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        &.boxUserNameStyle {
+            .container {
+                width: 60%;
+            }
+        }
+        &.boxIconText {
+            .container {
+                width: 77%;
+                .text {
+                    padding: 2rem 4rem 2rem 6rem;
+                    text-align: left;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+}

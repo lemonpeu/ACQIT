@@ -1,0 +1,22 @@
+@import '../../../styles/variables.scss';
+
+.iconContainer {
+    width: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    p {
+        font-size: 1.1rem;
+        font-family: $montserrat;
+        text-transform: uppercase;
+        color: $white;
+        text-align: center;
+    }
+}
+
+@media (min-width: 700px) {
+    .iconContainer {
+        width: 8rem;
+        margin: 0 2rem;
+    }
+}

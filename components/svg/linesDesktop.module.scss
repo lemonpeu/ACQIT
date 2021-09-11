@@ -1,0 +1,35 @@
+.container {
+    width: 40rem;
+    position: relative;
+    transform: scale(2);
+    // left: 44rem;
+    // bottom: -12rem;
+    div {
+        position: absolute;
+        width: 10rem;
+        svg {
+            width: 100%;
+        }
+        &.line1 {
+            left: -39.1px;
+            transform: translate(0, 0);
+            top: -71px;
+            width: 6rem !important;
+        }
+        &.line2 {
+            bottom: -197px;
+            transform: translateX(0);
+        }
+        &.line3 {
+            left: -102px;
+            top: 101px;
+            transform: translate(0, 0);
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        transform: scale(2);
+    }
+}

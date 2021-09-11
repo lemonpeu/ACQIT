@@ -1,0 +1,43 @@
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
+
+.graphContainer {
+    .titleGraphic {
+        @include graphic-title(20rem, $white, $textBlue);
+        margin-bottom: 4rem;
+    }
+    .servicesItemContainer {
+        display: flex;
+        margin-bottom: 3rem;
+        position: relative;
+        .descriptionContainer {
+            width: 100%;
+            padding-left: 2rem;
+            .titleDescription {
+                @include graphic-title(20rem, $grandientBackground, $white);
+            }
+            .graphDescription {
+                font-size: 1.5rem;
+                color: $white;
+                font-family: $montserrat;
+            }
+        }
+        &::before {
+            content: '';
+            width: 1px;
+            height: calc(100% - 30px);
+            background-color: $white;
+            position: absolute;
+            left: 30px;
+            bottom: -30px;
+        }
+    }
+    .secondSection {
+        .servicesItemContainer {
+            &:last-child::before {
+                width: 0;
+                height: 0;
+            }
+        }
+    }
+}

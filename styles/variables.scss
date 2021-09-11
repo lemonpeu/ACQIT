@@ -1,0 +1,53 @@
+//Colors
+
+$greyBackground: #dedede;
+$white: #ffffff;
+$black: #000000;
+$lightBlue: #0889ea;
+$textBlue: #0885e6;
+$grandientBackground: linear-gradient(
+    90deg,
+    rgba(23, 146, 238, 1) 65%,
+    rgba(55, 163, 244, 1) 77%,
+    rgba(110, 193, 255, 1) 92%,
+    rgba(255, 255, 255, 1) 100%
+);
+$darkGreen: #002c3d;
+$blueShadow: 1px 2px 10px 0px rgba(8, 133, 230, 0.98);
+
+//Font
+
+@import 'https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500&display=swap';
+
+@font-face {
+    src: url('../public/Fonts/Montserrat-Bold.ttf') format('ttf');
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+
+@font-face {
+    src: url('../public/Fonts/Montserrat-ExtraBold.ttf') format('ttf');
+    font-family: 'Montserrat';
+    font-weight: 800;
+}
+
+@font-face {
+    src: url('../public/Fonts/Montserrat-Medium.ttf') format('ttf');
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+
+@font-face {
+    src: url('../public/Fonts/Montserrat-Regular.ttf') format('ttf');
+    font-family: 'Montserrat';
+    font-weight: 400;
+}
+
+@font-face {
+    src: url('../public/Fonts/Montserrat-SemiBold.ttf') format('ttf');
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+$beVietnam: 'Be Vietnam', sans-serif;
+$montserrat: 'Montserrat';
