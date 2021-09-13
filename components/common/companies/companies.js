@@ -10,19 +10,21 @@ const Companies = () => {
     };
 
     return (
-        <div className={styles.companiesContainer}>
-            {getRandomItems()
-                .slice(0, arrayAmount ? 28 : 9)
-                .map((item, key) => (
-                    <Image
-                        key={key}
-                        layout="fixed"
-                        width={140}
-                        height={100}
-                        src={`/${item.url}`}
-                        alt={item.title}
-                    />
-                ))}
+        <div style={{ width: '100%' }}>
+            <div className={styles.companiesContainer + ' ' + 'companiesContainer'}>
+                {getRandomItems()
+                    .slice(0, arrayAmount ? 28 : 9)
+                    .map((item, key) => (
+                        <Image
+                            key={key}
+                            layout={'intrinsic'}
+                            width={arrayAmount ? 200 : 90}
+                            height={arrayAmount ? 180 : 80}
+                            src={`/${item.url}`}
+                            alt={item.title}
+                        />
+                    ))}
+            </div>
         </div>
     );
 };

@@ -1,9 +1,9 @@
 .container {
     width: 40rem;
-    position: relative;
-    transform: scale(2);
-    // left: 44rem;
-    // bottom: -12rem;
+    position: absolute;
+    left: 59rem;
+    top: 130px;
+    transform: scale(2) translate(0, 0);
     div {
         position: absolute;
         width: 10rem;
@@ -12,16 +12,16 @@
         }
         &.line1 {
             left: -39.1px;
-            transform: translate(0, 0);
-            top: -71px;
             width: 6rem !important;
+            transform: translate(0px, -0.5px);
+            top: -71px;
         }
         &.line2 {
             bottom: -197px;
             transform: translateX(0);
         }
         &.line3 {
-            left: -102px;
+            left: -104.5px;
             top: 101px;
             transform: translate(0, 0);
         }

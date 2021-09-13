@@ -8,11 +8,15 @@ const MobileGraphicServices = () => {
 
     return (
         <div className={styles.graphContainer}>
-            <h6 className={styles.titleGraphic}>Conocer los servicios</h6>
-            <div>
+            <h6 className={styles.titleGraphic + ' ' + 'animation-title'}>
+                <span style={{ zIndex: 20, position: 'absolute', height: '100%' }}>
+                    Conocer los servicios
+                </span>
+            </h6>
+            <div className={styles.textContainerAnimation + ' ' + 'equipamentoContainer'}>
                 <div className={styles.firstSection}>
                     <div className={styles.servicesItemContainer}>
-                        <ServiceIcon name="equipamento" />
+                        <ServiceIcon name="equipamento" width={100} height={80} />
                         <div className={styles.descriptionContainer}>
                             <p className={styles.titleDescription}>01 | Equipamiento</p>
                             <p className={styles.graphDescription}>
@@ -23,7 +27,7 @@ const MobileGraphicServices = () => {
                         </div>
                     </div>
                     <div className={styles.servicesItemContainer}>
-                        <ServiceIcon name="icon2" />
+                        <ServiceIcon name="icon2" width={100} height={80} />
                         <div className={styles.descriptionContainer}>
                             <p className={styles.titleDescription}>02 | Consultoria IT</p>
                             <p className={styles.graphDescription}>
@@ -36,7 +40,7 @@ const MobileGraphicServices = () => {
                 </div>
                 <div className={styles.secondSection}>
                     <div className={styles.servicesItemContainer}>
-                        <ServiceIcon name="icon" />
+                        <ServiceIcon name="icon" width={100} height={80} />
                         <div className={styles.descriptionContainer}>
                             <p className={styles.titleDescription}>03 | Seguridad IT</p>
                             <p className={styles.graphDescription}>
@@ -47,7 +51,7 @@ const MobileGraphicServices = () => {
                         </div>
                     </div>
                     <div className={styles.servicesItemContainer}>
-                        <ServiceIcon name="computer" />
+                        <ServiceIcon name="computer" width={100} height={80} />
                         <div className={styles.descriptionContainer}>
                             <p className={styles.titleDescription}>04 | Diseño web</p>
                             <p className={styles.graphDescription}>

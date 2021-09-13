@@ -11,6 +11,7 @@ import NavMobile from '../../components/sections/nav/navmobile';
 import NavDesktop from '../../components/sections/nav/navdesktop';
 import { useMediaQuery } from '../../components/utils/mediaquery';
 import ButtonNav from '../../components/common/buttonNav/buttonNav';
+import { motion } from 'framer-motion';
 
 const Disenio = () => {
     const [isNavVisible, setIsNavVisible] = useState(false);
@@ -31,8 +32,10 @@ const Disenio = () => {
                     <p className={styles.description}>{t('diseniparraph_1')}.</p>
                     <p className={styles.description}>{t('diseniparraph_2')}.</p>
                     <h4 className={styles.aclaration}>{t('diseniparraph_3')}.</h4>
-                    <BoxUserName icon img={pCIcon} text={t('box_desktop')}></BoxUserName>
-                    <BoxUserName icon img={cellphone} text={t('box_mobile')} />
+                    <div className="boxSection">
+                        <BoxUserName icon img={pCIcon} text={t('box_desktop')}></BoxUserName>
+                        <BoxUserName icon img={cellphone} text={t('box_mobile')} />
+                    </div>
                 </div>
             </section>
             <BoxUserName className={styles.userContainer} boxUserName />

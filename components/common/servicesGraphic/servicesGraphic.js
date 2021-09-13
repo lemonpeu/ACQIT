@@ -10,11 +10,11 @@ const ServicesGraphic = () => {
     return (
         <div className={styles.graphContainer}>
             <h6 className={styles.titleGraphic}>Conocer los servicios</h6>
-            <div style={{ marginLeft: '-11rem' }}>
+            <div style={{ width: '66%', maxWidth: '77rem' }}>
                 <LinesDesktop />
                 <div className={styles.firstSection}>
                     <div className={styles.servicesItemContainer}>
-                        <ServiceIcon name="equipamento" />
+                        <ServiceIcon name="equipamento" layout={'fixed'} width={80} height={80} />
                         <div className={styles.descriptionContainer}>
                             <p className={styles.titleDescription}>
                                 <span>01</span> | Equipamiento <span>ver +</span>
@@ -27,7 +27,7 @@ const ServicesGraphic = () => {
                         </div>
                     </div>
                     <div className={styles.servicesItemContainer}>
-                        <ServiceIcon name="icon2" />
+                        <ServiceIcon name="icon2" layout={'fixed'} width={80} height={80} />
                         <div className={styles.descriptionContainer}>
                             <p className={styles.titleDescription}>
                                 <span>02</span> | Consultoria IT <span>ver +</span>
@@ -42,7 +42,7 @@ const ServicesGraphic = () => {
                 </div>
                 <div className={styles.secondSection}>
                     <div className={styles.servicesItemContainer}>
-                        <ServiceIcon name="icon" />
+                        <ServiceIcon name="icon" layout={'fixed'} width={80} height={80} />
                         <div className={styles.descriptionContainer}>
                             <p className={styles.titleDescription}>
                                 <span>03</span> | Seguridad IT <span>ver +</span>
@@ -56,9 +56,11 @@ const ServicesGraphic = () => {
                     </div>
                     <div className={styles.servicesItemContainer}>
                         <ServiceIcon
-                            style={{ marginBottom: '2rem', width: '10rem' }}
-                            styleImg={{ width: '60%' }}
                             name="computer"
+                            layout={'fixed'}
+                            width={80}
+                            height={80}
+                            style={{ width: '15rem' }}
                         />
                         <div className={styles.descriptionContainer}>
                             <p className={styles.titleDescription}>

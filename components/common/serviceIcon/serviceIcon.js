@@ -2,14 +2,13 @@ import React from 'react';
 import styles from './serviceIcon.module.scss';
 import Image from 'next/image';
 
-const ServiceIcon = ({ name, style, styleImg }) => {
+const ServiceIcon = ({ name, style, width, height, layout }) => {
     return (
         <div style={style} className={styles.iconContainer}>
             <Image
-                width={100}
-                height={80}
-                layout="responsive"
-                style={styleImg}
+                width={width}
+                height={height}
+                layout={layout ? layout : 'responsive'}
                 src={'/images/icons/home/SVG/' + name + '.svg'}
                 alt={name + 'icono'}
             />

@@ -3,8 +3,23 @@
 
 .graphContainer {
     .titleGraphic {
-        @include graphic-title(20rem, $white, $textBlue);
+        @include graphic-title(20rem, transparent, $white);
         margin-bottom: 4rem;
+        height: 4.5rem;
+        position: relative;
+        overflow: hidden;
+        &:before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+    }
+    .textContainerAnimation {
+        max-height: 0;
+        overflow: hidden;
     }
     .servicesItemContainer {
         display: flex;

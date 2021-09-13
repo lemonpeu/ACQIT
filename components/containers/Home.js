@@ -21,6 +21,7 @@ export default function Home() {
     let isPageWide = useMediaQuery('(min-width: 1200px)');
     let isNavDesktop = useMediaQuery('(min-width: 900px)');
     let isFooterMobile = useMediaQuery('(min-width: 1000px)');
+
     return (
         <div className={styles.wrapper}>
             {isNavDesktop ? (
@@ -73,7 +74,7 @@ export default function Home() {
                         <h4 className={styles.title}>{t('services_title')}</h4>
                         {isPageWide ? <ServicesGraphic /> : <MobileGraphicServices />}
                     </div>
-                    <div className={styles.listContainer}>
+                    <div className={styles.listContainer + ' ' + 'textContainerAnimation'}>
                         <div className={styles.contentlist}>
                             <div className={styles.parraphList}>
                                 <p className={styles.principalText}>Entendemos</p>

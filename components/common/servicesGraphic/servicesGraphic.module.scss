@@ -4,11 +4,12 @@
 .graphContainer {
     display: flex;
     position: relative;
+    max-width: 91rem;
+    margin-bottom: 35rem;
     .titleGraphic {
         @include graphic-title(20rem, $white, $textBlue);
         height: 5rem;
         margin-top: 16rem;
-        width: 60rem;
         font-size: 1.8rem;
         margin-bottom: 4rem;
     }
@@ -16,7 +17,7 @@
     .secondSection {
         display: flex;
         .servicesItemContainer {
-            width: 45%;
+            width: 50%;
             display: flex;
             margin-bottom: 3rem;
             position: relative;
@@ -28,7 +29,7 @@
                 left: 0;
             }
             .titleDescription {
-                @include graphic-title(16rem, $grandientBackground, $white);
+                @include graphic-title(16em, $grandientBackground, $white);
                 font-size: 1.8rem;
                 justify-content: space-between;
                 display: flex;
@@ -55,66 +56,44 @@
     .firstSection {
         flex-direction: column;
         align-items: flex-end;
-        margin-left: -20rem;
+        position: absolute;
+        right: -8rem;
+        left: 0;
+        transform: translate(0, 0);
         .servicesItemContainer {
             justify-content: flex-end;
             margin-bottom: 7rem;
+            transform: translate(0, 0);
             &:first-child {
-                margin-right: 15rem;
                 margin-top: -5rem;
+                left: -4rem;
             }
             &:nth-of-type(2) {
-                margin-left: -9rem;
-                margin-top: 7rem;
+                margin-top: 6rem;
+                left: 12rem;
             }
         }
     }
     .secondSection {
         flex-direction: row-reverse;
+        position: absolute;
+        left: 1rem; //20re
+        bottom: -46rem;
+        transform: translate(0, 0);
         .servicesItemContainer {
             justify-content: flex-start;
             &:nth-of-type(1) {
-                margin-right: 29rem;
-                margin-top: 4rem;
+                margin-top: 1rem;
             }
             &:nth-of-type(2) {
-                margin-left: -7rem;
+                margin-right: 8rem;
                 flex-direction: column;
-                margin-top: -8rem;
+                margin-top: -11rem;
+
                 .descriptionContainer {
                     width: 75%;
-                }
-            }
-        }
-    }
-}
-
-@media (min-width: 1300px) {
-    .graphContainer {
-        .firstSection {
-            .servicesItemContainer {
-                .titleDescription {
-                    width: 30rem;
-                    padding-left: 1.5rem;
-                }
-                &:first-child {
-                    margin-right: 19rem;
-                }
-                &:nth-of-type(2) {
-                    margin-right: 4rem;
-                    margin-top: 7rem;
-                }
-            }
-        }
-        .secondSection {
-            .servicesItemContainer {
-                .titleDescription {
-                    width: 30rem;
-                    padding-left: 1.5rem;
-                }
-                &:nth-of-type(1) {
-                    margin-left: -9rem;
                     margin-top: 2rem;
+                    margin-left: -2rem;
                 }
             }
         }

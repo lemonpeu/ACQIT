@@ -7,22 +7,21 @@
     border-radius: 25px;
     margin-top: 2rem;
     flex-wrap: wrap;
-    padding-bottom: 4rem;
     border: 1px solid $white;
     border-radius: 30px;
     position: relative;
-    &::before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        box-shadow: $blueShadow;
-        border-radius: 30px;
-    }
-    img {
-        width: 9rem;
-        margin-bottom: -4rem;
-    }
+    max-height: 0;
+    overflow: hidden;
+    box-shadow: $blueShadow;
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     width: 100%;
+    //     height: 100%;
+    //     box-shadow: $blueShadow;
+    //     border-radius: 30px;
+    //     z-index: 5;
+    // }
 }
 
 @media (min-width: 700px) {
@@ -35,6 +34,7 @@
 
 @media (min-width: 1200px) {
     .companiesContainer {
+        padding-bottom: 0;
         img {
             width: 15rem;
         }

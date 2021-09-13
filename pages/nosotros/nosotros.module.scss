@@ -1,4 +1,5 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .wrapper {
     position: relative;
@@ -19,13 +20,15 @@
         height: 100%;
         width: 100%;
         position: relative;
-        padding: 5rem 4rem;
         .contentContainer {
             position: relative;
             z-index: 6;
             padding-bottom: 8rem;
+            padding-top: 4rem;
             .contentWrapper {
                 display: flex;
+                width: 100%;
+                padding: 5rem 4rem;
                 .imgContainer {
                     position: relative;
                     width: 40%;
@@ -33,6 +36,14 @@
 
                 .textContainer {
                     width: 70%;
+                }
+            }
+            .textContainerSubContainer {
+                .titleContainer {
+                    @include title-container-style;
+                }
+                .textContainer {
+                    padding: 5rem 4rem;
                 }
             }
             .title {
@@ -48,6 +59,14 @@
                 font-family: $montserrat;
                 font-weight: 500;
                 margin: 0;
+                &:first-child {
+                    padding-top: 1.8rem;
+                }
+                .subTitle {
+                    text-decoration: underline;
+                    color: $textBlue;
+                    font-weight: bold;
+                }
             }
             .aclaration {
                 font-size: 1.6rem;
@@ -112,6 +131,13 @@
                     }
                 }
             }
+            .titleContainer {
+                &.titleContainerPrincipal {
+                    @include title-container-style;
+                    padding-top: 5rem;
+                    width: 65vw;
+                }
+            }
         }
         &::before {
             content: '';
@@ -125,11 +151,84 @@
     }
 }
 
+@media (min-width: 500px) {
+    .wrapper {
+        .main {
+            .contentContainer {
+                .contentWrapper {
+                    .imgContainer {
+                        width: 30%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                }
+                .textContainerSubContainer {
+                    .titleContainer {
+                        .title {
+                            font-size: 3.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (min-width: 700px) {
     .wrapper {
         .main {
             .contentContainer {
                 padding-top: 5rem;
+                .description {
+                    font-size: 2rem;
+                }
+                .titleContainer {
+                    &.titleContainerPrincipal {
+                        width: 50vw !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    .wrapper {
+        .main {
+            .contentContainer {
+                & > .title {
+                    padding-top: 10rem;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 950px) {
+    .wrapper {
+        .main {
+            .contentContainer {
+                padding-top: 5rem;
+                .description {
+                    font-size: 2rem;
+                }
+                .contentWrapper {
+                    .imgContainer {
+                        .imgUsContainer {
+                            display: flex;
+                            .thirdIcon {
+                                margin-top: 2rem;
+                            }
+                        }
+                    }
+                }
+                .titleContainer {
+                    &.titleContainerPrincipal {
+                        width: 40vw !important;
+                        padding-top: 10rem;
+                    }
+                }
             }
         }
     }
@@ -138,9 +237,22 @@
 @media (min-width: 1000px) {
     .wrapper {
         .main {
-            padding: 8rem 14rem;
             .contentContainer {
-                width: calc(100% - 30rem);
+                .contentWrapper {
+                    .imgContainer {
+                        .imgUsContainer {
+                            min-width: 400px;
+                            margin-top: -4rem;
+                            .thirdIcon {
+                                margin-left: -4rem;
+                                margin-top: 4rem;
+                            }
+                        }
+                    }
+                    .textContainer {
+                        margin-left: -4rem;
+                    }
+                }
                 .title {
                     font-size: 5rem;
                 }
@@ -160,10 +272,12 @@
                             .graphicText {
                                 font-size: 2rem;
                             }
-                            img {
-                                width: 7rem;
-                            }
                         }
+                    }
+                }
+                .textContainerSubContainer {
+                    .textContainer {
+                        padding: 8rem 6rem;
                     }
                 }
             }
@@ -171,6 +285,43 @@
         .userContainer {
             position: absolute;
             bottom: 24rem;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .wrapper {
+        .main {
+            .contentContainer {
+                .contentWrapper {
+                    .textContainer {
+                        margin-left: -10%;
+                    }
+                    .imgContainer {
+                        align-items: flex-start;
+                    }
+                }
+                .textContainerSubContainer {
+                    .textContainer {
+                        padding: 4rem 16rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1500px) {
+    .wrapper {
+        .main {
+            // padding: 8rem 16rem;
+            .contentContainer {
+                .contentWrapper {
+                    .textContainer {
+                        margin-left: -14%;
+                    }
+                }
+            }
         }
     }
 }

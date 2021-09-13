@@ -32,7 +32,11 @@ const Equipamento = () => {
                     ${t('equipment_3')}.`}</p>
                     <h4 className={styles.aclaration}>{t('equipment_h4')}.</h4>
                     <div className={styles.companiesContainer}>
-                        <h6 className={styles.partnerTitle}>Partners</h6>
+                        <h6 className={styles.partnerTitle + ' ' + 'animation-title'}>
+                            <span style={{ zIndex: 20, position: 'absolute', height: '100%' }}>
+                                Partners
+                            </span>
+                        </h6>
                         <Companies />
                     </div>
                     <Whatsapp />

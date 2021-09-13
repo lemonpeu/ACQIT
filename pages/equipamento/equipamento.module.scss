@@ -34,7 +34,19 @@
             }
             .companiesContainer {
                 .partnerTitle {
-                    @include graphic-title(13rem, $white, $textBlue);
+                    @include graphic-title(13rem, transparent, $white);
+                    position: relative;
+                    overflow: hidden;
+                    height: 4.5rem;
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        width: 0;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        // z-index: 0;
+                    }
                 }
             }
         }
@@ -80,7 +92,7 @@
                 }
                 .companiesContainer {
                     .partnerTitle {
-                        @include graphic-title(13rem, $white, $textBlue, 1.8rem);
+                        @include graphic-title(13rem, transparent, $white, 1.8rem);
                         margin: 3rem 0 !important;
                     }
                 }
