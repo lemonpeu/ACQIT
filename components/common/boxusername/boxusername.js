@@ -1,11 +1,13 @@
 import styles from './boxusername.module.scss';
-import useTranslation from 'next-translate/useTranslation';
 import Input from '../input/input';
 import Image from 'next/image';
 
 const BoxUserName = (props) => {
     const { icon, name, img, alt, text, boxUserName } = props;
-    const { t } = useTranslation('common');
+
+    const myLoader = (img, width, quality) => {
+        return `https://3dimpresion.com.ar/${img}?w=110&q=${quality || 75}`;
+    };
 
     return (
         <section
@@ -16,23 +18,22 @@ const BoxUserName = (props) => {
             <div className={styles.container}>
                 {icon && (
                     <Image
-                        className={styles.iconContainer}
-                        src={img}
-                        alt={alt}
+                        // loader={myLoader}
                         width={110}
                         height={110}
                         layout="fixed"
+                        className={styles.iconContainer}
+                        src={img}
+                        alt={alt}
                     />
                 )}
                 {boxUserName ? (
                     <div className={styles.welcomeContainer}>
-                        <p className={styles.text}>
-                            {t('welcome')} {name}
-                        </p>
+                        <p className={styles.text}>Hola {name}</p>
                         <div className={styles.desktopVersion}>
-                            <p className={styles.text}>{t('assistanceparraph')}</p>
+                            <p className={styles.text}>¿Necesitas asistencia?</p>
                             <label htmlFor="email" className={styles.text}>
-                                {t('emailparraph')}
+                                Dejanos tu e-mail
                             </label>
                             <Input placeholder="E-mail." id="email" />
                         </div>

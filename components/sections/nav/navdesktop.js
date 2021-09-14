@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './nav.module.scss';
 import Image from 'next/image';
+import { myLoader } from '../../utils/myLoader';
 
 const NavDesktop = () => {
     return (

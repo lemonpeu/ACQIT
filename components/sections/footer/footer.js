@@ -1,10 +1,8 @@
-// Footer
-import useTranslation from 'next-translate/useTranslation';
 import styles from './footer.module.scss';
 import Image from 'next/image';
+import { myLoader } from '../../utils/myLoader';
 
 const Footer = () => {
-    const { t } = useTranslation('common');
     return (
         <footer className={`${styles.containerMobile} ${styles.container}`}>
             <ul className={styles.footerList}>
@@ -80,12 +78,7 @@ const Footer = () => {
             </div>
             <section className={styles.logoContainer}>
                 <div className={styles.imgContainer}>
-                    <Image
-                        width={200}
-                        height={50}
-                        src="/images/icons/SVG/logo.svg"
-                        alt={t('logo')}
-                    />
+                    <Image width={200} height={50} src="/images/icons/SVG/logo.svg" alt={'logo'} />
                 </div>
             </section>
         </footer>

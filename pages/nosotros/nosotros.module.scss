@@ -31,7 +31,10 @@
                 padding: 5rem 4rem;
                 .imgContainer {
                     position: relative;
-                    width: 40%;
+
+                    .usImgMobile {
+                        width: 10rem;
+                    }
                 }
 
                 .textContainer {
@@ -41,6 +44,17 @@
             .textContainerSubContainer {
                 .titleContainer {
                     @include title-container-style;
+                    .title {
+                        .icon1 {
+                            width: 3rem;
+                        }
+                        .icon2 {
+                            width: 2rem;
+                        }
+                        .icon3 {
+                            width: 3.5rem;
+                        }
+                    }
                 }
                 .textContainer {
                     padding: 5rem 4rem;
@@ -241,12 +255,15 @@
                 .contentWrapper {
                     .imgContainer {
                         .imgUsContainer {
-                            min-width: 400px;
                             margin-top: -4rem;
                             .thirdIcon {
                                 margin-left: -4rem;
                                 margin-top: 4rem;
                             }
+                        }
+                        .usImgDesktop {
+                            width: 14rem !important;
+                            height: 13.5rem;
                         }
                     }
                     .textContainer {
@@ -278,6 +295,20 @@
                 .textContainerSubContainer {
                     .textContainer {
                         padding: 8rem 6rem;
+                    }
+                    .titleContainer {
+                        @include title-container-style;
+                        .title {
+                            .icon1 {
+                                width: 4rem;
+                            }
+                            .icon2 {
+                                width: 3rem;
+                            }
+                            .icon3 {
+                                width: 4.5rem;
+                            }
+                        }
                     }
                 }
             }

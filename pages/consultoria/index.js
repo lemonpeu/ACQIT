@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useTranslation from 'next-translate/useTranslation';
 import BoxUserName from '../../components/common/boxusername/boxusername';
 import Footer from '../../components/sections/footer/footer';
 import styles from './consultoria.module.scss';
@@ -13,7 +12,6 @@ import ButtonNav from '../../components/common/buttonNav/buttonNav';
 
 const Consultoria = () => {
     const [isNavVisible, setIsNavVisible] = useState(false);
-    const { t } = useTranslation('common');
     let isFooterMobile = useMediaQuery('(min-width: 1000px)');
     let isNavDesktop = useMediaQuery('(min-width: 900px)');
 
@@ -21,64 +19,65 @@ const Consultoria = () => {
         {
             id: 1,
             icon: '/images/icons/SVG/supporticon.svg',
-            text: `${t('consultancy_icon_1')}`,
+            text: 'Soporte',
         },
         {
             id: 2,
             icon: '/images/icons/SVG/ejecucionicon.svg',
-            text: `${t('consultancy_icon_2')}`,
+            text: 'Ejecución',
         },
         {
             id: 3,
             icon: '/images/icons/SVG/controlicon.svg',
-            text: `${t('consultancy_icon_3')}`,
+            text: 'Controles monitoreo',
         },
         {
             id: 4,
             icon: '/images/icons/SVG/trabajoremoto.svg',
-            text: `${t('consultancy_icon_4')}`,
+            text: 'Trabajo remoto',
         },
         {
             id: 5,
             icon: '/images/icons/SVG/configuracionicon.svg',
-            text: `${t('consultancy_icon_5')}`,
+            text: 'Configuración',
         },
         {
             id: 6,
             icon: '/images/icons/SVG/asesoramientoicon.svg',
-            text: `${t('consultancy_icon_6')}`,
+            text: 'Asesoramiento',
         },
         {
             id: 7,
             icon: '/images/icons/SVG/integracionicon.svg',
-            text: `${t('consultancy_icon_7')}`,
+            text: 'Integración de los sistemas',
         },
         {
             id: 8,
             icon: '/images/icons/SVG/reducciondetiempos.svg',
-            text: `${t('consultancy_icon_8')}`,
+            text: 'Reducción de tiempos',
         },
         {
             id: 9,
             icon: '/images/icons/SVG/riesgosicon.svg',
-            text: `${t('consultancy_icon_9')}`,
+            text: 'Reducción de riesgos',
         },
         {
             id: 10,
             icon: '/images/icons/SVG/innovacionicon.svg',
-            text: `${t('consultancy_icon_10')}`,
+            text: 'Innovación',
         },
         {
             id: 11,
             icon: '/images/icons/SVG/equipamientoicon.svg',
-            text: `${t('consultancy_icon_11')}`,
+            text: 'Equipamiento',
         },
         {
             id: 12,
             icon: '/images/icons/SVG/analisisicon_1.svg',
-            text: `${t('consultancy_icon_12')}`,
+            text: 'Análisis',
         },
     ];
+
     return (
         <div className={styles.wrapper}>
             {isNavDesktop ? (
@@ -90,13 +89,24 @@ const Consultoria = () => {
             <section className={styles.main}>
                 {!isNavDesktop && <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />}
                 <div className={styles.contentContainer}>
-                    <h1 className={styles.title}>{t('consultancy_title')}</h1>
+                    <h1 className={styles.title}>Consultoria IT</h1>
                     <p className={styles.description}>
-                        {t('consultancy_p_1')}. {t('consultancy_p_2')}
+                        ACQ it cuenta con un equipo especializado enfocado en la administración,
+                        configuración e integración de tus ambientes. Desarrollamos esquemas de
+                        trabajo que se ajusten a las necesidades de cada compañía
                     </p>
-                    <p className={styles.description}>{t('consultancy_p_3')}.</p>
-                    <p className={styles.description}>{t('consultancy_p_4')}.</p>
-                    <h4 className={styles.aclaration}>{t('consultancy_aclaration')}.</h4>
+                    <p className={styles.description}>
+                        Analizamos, ejecutamos y controlamos el accionar de tus sistemas, llevando
+                        un registro del equipamiento colocando especial atención a la performance,
+                        la reducción de riesgos y los tiempos de respuesta.
+                    </p>
+                    <p className={styles.description}>
+                        Definimos y gestionamos un plan de actualizaciones en base a tecnologías y
+                        metodologías ágiles.
+                    </p>
+                    <h4 className={styles.aclaration}>
+                        Nuestra atención en los detalles facilita las decisiones al cliente.
+                    </h4>
                     <div className={styles.iconsContainer}>
                         {iconsConsultancy.map((item, index) => (
                             <IconConsultancy

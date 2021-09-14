@@ -9,6 +9,12 @@ const Companies = () => {
         return companiesLogos.sort(() => Math.random() - 0.5);
     };
 
+    const myLoader = (img, width, quality) => {
+        return `https://3dimpresion.com.ar/${item.url}?w=${arrayAmount ? 200 : 90}&q=${
+            quality || 75
+        }`;
+    };
+
     return (
         <div style={{ width: '100%' }}>
             <div className={styles.companiesContainer + ' ' + 'companiesContainer'}>
@@ -20,6 +26,7 @@ const Companies = () => {
                             layout={'intrinsic'}
                             width={arrayAmount ? 200 : 90}
                             height={arrayAmount ? 180 : 80}
+                            // loader={myLoader}
                             src={`/${item.url}`}
                             alt={item.title}
                         />

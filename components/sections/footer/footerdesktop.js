@@ -1,21 +1,14 @@
-// Footer
-import useTranslation from 'next-translate/useTranslation';
 import styles from './footer.module.scss';
 import React from 'react';
 import Image from 'next/image';
+import { myLoader } from '../../utils/myLoader';
 
 const FooterDesktop = () => {
-    const { t } = useTranslation('common');
     return (
         <footer className={`${styles.containerDesktop} ${styles.container}`}>
             <section className={styles.logoContainer}>
                 <div className={styles.imgContainer}>
-                    <Image
-                        width={300}
-                        height={50}
-                        src="/images/icons/SVG/logo.svg"
-                        alt={t('logo')}
-                    />
+                    <Image width={300} height={50} src="/images/icons/SVG/logo.svg" alt="logo" />
                 </div>
             </section>
             <div className={styles.footerInfoContainer}>
@@ -27,7 +20,7 @@ const FooterDesktop = () => {
                             height={30}
                             src="/images/icons/SVG/teliconblack.svg"
                             alt="telefono"
-                        />{' '}
+                        />
                         11-39844968
                     </li>
                     <li className={styles.listItem}>

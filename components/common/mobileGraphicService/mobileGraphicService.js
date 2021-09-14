@@ -1,11 +1,8 @@
 import styles from './mobileGraphicService.module.scss';
 import React from 'react';
-import useTranslation from 'next-translate/useTranslation';
 import ServiceIcon from '../serviceIcon/serviceIcon';
 
 const MobileGraphicServices = () => {
-    const { t } = useTranslation('common');
-
     return (
         <div className={styles.graphContainer}>
             <h6 className={styles.titleGraphic + ' ' + 'animation-title'}>

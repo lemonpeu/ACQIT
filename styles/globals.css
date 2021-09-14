@@ -7,18 +7,6 @@ body {
     font-size: 65.2%;
     overflow-x: hidden;
 }
-.whatsappContainer {
-    position: fixed;
-    bottom: 1rem;
-    right: -1rem;
-    display: flex;
-    justify-content: flex-end;
-    z-index: 20;
-}
-
-.imgContainer .img {
-    width: 100%;
-}
 
 a {
     color: inherit;

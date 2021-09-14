@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import useTranslation from 'next-translate/useTranslation';
-// import Image from 'next/image';
 import styles from './Home.module.scss';
 import BoxUserName from '../common/boxusername/boxusername';
 import Footer from '../sections/footer/footer';
 import { useMediaQuery } from '../utils/mediaquery';
 import Whatsapp from '../common/whatsapp/whatsapp';
-import LinesGraphic from '../common/linesGraphic/linesGraphic';
 import ServicesGraphic from '../common/servicesGraphic/servicesGraphic';
 import MobileGraphicServices from '../common/mobileGraphicService/mobileGraphicService';
 import NavDesktop from '../sections/nav/navdesktop';
@@ -17,10 +14,13 @@ import Image from 'next/image';
 
 export default function Home() {
     const [isNavVisible, setIsNavVisible] = useState(false);
-    const { t } = useTranslation('common');
     let isPageWide = useMediaQuery('(min-width: 1200px)');
     let isNavDesktop = useMediaQuery('(min-width: 900px)');
     let isFooterMobile = useMediaQuery('(min-width: 1000px)');
+
+    const myLoader = (src, width, quality) => {
+        return `https://3dimpresion.com.ar/${src}?w=${width}&q=75`;
+    };
 
     return (
         <div className={styles.wrapper}>
@@ -36,7 +36,7 @@ export default function Home() {
                         <source src="videos/home_1.mp4" type="video/mp4" />
                     </video>
                     <div className={styles.titleContainer}>
-                        <h1 className={styles.title}>{t('homepage_title')}</h1>
+                        <h1 className={styles.title}>Una mirada diferente del mercado IT</h1>
                         <div className={styles.socialIconsContainer}>
                             <div className={styles.imgContainer}>
                                 <Image
@@ -71,7 +71,7 @@ export default function Home() {
                 </section>
                 <section className={styles.categories}>
                     <div className={styles.services}>
-                        <h4 className={styles.title}>{t('services_title')}</h4>
+                        <h4 className={styles.title}>Servicios</h4>
                         {isPageWide ? <ServicesGraphic /> : <MobileGraphicServices />}
                     </div>
                     <div className={styles.listContainer + ' ' + 'textContainerAnimation'}>

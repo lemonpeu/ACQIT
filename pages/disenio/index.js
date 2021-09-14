@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import useTranslation from 'next-translate/useTranslation';
 import BoxUserName from '../../components/common/boxusername/boxusername';
 import Footer from '../../components/sections/footer/footer';
 import styles from './disenio.module.scss';
@@ -15,7 +14,6 @@ import { motion } from 'framer-motion';
 
 const Disenio = () => {
     const [isNavVisible, setIsNavVisible] = useState(false);
-    const { t } = useTranslation('common');
     let isFooterMobile = useMediaQuery('(min-width: 1000px)');
     let isNavDesktop = useMediaQuery('(min-width: 900px)');
     return (
@@ -28,13 +26,32 @@ const Disenio = () => {
             <section className={styles.main}>
                 {!isNavDesktop && <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />}
                 <div className={styles.contentContainer}>
-                    <h1 className={styles.title}>{t('diseniotitle')}</h1>
-                    <p className={styles.description}>{t('diseniparraph_1')}.</p>
-                    <p className={styles.description}>{t('diseniparraph_2')}.</p>
-                    <h4 className={styles.aclaration}>{t('diseniparraph_3')}.</h4>
+                    <h1 className={styles.title}>Diseño web</h1>
+                    <p className={styles.description}>
+                        ACQit crea sitios web enfatizando el desarrollo y diseño para así obtener un
+                        producto acorde a la excelencia que demandan nuestros clientes.
+                    </p>
+                    <p className={styles.description}>
+                        En nuestro equipo aplicamos nuestra experiencia y conocimientos al momento
+                        de construir soluciones sólidas orientadas a cada mercado, creando sitios
+                        profesionales que logren proyectar confianza apoyándonos en un diseño
+                        atractivo y minimalista.
+                    </p>
+                    <h4 className={styles.aclaration}>
+                        Desarrollamos sitios innovadores, funcionales y atractivos enfocados en las
+                        necesidades del cliente.
+                    </h4>
                     <div className="boxSection">
-                        <BoxUserName icon img={pCIcon} text={t('box_desktop')}></BoxUserName>
-                        <BoxUserName icon img={cellphone} text={t('box_mobile')} />
+                        <BoxUserName
+                            icon
+                            img={pCIcon}
+                            text={'Diseño web para desktop (para computadoras)'}
+                        ></BoxUserName>
+                        <BoxUserName
+                            icon
+                            img={cellphone}
+                            text={'Diseño web responsive (para celulares y tablets)'}
+                        />
                     </div>
                 </div>
             </section>

@@ -13,15 +13,13 @@
     max-height: 0;
     overflow: hidden;
     box-shadow: $blueShadow;
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //     width: 100%;
-    //     height: 100%;
-    //     box-shadow: $blueShadow;
-    //     border-radius: 30px;
-    //     z-index: 5;
-    // }
+    .companiesImgDesktop {
+        width: 12rem;
+    }
+
+    .companiesImgMobile {
+        width: 8rem;
+    }
 }
 
 @media (min-width: 700px) {

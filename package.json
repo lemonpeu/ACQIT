@@ -1,24 +1,25 @@
 {
-  "name": "web-acqit",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "framer-motion": "^4.1.17",
-    "next": "11.1.0",
-    "next-translate": "^1.0.7",
-    "next-videos": "1.4.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "sass": "^1.38.2"
-  },
-  "devDependencies": {
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.0"
-  }
+    "name": "web-acqit",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "export": "next build && next export"
+    },
+    "dependencies": {
+        "framer-motion": "^4.1.17",
+        "next": "11.1.0",
+        "next-translate": "^1.0.7",
+        "next-videos": "1.4.0",
+        "react": "17.0.2",
+        "react-dom": "17.0.2",
+        "sass": "^1.38.2"
+    },
+    "devDependencies": {
+        "eslint": "7.32.0",
+        "eslint-config-next": "11.1.0"
+    }
 }

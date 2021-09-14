@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import useTranslation from 'next-translate/useTranslation';
 import styles from './seguridadit.module.scss';
 import Whatsapp from '../../components/common/whatsapp/whatsapp';
 import BoxUserName from '../../components/common/boxusername/boxusername';
@@ -10,10 +9,10 @@ import NavMobile from '../../components/sections/nav/navmobile';
 import NavDesktop from '../../components/sections/nav/navdesktop';
 import ButtonNav from '../../components/common/buttonNav/buttonNav';
 import Image from 'next/image';
+import { myLoader } from '../../components/utils/myLoader';
 
 const SeguridadIT = () => {
     const [isNavVisible, setIsNavVisible] = useState(false);
-    const { t } = useTranslation('common');
     let isFooterMobile = useMediaQuery('(min-width: 1000px)');
     let isNavDesktop = useMediaQuery('(min-width: 900px)');
     return (
@@ -26,15 +25,21 @@ const SeguridadIT = () => {
             <section className={styles.main}>
                 {!isNavDesktop && <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />}
                 <div className={styles.contentContainer}>
-                    <h1 className={styles.title}>{t('security_title')}</h1>
+                    <h1 className={styles.title}>Seguridad It</h1>
                     <p className={styles.description}>
-                        {t('security_p_1')}. {t('security_p_2')}.
+                        ACQit velamos por el cuidado de la organización, sus datos y sus empleados
+                        proveyendo soluciones para proteger la integridad de los ambientes
+                        digitales. Nos mantenemos a la vanguardia de las mejores prácticas
+                        redefiniendo y ajustando las políticas de seguridad de la empresa.
                     </p>
-                    <h4 className={styles.aclaration}>{t('security_aclaration')}</h4>
+                    <h4 className={styles.aclaration}>
+                        Analizamos y gestionamos los procesos internos y externos garantizando
+                        resultados y reduciendo potenciales riesgos
+                    </h4>
                     <div className={styles.graphicContainer}>
                         <div className={styles.graphic}>
                             <div className={styles.iconText}>
-                                <p className={styles.graphicText}>{t('security_graph_1')}</p>
+                                <p className={styles.graphicText}>Analizamos</p>
                                 <Image
                                     width={55}
                                     height={55}
@@ -44,7 +49,7 @@ const SeguridadIT = () => {
                                 />
                             </div>
                             <div className={styles.iconText}>
-                                <p className={styles.graphicText}>{t('security_graph_2')}</p>
+                                <p className={styles.graphicText}>Gestionamos</p>
                                 <Image
                                     width={55}
                                     height={55}
@@ -54,7 +59,7 @@ const SeguridadIT = () => {
                                 />
                             </div>
                             <div className={styles.iconText}>
-                                <p className={styles.graphicText}>{t('security_graph_3')}</p>
+                                <p className={styles.graphicText}>Resultados</p>
                                 <Image
                                     width={55}
                                     height={55}

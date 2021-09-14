@@ -56,6 +56,9 @@
                         display: flex;
                         align-items: center;
                         flex-direction: column;
+                        .iconGraphicText {
+                            width: 5rem;
+                        }
                         &:first-child {
                             top: 0;
                             left: 50%;
@@ -152,6 +155,13 @@
                 }
                 .graphicContainer {
                     margin-left: 4rem;
+                    .graphic {
+                        .iconText {
+                            .iconGraphicText {
+                                // width: 7rem;
+                            }
+                        }
+                    }
                 }
             }
         }

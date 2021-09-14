@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import useTranslation from 'next-translate/useTranslation';
 import styles from './nosotros.module.scss';
 import BoxUserName from '../../components/common/boxusername/boxusername';
 import Footer from '../../components/sections/footer/footer';
@@ -9,10 +8,10 @@ import Image from 'next/image';
 import NavMobile from '../../components/sections/nav/navmobile';
 import NavDesktop from '../../components/sections/nav/navdesktop';
 import ButtonNav from '../../components/common/buttonNav/buttonNav';
+import { myLoader } from '../../components/utils/myLoader';
 
 const Nosotros = () => {
     const [isNavVisible, setIsNavVisible] = useState(false);
-    const { t } = useTranslation('common');
     let isFooterMobile = useMediaQuery('(min-width: 1000px)');
     let isNavDesktop = useMediaQuery('(min-width: 900px)');
     return (
@@ -26,9 +25,7 @@ const Nosotros = () => {
                 {!isNavDesktop && <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />}
                 <div className={styles.contentContainer}>
                     <div className={styles.titleContainer + ' ' + styles.titleContainerPrincipal}>
-                        <h1 className={styles.title + ' ' + styles.principalTitle}>
-                            {t('us_title')}
-                        </h1>
+                        <h1 className={styles.title + ' ' + styles.principalTitle}>Nosotros</h1>
                         <div className={styles.lineTitle}></div>
                     </div>
                     <div className={styles.contentWrapper}>
@@ -61,11 +58,18 @@ const Nosotros = () => {
                         </div>
                         <div className={styles.textContainer}>
                             <p className={styles.description}>
-                                {t('us_parraph_1_white')}{' '}
-                                <span style={{ color: '#0885e6' }}>{t('us_parraph_1_blue')}</span>.
+                                ACQit es una empresa con
+                                <span style={{ color: '#0885e6' }}>
+                                    más de 10 años de experiencia en el desarrollo de soluciones
+                                    tecnológicas y asesoramiento
+                                </span>
+                                .
                             </p>
                             <p className={styles.description}>
-                                {`${t('us_parraph_2')}. ${t('us_parraph_3')}.`}
+                                Nuestro compromiso y seguimiento personalizado logran una respuesta
+                                inmediata reduciendo los tiempos de análisis y ejecución. Nuestro
+                                equipo cuenta con una larga experiencia dentro de multinacionales,
+                                lo que nos permitió desarrollarnos en empresas de gran envergadura.
                             </p>
                         </div>
                     </div>
@@ -78,35 +82,40 @@ const Nosotros = () => {
                                     src="/images/icons/nosotros/valoresicoon.svg"
                                     alt="valores icono"
                                 />{' '}
-                                <span style={{ paddingLeft: '1rem' }}>{t('us_values_title')}</span>
+                                <span style={{ paddingLeft: '1rem' }}>Valores</span>
                             </h4>
                             <div className={styles.lineTitle}></div>
                         </div>
                         <div className={styles.textContainer}>
                             <p className={styles.description} style={{ marginBottom: '2rem' }}>
-                                {t('us_parraph_101')}{' '}
-                                <span style={{ color: '#0885e6' }}>{t('us_parraph_102')}</span>
+                                Nuestros valores definen quiénes somos, cómo trabajamos y cómo es
+                                nuestro equipo. Nos gusta trabajar con el dinamismo necesario para
+                                poder optimizar los recursos de nuestros clientes
+                                <span style={{ color: '#0885e6' }}>
+                                    Escuchar, interpretar, son palabras que nos destacan y nos
+                                    ayudan a crear vínculos, incluso más allá de los laborales.
+                                </span>
                             </p>
                             <p className={styles.description} style={{ marginBottom: '2rem' }}>
-                                <span className={styles.subTitle}>{t('us_innovation_title')}</span>:
+                                <span className={styles.subTitle}>Innovación</span>:
                                 <span>
-                                    {' '}
-                                    {`${t('us_parraph_201')} ${t('us_parraph_202')}`}{' '}
+                                    nuestra pasión por la tecnología y experiencia nos enseñan que
+                                    este mercado se encuentra en constante crecimiento. Nos
+                                    mantenemos en
                                     <span style={{ color: '#0885e6' }}>
-                                        {t('us_parraph_202_blue')}
+                                        constante estudio y búsqueda de las últimas tendencias, para
+                                        brindar las respuestas más eficientes y eficaces para su
+                                        empresa
                                     </span>
                                 </span>
                             </p>
                             <p className={styles.description}>
-                                <span className={styles.subTitle}>
-                                    {t('us_personalization_title')}
-                                </span>
-                                :
+                                <span className={styles.subTitle}>Personalización</span>:
                                 <span>
-                                    {' '}
-                                    {t('us_parraph_301')}{' '}
+                                    nuestra dinámica de trabajo es completamente personal, dándole a
+                                    nuestros clientes un trato post venta que asegure el
                                     <span style={{ color: '#0885e6' }}>
-                                        {t('us_parraph_301_blue')}.
+                                        seguimiento y análisis de rendimiento de cada proyecto.
                                     </span>
                                 </span>
                             </p>
@@ -122,15 +131,20 @@ const Nosotros = () => {
                                     alt="valores icono"
                                 />
 
-                                <span style={{ marginLeft: '1rem' }}>{t('us_mission_title')}</span>
+                                <span style={{ marginLeft: '1rem' }}>Mision</span>
                                 <div className={styles.lineTitle}></div>
                             </h4>
                         </div>
                         <div className={styles.textContainer}>
                             <p className={styles.description}>
-                                {t('us_parraph_401')}
-                                {'.'}
-                                <span style={{ color: '#0885e6' }}> {t('us_parraph_402')}</span>
+                                ACQit nace para llenar un vacío en los servicios actuales del
+                                mercado ya que ningún es un servicio integral, sino que todos son
+                                tratados como problemas separados.
+                                <span style={{ color: '#0885e6' }}>
+                                    {' '}
+                                    Nosotros como compañía entendemos que todo tiene un vínculo y la
+                                    mejor forma de tratarlo es como un único objetivo
+                                </span>
                             </p>
                         </div>
                     </div>
@@ -143,15 +157,20 @@ const Nosotros = () => {
                                     src="/images/icons/nosotros/visionicon.svg"
                                     alt="valores icono"
                                 />
-                                <span style={{ paddingLeft: '1rem' }}>{t('us_vision_title')}</span>
+                                <span style={{ paddingLeft: '1rem' }}>Visión</span>
                             </h4>
                             <div className={styles.lineTitle}></div>
                         </div>
                         <div className={styles.textContainer}>
                             <p className={styles.description}>
-                                {t('us_parraph_501')}{' '}
-                                <span style={{ color: '#0885e6' }}>{t('us_parraph_501_blue')}</span>{' '}
-                                {t('us_parraph_502')}
+                                ACQit busca ser una empresa líder en el mercado, ofreciendo
+                                <span style={{ color: '#0885e6' }}>
+                                    servicios de excelencia que ponen su foco en la innovación y
+                                    personalización.
+                                </span>
+                                Estamos convencidos de que, una buena experiencia para nuestros
+                                clientes, es la forma correcta para que nos sigan eligiéndolos sus
+                                socios esenciales.
                             </p>
                         </div>
                     </div>
