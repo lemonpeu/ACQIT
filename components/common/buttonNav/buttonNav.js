@@ -1,5 +1,5 @@
 import styles from './buttonNav.module.scss';
-import Image from 'next/image';
+import Image from '../Image/Image';
 
 const ButtonNav = ({ setIsNavVisible }) => {
     const myLoader = (img, width, quality) => {
@@ -10,7 +10,6 @@ const ButtonNav = ({ setIsNavVisible }) => {
             <button className={styles.openBtnNav} onClick={() => setIsNavVisible(true)}>
                 <Image
                     className={styles.logoNav}
-                    // loader={myLoader}
                     width={64}
                     height={64}
                     layout="fixed"

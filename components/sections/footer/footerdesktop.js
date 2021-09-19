@@ -1,7 +1,6 @@
 import styles from './footer.module.scss';
 import React from 'react';
-import Image from 'next/image';
-import { myLoader } from '../../utils/myLoader';
+import Image from '../../common/Image/Image';
 
 const FooterDesktop = () => {
     return (
@@ -72,16 +71,18 @@ const FooterDesktop = () => {
             <div className={styles.line}></div>
             <p className={styles.footerText}>Transformamos tus problemas en soluciones</p>
             <div className={styles.goToTop}>
-                <Image
-                    layout="fixed"
-                    width={20}
-                    height={100}
-                    src="/images/icons/SVG/flecha.svg"
-                    alt="go to top"
-                />
-                <p>
-                    Go to <span style={{ fontWeight: 'bold' }}>the top</span>
-                </p>
+                <a href="#">
+                    <Image
+                        layout="fixed"
+                        width={20}
+                        height={100}
+                        src="/images/icons/SVG/flecha.svg"
+                        alt="go to top"
+                    />
+                    <p>
+                        Go to <span style={{ fontWeight: 'bold' }}>the top</span>
+                    </p>
+                </a>
             </div>
         </footer>
     );

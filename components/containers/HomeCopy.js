@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styles from './Home.module.scss';
+import styles from './HomeCopy.module.scss';
 import BoxUserName from '../common/boxusername/boxusername';
 import Footer from '../sections/footer/footer';
 import { useMediaQuery } from '../utils/mediaquery';
@@ -14,17 +14,19 @@ import Modal from '../common/Modal/modal';
 import useWindowSize from '../utils/windowSice';
 import Image from '../../components/common/Image/Image';
 import LoadingLogo from '../common/loadingLogo/loadingLogo';
+import LineContainer from '../sections/LineContainer/LineContainer';
 
 export default function Home() {
     const [isNavVisible, setIsNavVisible] = useState(false);
     const [isModalVisible, setIsModalVisible] = useState(true);
     const [userName, setUserName] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [isFullScreen, setIsFullScreen] = useState(false);
     const size = useWindowSize();
     let isPage1200 = useMediaQuery('(min-width: 1200px)');
     let isPage900 = useMediaQuery('(min-width: 900px)');
     let isFooterMobile = useMediaQuery('(min-width: 1000px)');
-    let isPage700 = useMediaQuery('(min-width: 700px)');
+    let isPage768 = useMediaQuery('(min-width: 768px)');
 
     const modalConfig = (e) => {
         setIsModalVisible(false);
@@ -118,70 +120,44 @@ export default function Home() {
 
                             <Whatsapp />
                         </section>
-                        <section className={styles.categories} id="servicios">
+                        <div className={styles.categories}>
                             <div className={`${styles.transition} transition`}></div>
-                            <div
-                                className={styles.services}
+                            <section
+                                className={styles.serviciosContainer}
+                                id="servicios"
                                 style={{
-                                    height: `${
-                                        isPage1200 ? size.height - 200 : setScreenHeight()
-                                    }px`,
+                                    height: setScreenHeight(),
                                 }}
                             >
-                                <div
-                                    className={
-                                        styles.categoriesTitleAnimation + ' ' + !isModalVisible &&
-                                        'categories-title-animation'
-                                    }
-                                >
-                                    <h4 className={styles.title}>Servicios</h4>
+                                <div className={styles.services}>
+                                    <div
+                                        className={
+                                            styles.categoriesTitleAnimation +
+                                                ' ' +
+                                                !isModalVisible && 'categories-title-animation'
+                                        }
+                                    >
+                                        <h4 className={styles.title}>Servicios</h4>
+                                    </div>
+                                    {isPage1200 ? (
+                                        <ServicesGraphic
+                                            fullScreen={() => setIsFullScreen(true)}
+                                            isModalVisible={isModalVisible}
+                                        />
+                                    ) : (
+                                        <MobileGraphicServices isModalVisible={isModalVisible} />
+                                    )}
                                 </div>
-                                {isPage1200 ? (
-                                    <ServicesGraphic isModalVisible={isModalVisible} />
-                                ) : (
-                                    <MobileGraphicServices isModalVisible={isModalVisible} />
-                                )}
-                            </div>
-                            <div
-                                className={
-                                    !isModalVisible &&
-                                    styles.listContainer + ' ' + 'textContainerAnimation'
-                                }
+                            </section>
+                            <section
+                                className={styles.linesGraphicContainer}
                                 style={{
-                                    height: isFooterMobile
-                                        ? size.height - 700 + 'px'
-                                        : setScreenHeight(),
+                                    height: setScreenHeight(),
                                 }}
                             >
-                                <div
-                                    className={
-                                        !isModalVisible &&
-                                        styles.contentlist + ' ' + 'lineContainerAnimation'
-                                    }
-                                >
-                                    <div className={styles.parraphList}>
-                                        <p className={styles.principalText}>Entendemos</p>
-                                        <p className={styles.secundary}>el problema.</p>
-                                    </div>
-                                    <div className={styles.parraphList}>
-                                        <p className={styles.principalText}>Ejecutamos</p>
-                                        <p className={styles.secundary}>el plan.</p>
-                                    </div>
-                                    <div className={styles.parraphList}>
-                                        <p className={styles.principalText}>Controlamos</p>
-                                        <p className={styles.secundary}>el resultado.</p>
-                                    </div>
-                                    <div className={styles.parraphList}>
-                                        <p className={styles.principalText}>Diseñamos</p>
-                                        <p className={styles.secundary}>una solución.</p>
-                                    </div>
-                                    <div className={styles.parraphList}>
-                                        <p className={styles.principalText}>Potenciamos</p>
-                                        <p className={styles.secundary}>compañía.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
+                                <LineContainer isModalVisible={isModalVisible} />
+                            </section>
+                        </div>
                     </div>
                     <BoxUserName
                         className={styles.boxUserName}

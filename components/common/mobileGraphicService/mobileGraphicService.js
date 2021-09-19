@@ -2,7 +2,7 @@ import styles from './mobileGraphicService.module.scss';
 import React from 'react';
 import ServiceIcon from '../serviceIcon/serviceIcon';
 
-const MobileGraphicServices = () => {
+const MobileGraphicServices = ({ isModalVisible }) => {
     return (
         <div className={styles.graphContainer}>
             <h6 className={styles.titleGraphic + ' ' + 'animation-title'}>
@@ -10,7 +10,11 @@ const MobileGraphicServices = () => {
                     Conocer los servicios
                 </span>
             </h6>
-            <div className={styles.textContainerAnimation + ' ' + 'equipamentoContainer'}>
+            <div
+                className={`${styles.textContainerAnimation} ${
+                    !isModalVisible && 'equipamentoContainer'
+                }`}
+            >
                 <div className={styles.firstSection}>
                     <div className={styles.servicesItemContainer}>
                         <ServiceIcon name="equipamento" width={100} height={80} />

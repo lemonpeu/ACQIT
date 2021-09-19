@@ -10,8 +10,8 @@
             overflow: hidden;
             .transition {
                 transform: translateY(0);
-                box-shadow: 0px 2px 71px 115px rgba(0, 0, 0, 0.95);
-                height: 10vh;
+                box-shadow: -9px -110px 78px 20px rgba(0, 0, 0, 0.99);
+                height: 25vh;
                 bottom: 0;
             }
             .miVideo {
@@ -61,14 +61,23 @@
             height: 100%;
             width: 100%;
             position: relative;
-            #servicios {
+            .serviciosContainer {
                 padding: 0 3.2rem;
-                padding-bottom: 12rem;
+                z-index: 20;
+                position: relative;
+                .title {
+                    margin-top: 0;
+                }
+            }
+            .linesGraphicContainer {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
             }
             .transition {
                 transform: translateY(0);
-                box-shadow: 0px 2px 71px 115px rgba(0, 0, 0, 0.95);
-                height: 10vh;
+                box-shadow: -9px 95px 78px 20px rgba(0, 0, 0, 0.93);
+                height: 700px;
                 top: 0;
             }
             .imgContainer {
@@ -81,7 +90,6 @@
             .listContainer {
                 position: relative;
             }
-
             &::before {
                 content: '';
                 width: 100%;
@@ -149,79 +157,6 @@
             .categories {
                 background-position: center;
                 background-size: cover;
-
-                .services {
-                    padding: 3rem 7rem;
-                }
-                .listContainer {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 55;
-                    .contentlist {
-                        position: relative;
-                        display: flex;
-                        .parraphList {
-                            margin: 0 1rem 5rem 1rem;
-                            width: 100%;
-                            position: relative;
-                            p {
-                                &.principalText {
-                                    font-size: 2rem;
-                                    font-weight: 700;
-                                    text-transform: uppercase;
-                                    text-align: center;
-                                }
-                                &:last-child {
-                                    font-size: 1.5rem;
-                                    text-align: center;
-                                }
-                            }
-                            &::before {
-                                content: '';
-                                width: 10px;
-                                height: 10px;
-                                background-color: $lightBlue;
-                                top: 79px;
-                                left: 60px;
-                                z-index: 55;
-                                position: absolute;
-                                border-radius: 50%;
-                            }
-                        }
-
-                        &::before {
-                            content: '';
-                            width: 0%;
-                            height: 2px;
-                            background-color: $lightBlue;
-                            top: 8rem;
-                            left: 70.5px;
-                            z-index: 55;
-                            position: absolute;
-                        }
-                    }
-                }
-                // .listContainer {
-                //     display: flex;
-                //     flex-direction: column;
-                //     align-items: center;
-                //     z-index: 55;
-                //     justify-content: flex-end;
-                //     .contentlist {
-                //         .parraphList {
-                //             p {
-                //                 &.principalText {
-                //                     font-size: 2rem;
-                //                 }
-                //                 &:last-child {
-                //                     font-size: 1.5rem;
-                //                 }
-                //             }
-                //         }
-                //     }
-                // }
             }
         }
     }
@@ -243,6 +178,77 @@
                     position: absolute;
                     top: 11rem;
                 }
+                .transition {
+                    height: 300px;
+                }
+                .serviciosContainer {
+                    transform: scale(0.8);
+                    .services {
+                        margin: 0 0 -30rem 0;
+                    }
+                }
+                // .linesGraphicContainer {
+                //     margin: -20rem 0 -40rem 0;
+                // }
+            }
+        }
+    }
+}
+
+@media (min-width: 1300px) {
+    .wrapper {
+        .main {
+            .categories {
+                // padding: 0 3rem;
+                .serviciosContainer {
+                    transform: scale(0.9);
+                }
+                .linesGraphicContainer {
+                    margin: -13rem 0;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1800px) {
+    .wrapper {
+        .main {
+            .principal {
+                .transition {
+                    transform: translateY(0);
+                    box-shadow: -9px -110px 78px 20px rgba(0, 0, 0, 0.99);
+                    height: 30vh;
+                    bottom: 0;
+                }
+            }
+            .categories {
+                .serviciosContainer {
+                    padding-left: 15vw;
+                    transform: scale(1.2);
+                }
+                .linesGraphicContainer {
+                    margin: -40rem 0 -20rem 0;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1920px) and (min-height: 1080px) {
+    .linesGraphicContainer {
+        margin: -40rem 0 -20rem 0 !important;
+    }
+    .wrapper {
+        .main {
+            .principal {
+                .transition {
+                    height: 30vh;
+                    margin-top: 30rem;
+                }
+            }
+            .categories {
+                padding-top: 20rem;
             }
         }
     }

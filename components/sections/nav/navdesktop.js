@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './nav.module.scss';
-import Image from 'next/image';
+import Image from '../../common/Image/Image';
 import { myLoader } from '../../utils/myLoader';
 
 const NavDesktop = () => {
@@ -16,16 +16,20 @@ const NavDesktop = () => {
             />
             <nav className={styles.nav}>
                 <Image
-                    width={150}
-                    height={30}
+                    width={120}
+                    height={20}
                     layout="fixed"
                     className={styles.logoText}
                     src="/images/icons/SVG/logotext.svg"
                     alt=""
                 />
                 <ul className={styles.list}>
-                    <li>Nosotros</li>
-                    <li>Servicios</li>
+                    <a href="https://3dimpresion.com.ar/Peu/nosotros.html">
+                        <li>Nosotros</li>
+                    </a>
+                    <a href="https://3dimpresion.com.ar/Peu/index.html#servicios">
+                        <li>Servicios</li>
+                    </a>
                 </ul>
                 <div className={styles.listContact}>
                     <p>11-39844968</p>

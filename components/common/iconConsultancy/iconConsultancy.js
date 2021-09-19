@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './iconConsultancy.module.scss';
-import Image from 'next/image';
+import Image from '../Image/Image';
 
 const IconConsultancy = ({ text, src, alt }) => {
     const myLoader = (img, width, quality) => {

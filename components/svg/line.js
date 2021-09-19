@@ -42,7 +42,7 @@ export const Line1 = () => {
             id="HOME"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 74.81 124.73"
-            style={{ width: '6rem;' }}
+            style={{ width: '6rem' }}
         >
             <defs></defs>
             <path

@@ -1,5 +1,5 @@
 import styles from './footer.module.scss';
-import Image from 'next/image';
+import Image from '../../common/Image/Image';
 import { myLoader } from '../../utils/myLoader';
 
 const Footer = () => {
@@ -67,15 +67,17 @@ const Footer = () => {
                     />
                 </li>
             </ul>
-            <div className={styles.goToTop}>
-                <Image
-                    width={30}
-                    height={120}
-                    layout="fixed"
-                    src="/images/icons/SVG/flecha.svg"
-                    alt="go to top"
-                />
-            </div>
+            <a href="#">
+                <div className={styles.goToTop}>
+                    <Image
+                        width={30}
+                        height={120}
+                        layout="fixed"
+                        src="/images/icons/SVG/flecha.svg"
+                        alt="go to top"
+                    />
+                </div>
+            </a>
             <section className={styles.logoContainer}>
                 <div className={styles.imgContainer}>
                     <Image width={200} height={50} src="/images/icons/SVG/logo.svg" alt={'logo'} />

@@ -2,9 +2,9 @@ import React from 'react';
 import { Line1, Line2, Line3 } from './line';
 import styles from './linesDesktop.module.scss';
 
-const LinesDesktop = () => {
+const LinesDesktop = ({ showAnimation }) => {
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${showAnimation && 'lines'}`}>
             <div className={styles.line1}>
                 <Line1 />
             </div>

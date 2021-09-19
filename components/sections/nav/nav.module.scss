@@ -17,7 +17,7 @@
         color: $white;
         font-family: $beVietnam;
         display: flex;
-        height: 5.5rem;
+        height: 5rem;
         align-items: center;
         width: 95%;
         position: relative;
@@ -49,7 +49,7 @@
             margin: 0;
             li {
                 font-family: $beVietnam;
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
             &.list {
                 margin-left: 8rem;
@@ -68,7 +68,7 @@
             .contact {
                 background-color: $textBlue;
                 border-radius: 25px;
-                padding: 5px;
+                padding: 5px 10px;
                 margin-left: 2rem;
                 font-weight: 500;
             }

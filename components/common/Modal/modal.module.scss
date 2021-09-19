@@ -1,0 +1,88 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.modalContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 400;
+    .blurredContainer {
+        filter: blur(4px);
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40rem;
+        height: 25rem;
+        background: transparent;
+    }
+    .modalMessageWrapper {
+        background-color: transparent;
+        padding: 2rem;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        width: 40rem;
+        height: 25rem;
+        border: 1px solid $white;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        .helloText {
+            font-size: 2.5rem;
+            color: $textBlue;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        label {
+            color: $white;
+            font-family: $beVietnam;
+            font-size: 1.3rem;
+            position: relative;
+            text-align: center;
+        }
+        input {
+            border: none;
+            border-bottom: 1px solid $white;
+            height: 38px;
+            outline: none;
+            position: relative;
+            background: transparent;
+            width: 70%;
+            margin: 0 auto;
+            &::placeholder {
+                text-align: center;
+            }
+        }
+        .btnConfirm {
+            background-color: $textBlue;
+            border-radius: 25px;
+            padding: 5px 10px;
+            font-weight: 500;
+            border: none;
+            color: $white;
+            font-family: $beVietnam;
+            width: 10rem;
+            margin: 0 auto;
+            position: relative;
+            width: 100%;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .btnSkip {
+            background-color: transparent;
+            border-radius: 25px;
+            padding: 5px 10px;
+            font-weight: 500;
+            border: 1px solid $white;
+            color: $white;
+            font-family: $beVietnam;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+    }
+}

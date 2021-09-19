@@ -6,6 +6,13 @@ body {
         Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-size: 65.2%;
     overflow-x: hidden;
+    height: 100%;
+}
+
+.main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -15,11 +22,6 @@ a {
 
 * {
     box-sizing: border-box;
-}
-
-.boxSection {
-    animation-name: boxSectionAnimate;
-    animation-duration: 2000ms;
 }
 
 .animation-title:before {
@@ -35,18 +37,13 @@ a {
     animation-fill-mode: forwards;
 }
 
-.companiesContainer {
-    animation-name: companiesBox;
-    animation-duration: 4000ms;
+.button-graphic-animation {
+    animation-name: btnGraphic;
+    animation-delay: 4000ms;
+    animation-duration: 1s;
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
-}
-
-.textContainerAnimation {
-    animation-name: servicesMobile;
-    animation-duration: 10000ms;
-    animation-iteration-count: forwards;
-    animation-fill-mode: forwards;
+    opacity: 0;
 }
 
 .equipamentoContainer {
@@ -56,18 +53,117 @@ a {
     animation-fill-mode: forwards;
 }
 
-@media (min-width: 700px) {
-    .textContainerAnimation {
-        animation-name: servicesLineDesktop;
+/* Home */
+
+.categories-title-animation {
+    animation-name: titleAnimationHome;
+    animation-duration: 10000ms;
+    animation-iteration-count: forwards;
+    animation-fill-mode: forwards;
+}
+
+.imgContainer {
+    animation-name: logoLoading;
+    animation-duration: 10000ms;
+    animation-iteration-count: forwards;
+    animation-fill-mode: forwards;
+}
+
+/* Services Graphic */
+
+.lines {
+    animation-name: linesAnimation;
+    animation-duration: 5s;
+    animation-iteration-count: forwards;
+    animation-fill-mode: forwards;
+}
+
+@media (min-width: 1200px) {
+    .serviceIconContainer {
+        opacity: 0;
+        animation-name: servicesIconAnimation;
+        animation-duration: 9000ms;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+        animation-delay: 1s;
+    }
+
+    .descriptionContainerAnimation {
+        opacity: 0;
+        animation-name: servicesIconAnimation;
+        animation-duration: 9000ms;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+        animation-delay: 2s;
+    }
+}
+
+/* Consultoria / SoporteIT */
+
+.iconsContainerAnimation {
+    animation-name: iconsContainerFading;
+    animation-duration: 5s;
+    animation-iteration-count: forwards;
+    animation-fill-mode: forwards;
+    animation-delay: 1000ms;
+}
+
+/* Transition black */
+
+.transition {
+    width: 100%;
+    background: #000000;
+    z-index: 10;
+    position: absolute;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+@media (min-width: 1000px) {
+    .lineContainerAnimation::before {
+        animation-name: lineContainerDesktop;
+        animation-duration: 5s;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
+    .lineContainerAnimation::after {
+        animation-name: lineContainerDesktop;
+        animation-duration: 5s;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
         animation-delay: 3s;
-        width: 0;
-        overflow: hidden;
     }
 }
 
 @media (min-width: 1000px) {
     .companiesContainer {
         animation-name: companiesBoxDesktop;
+    }
+}
+
+@media (max-width: 699px) {
+    .textContainerAnimation {
+        animation-name: servicesMobile;
+        animation-duration: 5s;
+        animation-delay: 5s;
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 999px) {
+    .boxSection {
+        animation-name: boxSectionAnimate;
+        animation-duration: 2000ms;
+    }
+    .companiesContainer {
+        animation-name: companiesBox;
+        animation-duration: 4000ms;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+        animation-delay: 2500ms;
     }
 }
 
@@ -96,9 +192,13 @@ a {
 @keyframes text {
     0% {
         color: #fff;
+        bottom: -4rem;
+        opacity: 0;
     }
     100% {
         color: #0885e6;
+        bottom: 0;
+        opacity: 1;
     }
 }
 
@@ -107,9 +207,13 @@ a {
         max-height: 0;
         opacity: 0;
     }
+    1% {
+        visibility: visible;
+    }
     100% {
-        max-height: 30rem;
+        max-height: 35rem;
         opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -126,11 +230,7 @@ a {
 
 @keyframes servicesMobile {
     0% {
-        max-height: 0;
         opacity: 0.5;
-    }
-    1% {
-        overflow: unset;
     }
     100% {
         max-height: 110rem;
@@ -147,5 +247,71 @@ a {
         width: 100%;
         opacity: 1;
         overflow: unset;
+    }
+}
+
+@keyframes titleAnimationHome {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes lineContainerDesktop {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 80%;
+    }
+}
+
+@keyframes iconsContainerFading {
+    0% {
+        max-height: 0;
+        opacity: 0;
+    }
+    100% {
+        max-height: 50rem;
+        opacity: 1;
+    }
+}
+
+@keyframes logoLoading {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+@keyframes linesAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes btnGraphic {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes servicesIconAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

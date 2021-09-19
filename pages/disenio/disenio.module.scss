@@ -1,6 +1,19 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
+.logoLoadingContainer {
+    width: 100%;
+    height: 100vh;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .imgContainer {
+        width: 100%;
+    }
+}
+
 .wrapper {
     position: relative;
     .main {
@@ -11,6 +24,7 @@
         width: 100%;
         position: relative;
         padding: 5rem 4rem;
+        background-repeat: no-repeat;
         .contentContainer {
             position: relative;
             .title {
@@ -60,6 +74,8 @@
     .wrapper {
         .main {
             padding: 8rem 14rem;
+            background-position: center;
+            background-size: cover;
             .contentContainer {
                 margin-bottom: 10rem;
                 width: 80rem;

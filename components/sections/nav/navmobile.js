@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './nav.module.scss';
-import Image from 'next/image';
+import Image from '../../common/Image/Image';
 import { myLoader } from '../../utils/myLoader';
 
 const NavMobile = ({ onClick }) => {
@@ -31,12 +31,24 @@ const NavMobile = ({ onClick }) => {
                 </div>
 
                 <ul className={styles.list}>
-                    <li className={styles.principalItem}>Nosotros</li>
-                    <li className={styles.principalItem}>Servicios</li>
-                    <li className={styles.navItem}>Equipamiento +</li>
-                    <li className={styles.navItem}>SoporteIT +</li>
-                    <li className={styles.navItem}>SeguridadIT +</li>
-                    <li className={styles.navItem}>Diseño web +</li>
+                    <a href="https://3dimpresion.com.ar/Peu/nosotros.html">
+                        <li className={styles.principalItem}>Nosotros</li>
+                    </a>
+                    <a href="https://3dimpresion.com.ar/Peu/index.html#servicios">
+                        <li className={styles.principalItem}>Servicios</li>
+                    </a>
+                    <a href="https://3dimpresion.com.ar/Peu/equipamiento.html">
+                        <li className={styles.navItem}>Equipamiento +</li>
+                    </a>
+                    <a href="https://3dimpresion.com.ar/Peu/consultoria.html">
+                        <li className={styles.navItem}>ConsultoríaIT +</li>
+                    </a>
+                    <a href="https://3dimpresion.com.ar/Peu/seguridadit.html">
+                        <li className={styles.navItem}>SeguridadIT +</li>
+                    </a>
+                    <a href="https://3dimpresion.com.ar/Peu/disenio.html">
+                        <li className={styles.navItem}>Diseño web +</li>
+                    </a>
                 </ul>
                 <div className={styles.listContact}>
                     <p className={styles.contact}>Contactate!</p>

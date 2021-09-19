@@ -14,10 +14,9 @@ $grandientBackground: linear-gradient(
 );
 $darkGreen: #002c3d;
 $blueShadow: 1px 2px 10px 0px rgba(8, 133, 230, 0.98);
+$greyTextLogo: #4c4c4c;
 
 //Font
-
-@import 'https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500&display=swap';
 
 @font-face {
     src: url('../public/Fonts/Montserrat-Bold.ttf') format('ttf');

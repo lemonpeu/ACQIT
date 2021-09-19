@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './serviceIcon.module.scss';
-import Image from 'next/image';
+import Image from '../Image/Image';
 
 const ServiceIcon = ({ name, style, width, height, layout }) => {
     return (
-        <div style={style} className={styles.iconContainer}>
+        <div style={style} className={styles.iconContainer + ' ' + 'serviceIconContainer'}>
             <Image
                 width={width}
                 height={height}

@@ -1,0 +1,178 @@
+@import '../../../styles/variables.scss';
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .contentlist {
+        position: relative;
+        .parraphList {
+            margin-bottom: 5rem;
+            width: 12rem;
+            position: relative;
+            p {
+                color: $white;
+                font-family: $montserrat;
+                margin: 0;
+                &.principalText {
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+                &:last-child {
+                    font-size: 1rem;
+                }
+            }
+            &::before {
+                content: '';
+                width: 10px;
+                height: 10px;
+                background-color: $lightBlue;
+                top: 10px;
+                left: -18px;
+                z-index: 55;
+                position: absolute;
+                border-radius: 50%;
+            }
+        }
+
+        &::before {
+            content: '';
+            width: 1px;
+            height: 82%;
+            background-color: $lightBlue;
+            top: 1rem;
+            left: -13.5px;
+            z-index: 55;
+            position: absolute;
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    .listContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        z-index: 55;
+        .contentlist {
+            position: relative;
+            display: flex;
+            .parraphList {
+                margin: 0 1rem 5rem 1rem;
+                width: 100%;
+                position: relative;
+                p {
+                    &.principalText {
+                        font-size: 2rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        text-align: center;
+                    }
+                    &:last-child {
+                        font-size: 1.5rem;
+                        text-align: center;
+                    }
+                }
+                &::before {
+                    content: '';
+                    width: 10px;
+                    height: 10px;
+                    background-color: $white;
+                    box-shadow: -1px 1px 15px 4px rgba(0, 135, 253, 0.99);
+                    top: 79px;
+                    left: 60px;
+                    z-index: 55;
+                    position: absolute;
+                    border-radius: 50%;
+                }
+            }
+
+            &::before {
+                content: '';
+                width: 0%;
+                height: 2px;
+                background-color: $white;
+                top: 8rem;
+                left: 70.5px;
+                z-index: 40;
+                position: absolute;
+            }
+            &::after {
+                content: '';
+                width: 0%;
+                height: 2px;
+                background-color: $lightBlue;
+                top: 8rem;
+                left: 70.5px;
+                z-index: 45;
+                position: absolute;
+                box-shadow: -1px 1px 10px 4px rgba(0, 135, 253, 0.4);
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .listContainer {
+        .contentlist {
+            .parraphList {
+                margin: 0 3rem 5rem 3rem;
+                &::before {
+                    top: 79px;
+                    left: 80px;
+                }
+            }
+
+            &::before {
+                left: 115px;
+            }
+            &::after {
+                left: 115px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1400px) {
+    .listContainer {
+        .contentlist {
+            .parraphList {
+                margin: 0 5rem 5rem 5rem;
+                &::before {
+                    top: 79px;
+                    left: 80px;
+                }
+            }
+
+            &::before {
+                left: 133px;
+            }
+            &::after {
+                left: 133px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1920px) and (min-height: 1080px) {
+    .listContainer {
+        .contentlist {
+            .parraphList {
+                margin: 0 8rem 5rem 8rem;
+                &::before {
+                    top: 79px;
+                    left: 85px;
+                }
+            }
+
+            &::before {
+                left: 170px;
+            }
+            &::after {
+                left: 170px;
+            }
+        }
+    }
+}

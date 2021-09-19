@@ -13,6 +13,7 @@
     max-height: 0;
     overflow: hidden;
     box-shadow: $blueShadow;
+    visibility: hidden;
     .companiesImgDesktop {
         width: 12rem;
     }
@@ -27,6 +28,13 @@
         img {
             width: 12rem;
         }
+    }
+}
+
+@media (min-width: 1000px) {
+    .companiesContainer {
+        visibility: visible;
+        max-height: 100%;
     }
 }
 

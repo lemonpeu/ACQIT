@@ -6,7 +6,7 @@
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     border: 1px solid $white;
-    box-shadow: 1px 1px 12px -1px rgba(8, 133, 230, 1);
+    box-shadow: -1px 1px 15px 4px rgba(0, 135, 253, 0.99);
     height: 5.5rem;
     padding: 1.3rem;
     overflow: hidden;
@@ -19,8 +19,8 @@
 
 @media (min-width: 1200px) {
     .iconContainer {
-        width: 20rem;
-        height: 15rem;
+        width: 15rem;
+        height: 12rem;
         display: flex;
         justify-content: center;
         align-items: center;

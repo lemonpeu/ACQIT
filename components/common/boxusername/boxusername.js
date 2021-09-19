@@ -1,6 +1,6 @@
 import styles from './boxusername.module.scss';
 import Input from '../input/input';
-import Image from 'next/image';
+import Image from '../Image/Image';
 
 const BoxUserName = (props) => {
     const { icon, name, img, alt, text, boxUserName } = props;

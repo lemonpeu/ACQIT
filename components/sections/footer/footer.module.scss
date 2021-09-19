@@ -33,12 +33,6 @@
         justify-content: center;
         padding: 1.5rem 0;
         margin-bottom: 5px;
-        .imgContainer {
-            width: 10rem;
-            img {
-                width: 100%;
-            }
-        }
     }
     hr {
         background-color: $black;
@@ -91,9 +85,6 @@
     .logoContainer {
         padding-right: 10rem;
         padding-top: 3rem;
-        .imgContainer {
-            width: 16rem;
-        }
     }
     .footerInfoContainer {
         display: flex;
