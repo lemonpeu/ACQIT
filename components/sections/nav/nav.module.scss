@@ -4,9 +4,16 @@
     display: flex;
     justify-content: flex-end;
     z-index: 10;
-    position: absolute;
+    position: fixed;
     width: 100%;
     margin-top: 5rem;
+    z-index: 2000;
+    .navBtnPosition {
+        position: absolute;
+        left: 5rem;
+        top: -0.5rem;
+        z-index: 2000;
+    }
     .logo {
         z-index: 10;
         width: 6rem;
