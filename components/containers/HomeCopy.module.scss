@@ -14,12 +14,13 @@
                 height: 25vh;
                 bottom: 0;
             }
-            .miVideo {
+            .myVideo {
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 top: 0;
                 left: 0;
+                object-fit: cover;
             }
             .titleContainer {
                 position: absolute;
@@ -55,7 +56,7 @@
             }
         }
         .categories {
-            background-image: url('/images/home_2.jpg');
+            background-image: url('/images/home_2.jpeg');
             background-position: left;
             background-size: cover;
             height: 100%;
@@ -199,12 +200,25 @@
     .wrapper {
         .main {
             .categories {
-                // padding: 0 3rem;
+                padding-top: 10rem;
                 .serviciosContainer {
                     transform: scale(0.9);
                 }
                 .linesGraphicContainer {
                     margin: -13rem 0;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1500px) {
+    .wrapper {
+        .main {
+            .categories {
+                padding-left: 10rem;
+                .serviciosContainer {
+                    transform: scale(1);
                 }
             }
         }

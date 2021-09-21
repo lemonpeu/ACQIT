@@ -2,8 +2,6 @@ module.exports = {
     images: {
         loader: 'custom',
         path: '/Peu',
-        path: '/',
-        domains: ['https://3dimpresion.com.ar/'],
     },
     basePath: '/Peu',
     exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {

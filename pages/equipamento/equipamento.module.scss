@@ -24,17 +24,19 @@
         background-size: 300%;
         height: 100%;
         width: 100%;
-        padding: 5rem 3.2rem;
-        padding-bottom: 15rem;
+        padding: 5rem 4rem;
         position: relative;
         .contentContainer {
             position: relative;
+            padding-bottom: 8rem;
+            padding-top: 2rem;
             .title {
                 color: $white;
-                font-size: 3.5rem;
+                font-size: 3rem;
                 font-family: $montserrat;
                 font-weight: 700;
                 text-transform: uppercase;
+                line-height: 1.2;
             }
             p {
                 color: $white;
@@ -100,8 +102,11 @@
                     font-size: 5rem;
                 }
                 p {
-                    font-size: 2rem;
+                    font-size: 1.5rem;
                     width: 90%;
+                }
+                .aclaration {
+                    font-size: 2rem;
                 }
                 .companiesContainer {
                     .partnerTitle {

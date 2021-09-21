@@ -62,10 +62,10 @@ const Equipamento = () => {
                     </div>
                 </div>
             ) : (
-                <div className={styles.wrapper + ' ' + 'main'}>
+                <div id="top" className={styles.wrapper + ' ' + 'main'}>
                     {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
                     {isNavDesktop ? (
-                        <NavDesktop />
+                        <NavDesktop showSubNav />
                     ) : (
                         isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
                     )}
@@ -91,7 +91,7 @@ const Equipamento = () => {
                                     <span
                                         style={{ zIndex: 20, position: 'absolute', height: '100%' }}
                                     >
-                                        Partners
+                                        PARTNERS
                                     </span>
                                 </h6>
                                 <Companies />

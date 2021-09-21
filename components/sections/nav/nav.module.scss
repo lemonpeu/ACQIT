@@ -10,7 +10,7 @@
     z-index: 2000;
     .navBtnPosition {
         position: absolute;
-        left: 5rem;
+        left: 1rem;
         top: -0.5rem;
         z-index: 2000;
     }
@@ -63,6 +63,28 @@
                 li {
                     margin-right: 3rem;
                 }
+            }
+            .subList {
+                display: none;
+                position: absolute;
+                background: $darkGreen;
+                padding: 1rem;
+                border-bottom-left-radius: 25px;
+                border-bottom-right-radius: 25px;
+                transition: all 1s ease-in;
+                li {
+                    transition: all 0.5s ease-in;
+                    padding: 1rem 0;
+                    &:hover {
+                        font-weight: 500;
+                        transition: all 0.5s ease-in;
+                    }
+                }
+            }
+            .usItem:hover .subList {
+                display: flex;
+                flex-direction: column;
+                transition: all 1s ease-in;
             }
         }
         .listContact {

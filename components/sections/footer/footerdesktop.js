@@ -7,7 +7,7 @@ const FooterDesktop = () => {
         <footer className={`${styles.containerDesktop} ${styles.container}`}>
             <section className={styles.logoContainer}>
                 <div className={styles.imgContainer}>
-                    <Image width={300} height={50} src="/images/icons/SVG/logo.svg" alt="logo" />
+                    <Image width={280} height={70} src="/images/icons/SVG/logo.svg" alt="logo" />
                 </div>
             </section>
             <div className={styles.footerInfoContainer}>
@@ -70,8 +70,8 @@ const FooterDesktop = () => {
             </div>
             <div className={styles.line}></div>
             <p className={styles.footerText}>Transformamos tus problemas en soluciones</p>
-            <div className={styles.goToTop}>
-                <a href="#">
+            <a href="#top">
+                <div className={styles.goToTop}>
                     <Image
                         layout="fixed"
                         width={20}
@@ -82,8 +82,8 @@ const FooterDesktop = () => {
                     <p>
                         Go to <span style={{ fontWeight: 'bold' }}>the top</span>
                     </p>
-                </a>
-            </div>
+                </div>
+            </a>
         </footer>
     );
 };

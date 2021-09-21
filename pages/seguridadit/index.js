@@ -61,10 +61,10 @@ const SeguridadIT = () => {
                     </div>
                 </div>
             ) : (
-                <div className={styles.wrapper + ' ' + 'main'}>
+                <div id="top" className={styles.wrapper + ' ' + 'main'}>
                     {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
                     {isNavDesktop ? (
-                        <NavDesktop />
+                        <NavDesktop showSubNav />
                     ) : (
                         isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
                     )}

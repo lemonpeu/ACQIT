@@ -17,27 +17,24 @@
 .wrapper {
     position: relative;
     background: rgba(0, 0, 0, 0.99);
-    .background {
-        backdrop-filter: blur(88px); // This be the blur
-        z-index: 5;
-        background: rgba(0, 0, 0, 0.99);
-        box-shadow: -2px 92px 76px 71px rgba(0, 0, 0, 0.99);
-        position: relative;
-        top: 440px;
-    }
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    // .miVideo {
+    //     position: absolute;
+    //     height: 100%;
+    //     top: 0;
+    //     left: 0;
+    //     object-fit: cover;
+    // }
     .main {
-        background-image: url('/images/fondos/seguridadit-80.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: 100%;
         width: 100%;
-        position: relative;
+        z-index: 1;
         .contentContainer {
-            position: relative;
             z-index: 6;
             padding-bottom: 8rem;
             padding-top: 4rem;
+            height: 100%;
             .contentWrapper {
                 display: flex;
                 width: 100%;
@@ -287,12 +284,12 @@
                     font-size: 5rem;
                 }
                 .description {
-                    font-size: 2rem;
+                    font-size: 1.5rem;
                 }
                 .aclaration {
                     padding-top: 1.5rem;
                     margin-bottom: 5rem;
-                    font-size: 2.5rem;
+                    font-size: 2rem;
                 }
                 .graphicContainer {
                     width: 50rem;

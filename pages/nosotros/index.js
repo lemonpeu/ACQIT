@@ -60,13 +60,16 @@ const Nosotros = () => {
                     </div>
                 </div>
             ) : (
-                <div className={styles.wrapper + ' ' + 'main'}>
+                <div id="top" className={styles.wrapper + ' ' + 'main'}>
                     {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
                     {isNavDesktop ? (
-                        <NavDesktop />
+                        <NavDesktop showSubNav />
                     ) : (
                         isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
                     )}
+                    {/* <video autoPlay muted loop className={styles.myVideo}>
+                        <source src="videos/video-nosotros.mp4" type="video/mp4" />
+                    </video> */}
                     <section className={styles.main}>
                         {!isNavDesktop && <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />}
                         <div className={styles.contentContainer}>

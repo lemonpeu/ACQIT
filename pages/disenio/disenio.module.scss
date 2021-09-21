@@ -19,7 +19,7 @@
     .main {
         background-image: url('/images/fondos/design-80.jpg');
         background-position: left;
-        background-size: 400%;
+        background-size: cover;
         height: 100%;
         width: 100%;
         position: relative;
@@ -27,6 +27,8 @@
         background-repeat: no-repeat;
         .contentContainer {
             position: relative;
+            padding-bottom: 8rem;
+            padding-top: 2rem;
             .title {
                 color: $white;
                 font-size: 4rem;
@@ -76,12 +78,24 @@
             padding: 8rem 14rem;
             background-position: center;
             background-size: cover;
+            margin-bottom: -20rem;
             .contentContainer {
                 margin-bottom: 10rem;
                 width: 80rem;
 
                 .description {
+                    font-size: 1.5rem;
+                }
+                .aclaration {
                     font-size: 2rem;
+                }
+                .boxUserNameAnimation:first-child {
+                    transform: translateX(-4000px);
+                    visibility: hidden;
+                }
+                .boxUserNameAnimation:last-child {
+                    transform: translateX(4000px);
+                    visibility: hidden;
                 }
             }
         }

@@ -1,11 +1,12 @@
 //LineContainer.js
 import styles from './LineContainer.module.scss';
 
-const LineContainer = ({ style, isModalVisible }) => {
+const LineContainer = ({ style, isModalVisible, ref }) => {
     return (
         <div
             className={!isModalVisible && styles.listContainer + ' ' + 'textContainerAnimation'}
             style={style}
+            ref={ref}
         >
             <div className={!isModalVisible && styles.contentlist + ' ' + 'lineContainerAnimation'}>
                 <div className={styles.parraphList}>

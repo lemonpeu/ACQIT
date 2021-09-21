@@ -62,10 +62,10 @@ const Disenio = () => {
                     </div>
                 </div>
             ) : (
-                <div className={styles.wrapper + ' ' + 'main'}>
+                <div id="top" className={styles.wrapper + ' ' + 'main'}>
                     {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
                     {isNavDesktop ? (
-                        <NavDesktop />
+                        <NavDesktop showSubNav />
                     ) : (
                         isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
                     )}
@@ -89,16 +89,24 @@ const Disenio = () => {
                                 en las necesidades del cliente.
                             </h4>
                             <div className="boxSection">
-                                <BoxUserName
-                                    icon
-                                    img={pCIcon}
-                                    text={'Diseño web para desktop (para computadoras)'}
-                                ></BoxUserName>
-                                <BoxUserName
-                                    icon
-                                    img={cellphone}
-                                    text={'Diseño web responsive (para celulares y tablets)'}
-                                />
+                                <div
+                                    className={`${styles.boxUserNameAnimation} boxUserNameAnimation`}
+                                >
+                                    <BoxUserName
+                                        icon
+                                        img={pCIcon}
+                                        text={'Diseño web para desktop (para computadoras)'}
+                                    ></BoxUserName>
+                                </div>
+                                <div
+                                    className={`${styles.boxUserNameAnimation} boxUserNameAnimation`}
+                                >
+                                    <BoxUserName
+                                        icon
+                                        img={cellphone}
+                                        text={'Diseño web responsive (para celulares y tablets)'}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </section>

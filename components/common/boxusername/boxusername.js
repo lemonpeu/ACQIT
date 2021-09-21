@@ -5,10 +5,6 @@ import Image from '../Image/Image';
 const BoxUserName = (props) => {
     const { icon, name, img, alt, text, boxUserName } = props;
 
-    const myLoader = (img, width, quality) => {
-        return `https://3dimpresion.com.ar/${img}?w=110&q=${quality || 75}`;
-    };
-
     return (
         <section
             className={`${boxUserName ? styles.boxUserNameStyle : styles.boxIconText} ${
@@ -18,7 +14,6 @@ const BoxUserName = (props) => {
             <div className={styles.container}>
                 {icon && (
                     <Image
-                        // loader={myLoader}
                         width={110}
                         height={110}
                         layout="fixed"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import styles from './HomeCopy.module.scss';
 import BoxUserName from '../common/boxusername/boxusername';
 import Footer from '../sections/footer/footer';
@@ -15,6 +15,7 @@ import useWindowSize from '../utils/windowSice';
 import Image from '../../components/common/Image/Image';
 import LoadingLogo from '../common/loadingLogo/loadingLogo';
 import LineContainer from '../sections/LineContainer/LineContainer';
+import useOnScreen from '../utils/isVisible';
 
 export default function Home() {
     const [isNavVisible, setIsNavVisible] = useState(false);
@@ -22,6 +23,8 @@ export default function Home() {
     const [userName, setUserName] = useState('');
     const [isLoading, setIsLoading] = useState(true);
     const [isFullScreen, setIsFullScreen] = useState(false);
+    const ref = useRef();
+    const [setRef, visible] = useOnScreen({ threshold: 0.2 });
     const size = useWindowSize();
     let isPage1200 = useMediaQuery('(min-width: 1200px)');
     let isPage900 = useMediaQuery('(min-width: 900px)');
@@ -62,12 +65,18 @@ export default function Home() {
         return size.height + 'px';
     };
 
+    const videos = ['videos/home_1.mp4', 'videos/home_2.mp4', 'videos/home_3.mp4'];
+
+    const getRandomVideo = () => {
+        return videos.sort(() => Math.random() - 0.5);
+    };
+
     return (
         <>
             {isLoading ? (
                 <LoadingLogo />
             ) : (
-                <div className={styles.wrapper + ' ' + 'main'}>
+                <div id="top" className={styles.wrapper + ' ' + 'main'}>
                     {isModalVisible && (
                         <Modal onClose={() => modalConfig()} onClick={(e) => modalConfig(e)} />
                     )}
@@ -80,7 +89,7 @@ export default function Home() {
                         {!isPage900 && <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />}
                         <section className={styles.principal} style={{ height: setScreenHeight() }}>
                             <video autoPlay muted loop className={styles.myVideo}>
-                                <source src="videos/home_1.mp4" type="video/mp4" />
+                                <source src={getRandomVideo().slice(0, 1)} type="video/mp4" />
                             </video>
                             <div className={`${styles.transition} transition`}></div>
                             <div className={styles.titleContainer}>
@@ -154,8 +163,9 @@ export default function Home() {
                                 style={{
                                     height: setScreenHeight(),
                                 }}
+                                ref={setRef}
                             >
-                                <LineContainer isModalVisible={isModalVisible} />
+                                {visible && <LineContainer isModalVisible={isModalVisible} />}
                             </section>
                         </div>
                     </div>

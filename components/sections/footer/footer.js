@@ -1,6 +1,5 @@
 import styles from './footer.module.scss';
 import Image from '../../common/Image/Image';
-import { myLoader } from '../../utils/myLoader';
 
 const Footer = () => {
     return (
@@ -67,7 +66,7 @@ const Footer = () => {
                     />
                 </li>
             </ul>
-            <a href="#">
+            <a href="#top" aria-label="Scroll to Top">
                 <div className={styles.goToTop}>
                     <Image
                         width={30}

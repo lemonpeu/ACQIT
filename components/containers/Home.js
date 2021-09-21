@@ -20,7 +20,7 @@ export default function Home() {
     const [isModalVisible, setIsModalVisible] = useState(true);
     const [userName, setUserName] = useState('');
     const [isLoading, setIsLoading] = useState(true);
-    const size = useWindowSize();
+    const [setRef, visible] = useWindowSize({ threshold: 0.2 });
     let isPage1200 = useMediaQuery('(min-width: 1200px)');
     let isPage900 = useMediaQuery('(min-width: 900px)');
     let isFooterMobile = useMediaQuery('(min-width: 1000px)');
