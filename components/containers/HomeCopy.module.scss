@@ -1,269 +1,278 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
 
 .wrapper {
-    position: relative;
-    .main {
+  position: relative;
+  .main {
+    width: 100%;
+    .principal {
+      position: relative;
+      overflow: hidden;
+      .transition {
+        transform: translateY(0);
+        box-shadow: -5px 3px 63px 80px rgba(0, 0, 0, 0.99);
+
+        height: 25vh;
+        bottom: 0;
+        left: 0;
         width: 100%;
-        .principal {
-            position: relative;
-            overflow: hidden;
-            .transition {
-                transform: translateY(0);
-                box-shadow: -9px -110px 78px 20px rgba(0, 0, 0, 0.99);
-                height: 25vh;
-                bottom: 0;
-            }
-            .myVideo {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                object-fit: cover;
-            }
-            .titleContainer {
-                position: absolute;
-                top: 0;
-                padding-left: 3rem;
-                padding-top: 5rem;
-                .title {
-                    color: $white;
-                    font-size: 4rem;
-                    font-family: $montserrat;
-                    font-weight: 700;
-                }
-                .socialIconsContainer {
-                    display: flex;
-                    .imgContainer {
-                        width: 10%;
-                        margin-right: 1.5rem;
-                        img {
-                            width: 100%;
-                        }
-                    }
-                }
-            }
+      }
+      .myVideo {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+      }
+      .titleContainer {
+        position: absolute;
+        top: 0;
+        padding-left: 3rem;
+        padding-top: 5rem;
+        .title {
+          color: $white;
+          font-size: 4rem;
+          font-family: $montserrat;
+          font-weight: 700;
         }
-        .services {
-            z-index: 10;
-            .title {
-                color: $white;
-                font-size: 4rem;
-                font-family: $montserrat;
-                font-weight: 700;
-                text-transform: uppercase;
+        .socialIconsContainer {
+          display: flex;
+          .imgContainer {
+            width: 10%;
+            margin-right: 1.5rem;
+            img {
+              width: 100%;
             }
+          }
         }
-        .categories {
-            background-image: url('/images/home_2.jpeg');
-            background-position: left;
-            background-size: cover;
-            height: 100%;
-            width: 100%;
-            position: relative;
-            .serviciosContainer {
-                padding: 0 3.2rem;
-                z-index: 20;
-                position: relative;
-                .title {
-                    margin-top: 0;
-                }
-            }
-            .linesGraphicContainer {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-            .transition {
-                transform: translateY(0);
-                box-shadow: -9px 95px 78px 20px rgba(0, 0, 0, 0.93);
-                height: 700px;
-                top: 0;
-            }
-            .imgContainer {
-                width: 400%;
-                img {
-                    width: 100%;
-                }
-            }
-            .services,
-            .listContainer {
-                position: relative;
-            }
-            &::before {
-                content: '';
-                width: 100%;
-                height: 100%;
-                background-color: rgb(0, 0, 0, 0.7);
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-        }
+      }
     }
+    .services {
+      z-index: 10;
+      .title {
+        color: $white;
+        font-size: 4rem;
+        font-family: $montserrat;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+    .categories {
+      background-image: url("/images/home_2.jpeg");
+      background-position: left;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      .serviciosContainer {
+        padding: 0 3.2rem;
+        z-index: 20;
+        position: relative;
+        .title {
+          margin-top: 0;
+        }
+      }
+      .linesGraphicContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .transition {
+        transform: translateY(0);
+        box-shadow: -9px 95px 78px 20px rgba(0, 0, 0, 0.93);
+        height: 700px;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+      .imgContainer {
+        width: 400%;
+        img {
+          width: 100%;
+        }
+      }
+      .services,
+      .listContainer {
+        position: relative;
+      }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0, 0.7);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
 }
 
 @media (min-width: 700px) {
-    .wrapper {
-        .main {
-            .principal {
-                .titleContainer {
-                    margin-left: 10rem !important;
-                    padding-top: 10rem !important;
-                    width: 50rem;
-                    .title {
-                        font-size: 4rem;
-                        margin-bottom: 1rem;
-                    }
-                    .socialIconsContainer {
-                        .imgContainer {
-                            width: 3.5rem;
-                        }
-                    }
-                }
-                .whatsappContainer {
-                    .imgContainer {
-                        width: 8rem;
-                    }
-                }
+  .wrapper {
+    .main {
+      .principal {
+        .titleContainer {
+          margin-left: 10rem !important;
+          padding-top: 10rem !important;
+          width: 50rem;
+          .title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+          }
+          .socialIconsContainer {
+            .imgContainer {
+              width: 3.5rem;
             }
-            .categories {
-                width: 100%;
-
-                &::before {
-                    content: '';
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgb(0, 0, 0, 0.8);
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-            }
+          }
         }
+        .whatsappContainer {
+          .imgContainer {
+            width: 8rem;
+          }
+        }
+      }
+      .categories {
+        width: 100%;
+
+        &::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          background-color: rgb(0, 0, 0, 0.8);
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
     }
+  }
 }
 
 @media (min-width: 1000px) {
-    .wrapper {
-        .main {
-            .principal {
-                height: 60rem;
-            }
-            .transition {
-                height: 15rem;
-                top: 65rem;
-            }
-            .categories {
-                background-position: center;
-                background-size: cover;
-            }
-        }
+  .wrapper {
+    .main {
+      .principal {
+        height: 60rem;
+      }
+      .transition {
+        height: 15rem;
+        top: 65rem;
+      }
+      .categories {
+        background-position: center;
+        background-size: cover;
+      }
     }
+  }
 }
 
 @media (min-width: 1200px) {
-    .titleContainer {
-        .title {
-            font-size: 6rem !important;
-            width: 100rem;
-        }
+  .titleContainer {
+    .title {
+      font-size: 6rem !important;
+      width: 100rem;
     }
+  }
 
-    .wrapper {
-        .main {
-            .categories {
-                .title {
-                    margin: 0;
-                    position: absolute;
-                    top: 11rem;
-                }
-                .transition {
-                    height: 300px;
-                }
-                .serviciosContainer {
-                    transform: scale(0.8);
-                    .services {
-                        margin: 0 0 -30rem 0;
-                    }
-                }
-                // .linesGraphicContainer {
-                //     margin: -20rem 0 -40rem 0;
-                // }
-            }
+  .wrapper {
+    .main {
+      .categories {
+        .title {
+          margin: 0;
+          position: absolute;
+          top: 11rem;
         }
+        .transition {
+          height: 300px;
+        }
+        .serviciosContainer {
+          transform: scale(0.8);
+          .services {
+            margin: 0 0 -30rem 0;
+          }
+        }
+        // .linesGraphicContainer {
+        //     margin: -20rem 0 -40rem 0;
+        // }
+      }
     }
+  }
 }
 
 @media (min-width: 1300px) {
-    .wrapper {
-        .main {
-            .categories {
-                padding-top: 10rem;
-                .serviciosContainer {
-                    transform: scale(0.9);
-                }
-                .linesGraphicContainer {
-                    margin: -13rem 0;
-                }
-            }
+  .wrapper {
+    .main {
+      .categories {
+        padding-top: 10rem;
+        .serviciosContainer {
+          transform: scale(0.9);
         }
+        .linesGraphicContainer {
+          margin-top: -13rem;
+          margin-bottom: 0;
+        }
+      }
     }
+  }
 }
 
 @media (min-width: 1500px) {
-    .wrapper {
-        .main {
-            .categories {
-                padding-left: 10rem;
-                .serviciosContainer {
-                    transform: scale(1);
-                }
-            }
+  .wrapper {
+    .main {
+      .categories {
+        padding-left: 10rem;
+        .serviciosContainer {
+          transform: scale(1);
         }
+      }
     }
+  }
 }
 
 @media (min-width: 1800px) {
-    .wrapper {
-        .main {
-            .principal {
-                .transition {
-                    transform: translateY(0);
-                    box-shadow: -9px -110px 78px 20px rgba(0, 0, 0, 0.99);
-                    height: 30vh;
-                    bottom: 0;
-                }
-            }
-            .categories {
-                .serviciosContainer {
-                    padding-left: 15vw;
-                    transform: scale(1.2);
-                }
-                .linesGraphicContainer {
-                    margin: -40rem 0 -20rem 0;
-                }
-            }
+  .wrapper {
+    .main {
+      .principal {
+        .transition {
+          transform: translateY(0);
+          box-shadow: -9px -110px 78px 20px rgba(0, 0, 0, 0.99);
+          height: 30vh;
+          bottom: 0;
         }
+      }
+      .categories {
+        .serviciosContainer {
+          padding-left: 15vw;
+          transform: scale(1.2);
+        }
+        .linesGraphicContainer {
+          margin: -40rem 0 -20rem 0;
+        }
+        .services {
+          padding-top: 10rem;
+        }
+      }
     }
+  }
 }
 
 @media (min-width: 1920px) and (min-height: 1080px) {
-    .linesGraphicContainer {
-        margin: -40rem 0 -20rem 0 !important;
-    }
-    .wrapper {
-        .main {
-            .principal {
-                .transition {
-                    height: 30vh;
-                    margin-top: 30rem;
-                }
-            }
-            .categories {
-                padding-top: 20rem;
-            }
+  .linesGraphicContainer {
+    margin: -40rem 0 -20rem 0 !important;
+  }
+  .wrapper {
+    .main {
+      .principal {
+        .transition {
+          height: 30vh;
+          margin-top: 30rem;
         }
+      }
+      .categories {
+        padding-top: 20rem;
+      }
     }
+  }
 }
