@@ -24,6 +24,22 @@
         opacity: 1;
       }
     }
+    .setAnimation1,
+    .setAnimation2,
+    .setAnimation3 {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        box-shadow: 1px 0px 36px 40px rgba(8, 133, 230, 1);
+        left: 50%;
+        top: 50%;
+        opacity: 1 !important;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
 }
 
@@ -49,6 +65,16 @@
         left: 120px;
         top: -90px;
         transform: translate(0, 0);
+      }
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .wrapper {
+    .descriptionContainer {
+      .setAnimation2 {
+        margin-right: 15rem;
       }
     }
   }

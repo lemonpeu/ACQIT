@@ -3,26 +3,6 @@ import styles from "./NosotrosDescripcion.module.scss";
 import NosotrosText from "../../common/nosotrosTexto/NosotrosText";
 import { useEffect } from "react";
 
-{
-  /* <section className={styles.textIconDescription}>
-  {showText1 && (
-    <section className={styles.showText1}>
-      <NosotrosText text1 />
-    </section>
-  )}
-  {showText2 && (
-    <section className={styles.showText2}>
-      <NosotrosText text2 />
-    </section>
-  )}
-  {showText3 && (
-    <section className={styles.showText3}>
-      <NosotrosText text3 />
-    </section>
-  )}
-</section>; */
-}
-
 const NosotrosDescripcion = ({
   showText1,
   showText2,

@@ -388,17 +388,14 @@
   }
 }
 
-// @media (min-width: 1500px) {
-//   .wrapper {
-//     .main {
-//       // padding: 8rem 16rem;
-//       .contentContainer {
-//         .contentWrapper {
-//           .textContainer {
-//             margin-left: -14%;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+@media (min-width: 1800px) {
+  .wrapper {
+    .main {
+      .contentContainer {
+        .contentWrapper {
+          max-width: 144rem;
+        }
+      }
+    }
+  }
+}
