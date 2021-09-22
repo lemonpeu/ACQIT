@@ -34,7 +34,7 @@
           color: $white;
           font-size: 4rem;
           font-family: $montserrat;
-          font-weight: 700;
+          font-weight: 600;
         }
         .socialIconsContainer {
           display: flex;
@@ -178,6 +178,7 @@
 
   .wrapper {
     .main {
+      position: relative;
       .categories {
         .title {
           margin: 0;
@@ -193,9 +194,16 @@
             margin: 0 0 -30rem 0;
           }
         }
-        // .linesGraphicContainer {
-        //     margin: -20rem 0 -40rem 0;
-        // }
+      }
+      &::before {
+        content: "";
+        background-color: red;
+        width: 2px;
+        height: 100vh;
+        position: absolute;
+        right: 2rem;
+        top: 0;
+        z-index: 50;
       }
     }
   }
@@ -226,6 +234,9 @@
         .serviciosContainer {
           transform: scale(1);
         }
+        .services {
+          margin-top: 10rem !important;
+        }
       }
     }
   }
@@ -248,7 +259,7 @@
           transform: scale(1.2);
         }
         .linesGraphicContainer {
-          margin: -40rem 0 -20rem 0;
+          margin: -16rem 0 -20rem 0;
         }
         .services {
           padding-top: 10rem;

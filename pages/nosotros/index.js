@@ -9,7 +9,7 @@ import NavMobile from "../../components/sections/nav/navmobile";
 import NavDesktop from "../../components/sections/nav/navdesktop";
 import ButtonNav from "../../components/common/buttonNav/buttonNav";
 import Modal from "../../components/common/Modal/modal";
-import NosotrosText from "../../components/common/nosotrosTexto/NosotrosText";
+import NosotrosDescripcion from "../../components/sections/NosotrosDescripcion/NosotrosDescripcion";
 
 const Nosotros = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -38,6 +38,36 @@ const Nosotros = () => {
   const setLoadingBoolean = () => {
     sessionStorage.setItem("loading", false);
     setIsLoading(false);
+  };
+
+  const setText1 = (e) => {
+    if (isFooterMobile) {
+      setShowText1(e);
+    } else {
+      setShowText1(e);
+      setShowText2(false);
+      setShowText3(false);
+    }
+  };
+
+  const setText2 = (e) => {
+    if (isFooterMobile) {
+      setShowText2(e);
+    } else {
+      setShowText1(false);
+      setShowText2(e);
+      setShowText3(false);
+    }
+  };
+
+  const setText3 = (e) => {
+    if (isFooterMobile) {
+      setShowText3(e);
+    } else {
+      setShowText1(false);
+      setShowText2(false);
+      setShowText3(e);
+    }
   };
 
   useEffect(() => {
@@ -90,55 +120,16 @@ const Nosotros = () => {
                 <div className={styles.lineTitle}></div>
               </div>
               <div className={styles.contentWrapper}>
-                <div className={styles.imgContainer}>
-                  <div className={styles.icon}>
-                    <Image
-                      layout="fixed"
-                      width={isFooterMobile ? 200 : 130}
-                      height={isFooterMobile ? 190 : 120}
-                      src="/images/extra/SVG/nosotros/line1.png"
-                      alt="aaaaaa"
-                      onClick={() => setShowText1(true)}
-                    />
-                  </div>
-
-                  <div className={styles.imgUsContainer}>
-                    <div
-                      className={
-                        showText2 ? `${styles.setAnimation2}` : `${styles.icon}`
-                      }
-                    >
-                      <Image
-                        layout="fixed"
-                        width={isFooterMobile ? 200 : 130}
-                        height={isFooterMobile ? 190 : 120}
-                        src="/images/extra/SVG/nosotros/line2.png"
-                        alt="aaaaaa"
-                        onClick={() => setShowText2(true)}
-                      />
-                    </div>
-
-                    <div className={styles.thirdIcon}>
-                      <div
-                        className={
-                          showText3
-                            ? `${styles.setAnimation3}`
-                            : `${styles.icon}`
-                        }
-                      >
-                        <Image
-                          layout="fixed"
-                          width={isFooterMobile ? 200 : 130}
-                          height={isFooterMobile ? 190 : 120}
-                          src="/images/extra/SVG/nosotros/line3.png"
-                          alt="aaaaaa"
-                          onClick={() => setShowText3(true)}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <section className={styles.textIconDescription}>
+                <NosotrosDescripcion
+                  isFooterMobile={isFooterMobile}
+                  showText1={showText1}
+                  showText2={showText2}
+                  showText3={showText3}
+                  onClick1={(e) => setText1(e)}
+                  onClick2={(e) => setText2(e)}
+                  onClick3={(e) => setText3(e)}
+                />
+                {/* <section className={styles.textIconDescription}>
                   {showText1 && (
                     <section className={styles.showText1}>
                       <NosotrosText text1 />
@@ -154,7 +145,7 @@ const Nosotros = () => {
                       <NosotrosText text3 />
                     </section>
                   )}
-                </section>
+                </section> */}
               </div>
               <div className={styles.textContainerSubContainer}>
                 <div className={styles.titleContainer}>
