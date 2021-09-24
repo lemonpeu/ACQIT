@@ -33,7 +33,7 @@ const NosotrosDescripcion = ({
             onClick={() => onClick1(true)}
           />
         </div>
-        {showText1 && <NosotrosText text1 />}
+        {showText1 && <NosotrosText showText1={showText1} text1 />}
       </article>
       <article className={styles.descriptionContainer}>
         <div
@@ -48,7 +48,7 @@ const NosotrosDescripcion = ({
             onClick={() => onClick2(true)}
           />
         </div>
-        {showText2 && <NosotrosText text2 />}
+        {showText2 && <NosotrosText showText2={showText2} text2 />}
       </article>
       <article
         className={styles.descriptionContainer}
@@ -70,7 +70,7 @@ const NosotrosDescripcion = ({
             onClick={() => onClick3(true)}
           />
         </div>
-        {showText3 && <NosotrosText text3 />}
+        {showText3 && <NosotrosText showText3={showText3} text3 />}
       </article>
     </div>
   );

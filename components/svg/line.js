@@ -78,15 +78,13 @@ export const Line3Blue = () => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 183.24 57.89"
     >
-      <defs></defs>
       <path
         className="cls-1 path3"
         style={{
           fill: "none",
           stroke: "#0885e6",
           strokeMiterlimit: 10,
-          strokeWidth: "0.75px",
-          boxShadow: "-1px 1px 15px 4px rgba(0, 135, 253, 0.99)",
+          strokeWidth: "2px",
         }}
         d="M426.24,364.63H401.86a15.42,15.42,0,0,0-15.42,15.42v25.14a16.58,16.58,0,0,1-16.58,16.58H243"
         transform="translate(-243 -364.26)"
@@ -108,7 +106,7 @@ export const Line2Blue = () => {
           fill: "none",
           stroke: "#0885e6",
           strokeMiterlimit: 10,
-          strokeWidth: "0.75px",
+          strokeWidth: "2px",
         }}
         className="cls-1 path2"
         d="M457.72,491h-16.2a15.29,15.29,0,0,1-15.28-15.29V255.61H553.05a15.28,15.28,0,0,1,15.29,15.29v41.57a8.31,8.31,0,0,0,8.31,8.31h0"
@@ -132,7 +130,7 @@ export const Line1Blue = () => {
           fill: "none",
           stroke: "#0885e6",
           strokeMiterlimit: 10,
-          strokeWidth: "0.75px",
+          strokeWidth: "2px",
           zIndex: 10,
         }}
         className="cls-1 path1"

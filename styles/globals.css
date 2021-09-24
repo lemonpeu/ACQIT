@@ -10,6 +10,10 @@ body {
   scroll-behavior: smooth;
 }
 
+button {
+  cursor: pointer;
+}
+
 .main {
   height: 100%;
   display: flex;
@@ -131,10 +135,15 @@ a {
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
     animation-delay: 2500ms; */
-  max-height: 80rem;
 }
 
 /* Lines */
+
+.path1,
+.path2,
+.path3 {
+  box-shadow: -1px 1px 15px 4px rgba(0, 135, 253, 0.99);
+}
 
 .path1 {
   stroke-dasharray: 500;
@@ -148,7 +157,7 @@ a {
   animation: dash 5s linear forwards;
 }
 
-.path2 {
+.path3 {
   stroke-dasharray: 500;
   stroke-dashoffset: 500;
   animation: dash 5s linear forwards;
@@ -159,6 +168,16 @@ a {
 .boxUserNameAnimation {
   animation-name: boxUserNameAnimation;
   animation-duration: 4000ms;
+  animation-iteration-count: forwards;
+  animation-fill-mode: forwards;
+}
+
+/* Nosotros */
+
+.textNosotros {
+  opacity: 0;
+  animation-name: opacity;
+  animation-duration: 9000ms;
   animation-iteration-count: forwards;
   animation-fill-mode: forwards;
 }
@@ -186,7 +205,7 @@ button {
     animation-duration: 5s;
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
-    animation-delay: 3s;
+    animation-delay: 5s;
   }
 }
 
@@ -266,7 +285,7 @@ button {
     opacity: 0;
   }
   100% {
-    max-height: 40rem;
+    max-height: 100%;
     opacity: 1;
   }
 }

@@ -1,10 +1,21 @@
 import styles from "./NosotrosText.module.scss";
 
-const NosotrosText = ({ text1, text2, text3 }) => {
+const NosotrosText = ({
+  text1,
+  text2,
+  text3,
+  showText1,
+  showText2,
+  showText3,
+}) => {
   const renderText = () => {
     if (text1) {
       return (
-        <div className={styles.textContainer}>
+        <div
+          className={`${styles.textContainer} ${
+            showText1 ? "textNosotros" : ""
+          }`}
+        >
           <p className={styles.description}>
             ACQit es una empresa con&nbsp;
             <span style={{ color: "#0885e6" }}>
@@ -23,7 +34,11 @@ const NosotrosText = ({ text1, text2, text3 }) => {
       );
     } else if (text2) {
       return (
-        <div className={styles.textContainer}>
+        <div
+          className={`${styles.textContainer} ${
+            showText2 ? "textNosotros" : ""
+          }`}
+        >
           <p className={styles.description}>
             <span style={{ color: "#0885e6" }}>
               Escuchar e interiorizarnos con la problemática de nuestros
@@ -46,7 +61,11 @@ const NosotrosText = ({ text1, text2, text3 }) => {
       );
     } else if (text3) {
       return (
-        <div className={styles.textContainer}>
+        <div
+          className={`${styles.textContainer} ${
+            showText3 ? "textNosotros" : ""
+          }`}
+        >
           <p className={styles.description}>
             Nos gustan los desafíos, el dinamismo y ponernos a prueba
             constantemente&nbsp;
