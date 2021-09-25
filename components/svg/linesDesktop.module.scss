@@ -1,35 +1,28 @@
 .container {
-    width: 40rem;
+  position: absolute;
+  left: 87px;
+  top: 58px;
+  transform: scale(2) translate(0, 0);
+  div {
     position: absolute;
-    left: 57rem;
-    top: 130px;
-    transform: scale(2) translate(0, 0);
-    div {
-        position: absolute;
-        width: 10rem;
-        svg {
-            width: 100%;
-        }
-        &.line1 {
-            left: -39.1px;
-            width: 6rem !important;
-            transform: translate(0px, -0.5px);
-            top: -71px;
-        }
-        &.line2 {
-            bottom: -197px;
-            transform: translateX(0);
-        }
-        &.line3 {
-            left: -104.5px;
-            top: 101px;
-            transform: translate(0, 0);
-        }
+    width: 10rem;
+    svg {
+      width: 100%;
     }
-}
-
-@media (max-width: 1200px) {
-    .container {
-        transform: scale(2);
+    &.line1 {
+      left: -38px;
+      width: 6rem !important;
+      transform: translate(0px, 0px);
+      top: -61px;
     }
+    &.line2 {
+      bottom: -197px;
+      transform: translateX(0);
+    }
+    &.line3 {
+      left: -100px;
+      top: 101px;
+      transform: translate(0, 0);
+    }
+  }
 }

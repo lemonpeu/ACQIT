@@ -1,58 +1,59 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/mixins.scss';
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
 
 .graphContainer {
-    .titleGraphic {
-        @include graphic-title(20rem, transparent, $white);
-        margin-bottom: 4rem;
-        height: 4.5rem;
-        position: relative;
-        overflow: hidden;
-        &:before {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
+  margin-top: 4rem;
+  .titleGraphic {
+    @include graphic-title(20rem, transparent, $white);
+    margin-bottom: 4rem;
+    height: 4.5rem;
+    position: relative;
+    overflow: hidden;
+    &:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 100%;
+      top: 0;
+      left: 0;
     }
-    .textContainerAnimation {
-        max-height: 0;
-        overflow: hidden;
+  }
+  .textContainerAnimation {
+    margin: 1rem;
+  }
+  .servicesItemContainer {
+    display: flex;
+    margin-bottom: 3rem;
+    position: relative;
+    .descriptionContainer {
+      width: 100%;
+      padding-left: 2rem;
+      .titleDescription {
+        @include graphic-title(20rem, $grandientBackground, $white);
+      }
+      .graphDescription {
+        font-size: 1.5rem;
+        color: $white;
+        font-family: $montserrat;
+      }
     }
+    &::before {
+      content: "";
+      width: 1px;
+      height: calc(100% - 30px);
+      background-color: $white;
+      position: absolute;
+      left: 30px;
+      bottom: -30px;
+    }
+  }
+
+  .secondSection {
     .servicesItemContainer {
-        display: flex;
-        margin-bottom: 3rem;
-        position: relative;
-        .descriptionContainer {
-            width: 100%;
-            padding-left: 2rem;
-            .titleDescription {
-                @include graphic-title(20rem, $grandientBackground, $white);
-            }
-            .graphDescription {
-                font-size: 1.5rem;
-                color: $white;
-                font-family: $montserrat;
-            }
-        }
-        &::before {
-            content: '';
-            width: 1px;
-            height: calc(100% - 30px);
-            background-color: $white;
-            position: absolute;
-            left: 30px;
-            bottom: -30px;
-        }
+      &:last-child::before {
+        width: 0;
+        height: 0;
+      }
     }
-    .secondSection {
-        .servicesItemContainer {
-            &:last-child::before {
-                width: 0;
-                height: 0;
-            }
-        }
-    }
+  }
 }

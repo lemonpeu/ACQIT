@@ -20,7 +20,7 @@ const NavDesktop = ({ showSubNav }) => {
         />
       </button>
       {showNav && (
-        <nav className={styles.nav}>
+        <nav className={`${styles.nav} navAnimation`}>
           <Image
             width={120}
             height={20}
@@ -29,7 +29,7 @@ const NavDesktop = ({ showSubNav }) => {
             src="/images/icons/SVG/logotext.svg"
             alt=""
           />
-          <ul className={styles.list}>
+          <ul className={styles.list + " " + "navItemsAnimation"}>
             <a href="https://3dimpresion.com.ar/Peu/nosotros.html">
               <li>Nosotros</li>
             </a>
@@ -53,7 +53,7 @@ const NavDesktop = ({ showSubNav }) => {
               </li>
             </a>
           </ul>
-          <div className={styles.listContact}>
+          <div className={styles.listContact + " " + "navItemsAnimation"}>
             <p>11-39844968</p>
             <p className={styles.contact}>Contactate!</p>
           </div>

@@ -1,0 +1,93 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.header {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  .transition {
+    transform: translateY(0);
+    box-shadow: -5px 3px 63px 80px rgba(0, 0, 0, 0.99);
+    height: 8vh;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .myVideo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  .titleContainer {
+    position: absolute;
+    top: 0;
+    padding-top: 5rem;
+    .title {
+      color: $white;
+      font-size: 4rem;
+      font-family: $montserrat;
+      font-weight: 600;
+    }
+    .socialIconsContainer {
+      display: flex;
+      .imgContainer {
+        width: auto;
+        margin-right: 1.5rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .header {
+    padding: 5rem;
+    .titleContainer {
+      padding-top: 10rem !important;
+      width: 70%;
+      .title {
+        font-size: 5rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .header {
+    padding: 5rem 10rem;
+    .titleContainer {
+      .title {
+        font-size: 6rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    .titleContainer {
+      width: 40%;
+    }
+  }
+}
+
+@media (min-width: 1800px) {
+  .header {
+    .transition {
+      transform: translateY(0);
+      // height: 30vh;
+    }
+  }
+}
+
+@media (min-width: 1920px) and (min-height: 1080px) {
+  .header {
+    .transition {
+      height: 30vh;
+      margin-top: 30rem;
+    }
+  }
+}

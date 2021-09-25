@@ -4,21 +4,9 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  font-size: 65.2%;
-  overflow-x: hidden;
+  font-size: 62.5%;
   height: 100%;
   scroll-behavior: smooth;
-}
-
-button {
-  cursor: pointer;
-}
-
-.main {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
 }
 
 a {
@@ -29,6 +17,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+button {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Animations */
 
 .animation-title:before {
   animation-name: partnerstTitleAnimation;
@@ -50,10 +53,11 @@ a {
   animation-iteration-count: forwards;
   animation-fill-mode: forwards;
   opacity: 0;
+  margin-bottom: -0.5rem;
 }
 
-.equipamentoContainer {
-  animation-name: servicesMobile;
+.equipamentoContainerAnimation {
+  animation-name: heightScanAnimation;
   animation-duration: 10000ms;
   animation-iteration-count: forwards;
   animation-fill-mode: forwards;
@@ -66,12 +70,6 @@ a {
   animation-duration: 10000ms;
   animation-iteration-count: forwards;
   animation-fill-mode: forwards;
-}
-
-@media (min-width: 1800px) {
-  .categories-title-animation {
-    margin-bottom: -10rem;
-  }
 }
 
 .imgContainer {
@@ -129,14 +127,6 @@ a {
   position: absolute;
 }
 
-.companiesContainer {
-  /* animation-name: companiesBox;
-    animation-duration: 4000ms;
-    animation-iteration-count: forwards;
-    animation-fill-mode: forwards;
-    animation-delay: 2500ms; */
-}
-
 /* Lines */
 
 .path1,
@@ -182,25 +172,48 @@ a {
   animation-fill-mode: forwards;
 }
 
+/* Nav */
+
+.navAnimation {
+  animation-name: widthAnimation;
+  animation-duration: 9000ms;
+  animation-iteration-count: forwards;
+  animation-fill-mode: forwards;
+}
+
+.navItemsAnimation {
+  animation-name: opacity;
+  animation-duration: 5000ms;
+  animation-delay: 3000ms;
+  animation-iteration-count: forwards;
+  animation-fill-mode: forwards;
+}
+
 @keyframes dash {
   to {
     stroke-dashoffset: 0;
   }
 }
 
-button {
-  background: transparent;
-  border: none;
+.textContainerAnimation {
+  animation-name: heightScanAnimation;
+  animation-duration: 5s;
+  animation-delay: 6s;
+  animation-iteration-count: forwards;
+  animation-fill-mode: forwards;
 }
 
 @media (min-width: 1000px) {
-  .lineContainerAnimation::before {
+  .textContainerAnimation {
+    animation-delay: 0s;
+  }
+  .textContainerAnimation::before {
     animation-name: lineContainerDesktop;
     animation-duration: 5s;
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
   }
-  .lineContainerAnimation::after {
+  .textContainerAnimation::after {
     animation-name: lineContainerDesktop;
     animation-duration: 5s;
     animation-iteration-count: forwards;
@@ -212,15 +225,6 @@ button {
 @media (min-width: 1000px) {
   .companiesContainer {
     animation-name: companiesBoxDesktop;
-  }
-}
-
-@media (max-width: 699px) {
-  .textContainerAnimation {
-    animation-name: servicesMobile;
-    animation-duration: 5s;
-    animation-delay: 5s;
-    overflow: hidden;
   }
 }
 
@@ -364,5 +368,25 @@ button {
   to {
     transform: translateX(0);
     visibility: visible;
+  }
+}
+
+@keyframes widthAnimation {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes heightScanAnimation {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 100rem;
+    opacity: 1;
   }
 }

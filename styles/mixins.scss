@@ -1,103 +1,108 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 $width: width;
 $background: background-color;
 $color: color;
 $fontSize: font-size;
 
-@mixin graphic-title($width: true, $background: true, $color: true, $fontSize: 1.5rem) {
-    background: $background;
-    border-top-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
-    width: $width;
-    padding: 1rem 0 1rem 1rem;
-    color: $color;
-    font-family: $beVietnam;
-    margin: 0;
-    font-size: $fontSize;
+@mixin graphic-title(
+  $width: true,
+  $background: true,
+  $color: true,
+  $fontSize: 1.5rem
+) {
+  background: $background;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  width: $width;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  color: $color;
+  font-family: $beVietnam;
+  margin: 0;
+  font-size: $fontSize;
 }
 
 @mixin aclaration {
-    font-size: 1.5rem;
-    color: $textBlue;
-    font-weight: 400;
-    height: 100%;
-    border-left: 2px solid $textBlue;
-    padding: 0.5rem 2rem;
-    font-family: $beVietnam;
-    @media (min-width: 1000px) {
-        font-size: 2rem;
-    }
-    @media (min-width: 1200px) {
-        font-size: 2.6rem;
-    }
+  font-size: 1.5rem;
+  color: $textBlue;
+  font-weight: 400;
+  height: 100%;
+  border-left: 2px solid $textBlue;
+  padding: 0.5rem 2rem;
+  font-family: $beVietnam;
+  @media (min-width: 1000px) {
+    font-size: 2rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 2.6rem;
+  }
 }
 
 @mixin title-container-style {
-    width: 55vw;
-    position: relative;
+  width: 55vw;
+  position: relative;
+  .title {
+    margin-bottom: 0;
+    text-align: right;
+    width: 100%;
+    .icon {
+      padding-left: 2rem;
+    }
+  }
+  .lineTitle {
+    width: 100%;
+    height: 1px;
+    background-color: $white;
+    //Se puede borrar
+    position: absolute;
+    left: 0;
+    box-shadow: -2px 1px 8px 1px rgba(8, 133, 230, 1);
+  }
+
+  @media (min-width: 500px) {
+    width: 40vw;
     .title {
-        margin-bottom: 0;
-        text-align: right;
-        width: 100%;
-        .icon {
-            padding-left: 2rem;
-        }
+      font-size: 3.5rem;
     }
-    .lineTitle {
-        width: 100%;
-        height: 1px;
-        background-color: $white;
-        //Se puede borrar
-        position: absolute;
-        left: 0;
-        box-shadow: -2px 1px 8px 1px rgba(8, 133, 230, 1);
-    }
+  }
 
-    @media (min-width: 500px) {
-        width: 40vw;
-        .title {
-            font-size: 3.5rem;
-        }
+  @media (min-width: 700px) {
+    width: 40%;
+    .principalTitle {
+      font-size: 6rem;
+      padding-top: 6rem;
     }
+  }
 
-    @media (min-width: 700px) {
-        width: 40%;
-        .principalTitle {
-            font-size: 6rem;
-            padding-top: 6rem;
-        }
+  @media (min-width: 1000px) {
+    .title {
+      font-size: 5rem !important;
     }
+    .principalTitle {
+      font-size: 6rem;
+    }
+  }
 
-    @media (min-width: 1000px) {
-        .title {
-            font-size: 5rem !important;
-        }
-        .principalTitle {
-            font-size: 6rem;
-        }
-    }
-
-    @media (min-width: 1200px) {
-        width: 30%;
-    }
+  @media (min-width: 1200px) {
+    width: 30%;
+  }
 }
 
 //Animations
 
 @keyframes traslacion {
-    from {
-        transform: translateY(300rem);
-        visibility: hidden;
-    }
-    to {
-        transform: translateY(0rem);
-        visibility: visible;
-    }
+  from {
+    transform: translateY(300rem);
+    visibility: hidden;
+  }
+  to {
+    transform: translateY(0rem);
+    visibility: visible;
+  }
 }
 
 @mixin animation-design {
-    animation-name: translacion;
-    animation-duration: 10;
+  animation-name: translacion;
+  animation-duration: 10;
 }
