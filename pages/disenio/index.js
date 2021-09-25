@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import BoxUserName from '../../components/common/boxusername/boxusername';
 import Footer from '../../components/sections/footer/footer';
 import styles from './disenio.module.scss';
-import pCIcon from '../../public/images/icons/SVG/pcicon.svg';
-import cellphone from '../../public/images/icons/SVG/celphoneicon.svg';
 import FooterDesktop from '../../components/sections/footer/footerdesktop';
 import NavMobile from '../../components/sections/nav/navmobile';
 import NavDesktop from '../../components/sections/nav/navdesktop';
@@ -94,7 +92,7 @@ const Disenio = () => {
                                 >
                                     <BoxUserName
                                         icon
-                                        img={pCIcon}
+                                        img={'/images/icons/SVG/pcicon.svg'}
                                         text={'Diseño web para desktop (para computadoras)'}
                                     ></BoxUserName>
                                 </div>
@@ -103,7 +101,7 @@ const Disenio = () => {
                                 >
                                     <BoxUserName
                                         icon
-                                        img={cellphone}
+                                        img={'/images/icons/SVG/celphoneicon.svg'}
                                         text={'Diseño web responsive (para celulares y tablets)'}
                                     />
                                 </div>

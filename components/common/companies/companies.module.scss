@@ -1,5 +1,9 @@
 @import '../../../styles/variables.scss';
 
+.wrapper {
+    width: 100%;
+}
+
 .companiesContainer {
     background-color: rgb(0, 0, 0, 0.5);
     display: flex;
@@ -15,6 +19,7 @@
     box-shadow: -1px 1px 15px 4px rgba(0, 135, 253, 0.99);
     // max-height: 0;
     transition: height 1s ease-in;
+    padding: 2rem;
     .companiesImgDesktop {
         width: 12rem;
     }
@@ -34,9 +39,9 @@
 .plusIconContainer {
     position: absolute;
     bottom: 50px;
-    left: 50%;
+    left: 35%;
     margin-bottom: 13px;
-    transform: translateX(-50%);
+    transform: translateX(-35%);
     z-index: 10;
     background: #212121;
     border-radius: 50%;
@@ -60,6 +65,9 @@
 }
 
 @media (min-width: 1000px) {
+    .wrapper {
+        width: 90%;
+    }
     .companiesContainer {
         .imgContainer {
             margin: -1rem;
@@ -72,23 +80,19 @@
     .companiesContainer {
         padding-bottom: 0;
         .imgContainer {
-            margin: 0 -5rem;
+            margin: -3rem;
         }
     }
 }
 
 @media (min-width: 1760px) {
-    .companiesContainer {
-        .imgContainer {
-            width: 22%;
-        }
+    .wrapper {
+        width: 70%;
     }
-}
-
-@media (min-width: 2166px) {
     .companiesContainer {
         .imgContainer {
             width: 20%;
+            margin: -3rem -4rem;
         }
     }
 }

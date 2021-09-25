@@ -35,7 +35,7 @@ const Companies = () => {
     };
 
     return (
-        <div style={{ width: '100%' }}>
+        <div className={styles.wrapper}>
             &
             <div className={`${styles.companiesContainer} ${'companiesContainer'}`}>
                 {getRandomItems()
