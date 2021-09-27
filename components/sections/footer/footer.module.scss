@@ -1,134 +1,135 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 .container {
-    background-color: $greyBackground;
-    display: flex;
-    position: relative;
-    &.containerMobile {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 7rem;
-        .logoContainer {
-            background-color: $white;
-            width: 100%;
-        }
-        .footerList,
-        .socialList {
-            list-style: none;
-            padding: 0;
-            background-color: transparent;
-            .listItem {
-                display: flex;
-                align-items: center;
-                font-size: 1.2rem;
-                font-family: $beVietnam;
-                img {
-                    width: 3rem;
-                }
-            }
-        }
-    }
+  background-color: $greyBackground;
+  display: flex;
+  position: relative;
+  &.containerMobile {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 7rem;
     .logoContainer {
-        display: flex;
-        justify-content: center;
-        padding: 1.5rem 0;
-        margin-bottom: 5px;
-    }
-    hr {
-        background-color: $black;
-        height: 1px;
-        width: 31%;
+      background-color: $white;
+      width: 100%;
     }
     .footerList,
     .socialList {
-        list-style: none;
-        padding: 0;
-        background-color: transparent;
-        .listItem {
-            display: flex;
-            align-items: center;
-            font-family: $beVietnam;
-            img {
-                width: 3rem;
-            }
-        }
-    }
-    .socialList {
+      list-style: none;
+      padding: 0;
+      background-color: transparent;
+      .listItem {
         display: flex;
-        margin-bottom: 2rem;
-        .socialitem {
-            margin: 0 0.5rem;
-            img {
-                width: 2.5rem;
-            }
-        }
-    }
-    .goToTop {
-        width: 5rem;
-        background-color: $white;
-        border-top-left-radius: 25px;
-        border-bottom-left-radius: 25px;
-        padding: 1rem 1.5rem 1rem 2rem;
-        position: absolute;
-        right: 0;
-        top: 95px;
+        align-items: center;
+        font-size: 1.2rem;
+        font-family: $beVietnam;
         img {
-            width: 2rem;
+          width: 3rem;
         }
+      }
     }
+  }
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 0;
+    margin-bottom: 5px;
+  }
+  hr {
+    background-color: $black;
+    height: 1px;
+    width: 31%;
+  }
+  .footerList,
+  .socialList {
+    list-style: none;
+    padding: 0;
+    background-color: transparent;
+    .listItem {
+      display: flex;
+      align-items: center;
+      font-family: $beVietnam;
+      img {
+        width: 3rem;
+      }
+    }
+  }
+  .socialList {
+    display: flex;
+    margin-bottom: 2rem;
+    .socialitem {
+      margin: 0 0.5rem;
+      img {
+        width: 2.5rem;
+      }
+    }
+  }
+  .goToTop {
+    width: 5rem;
+    background-color: $white;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    padding: 1rem 1.5rem 1rem 2rem;
+    position: absolute;
+    right: 0;
+    top: 95px;
+    img {
+      width: 2rem;
+    }
+  }
 }
 
 .containerDesktop {
-    justify-content: center;
-    padding-top: 6rem;
-    padding-bottom: 3.5rem;
-    .logoContainer {
-        padding-right: 10rem;
-        padding-top: 3rem;
+  justify-content: center;
+  padding-top: 6rem;
+  padding-bottom: 3.5rem;
+  z-index: 60;
+  .logoContainer {
+    padding-right: 10rem;
+    padding-top: 3rem;
+  }
+  .footerInfoContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .footerInfoContainer {
+    padding-right: 3rem;
+    .footerList {
+      .listItem {
+        font-size: 1.5rem;
+      }
+      .contactTitle {
+        font-size: 1.7rem;
+        font-weight: bold;
+      }
     }
-    .footerInfoContainer {
-        display: flex;
-        flex-direction: column;
+  }
+  .line {
+    background-color: #000000;
+    width: 1px;
+    height: 19rem;
+    margin: 1rem 2rem;
+  }
+  .footerText {
+    font-family: $montserrat;
+    font-weight: 800;
+    font-size: 3rem;
+    width: 27rem;
+    padding-left: 2rem;
+  }
+  .goToTop {
+    color: $textBlue;
+    // flex-direction: column;
+    width: 9rem;
+    height: 14rem;
+    // height: 14rem;
+    padding-top: 2rem;
+    p {
+      transform: rotate(270deg);
+      width: 13rem;
+      transform-origin: top left;
+      padding-top: 4rem;
+      font-size: 1.5rem;
+      text-transform: uppercase;
     }
-    .footerInfoContainer {
-        padding-right: 3rem;
-        .footerList {
-            .listItem {
-                font-size: 1.5rem;
-            }
-            .contactTitle {
-                font-size: 1.7rem;
-                font-weight: bold;
-            }
-        }
-    }
-    .line {
-        background-color: #000000;
-        width: 1px;
-        height: 19rem;
-        margin: 1rem 2rem;
-    }
-    .footerText {
-        font-family: $montserrat;
-        font-weight: 800;
-        font-size: 3rem;
-        width: 27rem;
-        padding-left: 2rem;
-    }
-    .goToTop {
-        color: $textBlue;
-        // flex-direction: column;
-        width: 9rem;
-        height: 14rem;
-        // height: 14rem;
-        padding-top: 2rem;
-        p {
-            transform: rotate(270deg);
-            width: 13rem;
-            transform-origin: top left;
-            padding-top: 4rem;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-        }
-    }
+  }
 }

@@ -1,23 +1,23 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export default function useOnScreen(options) {
-    const [ref, setRef] = useState(false);
-    const [visible, setVisible] = useState(false);
+  const [ref, setRef] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(([entry]) => {
-            setVisible(entry.isIntersecting);
-        }, options);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setVisible(entry.isIntersecting);
+    }, options);
 
-        if (ref) {
-            observer.observe(ref);
-        }
-        return () => {
-            if (ref) {
-                observer.disconnect();
-            }
-        };
-    }, [ref, options]);
+    if (ref) {
+      observer.observe(ref);
+    }
+    return () => {
+      if (ref) {
+        observer.disconnect();
+      }
+    };
+  }, [ref, options]);
 
-    return [setRef, visible];
+  return [setRef, visible];
 }

@@ -1,10 +1,14 @@
 //LineContainer.js
 import styles from "./LineContainer.module.scss";
 
-const LineContainer = ({ style }) => {
+const LineContainer = ({ style, ref, isVisible }) => {
   return (
-    <div className={styles.listContainer} style={style}>
-      <div className={styles.contentlist + " " + "textContainerAnimation"}>
+    <div className={styles.listContainer} style={style} ref={ref}>
+      <div
+        className={
+          !isVisible && styles.contentlist + " " + "textContainerAnimation"
+        }
+      >
         <div className={styles.parraphList}>
           <p className={styles.principalText}>Entendemos</p>
           <p className={styles.secundary}>el problema.</p>

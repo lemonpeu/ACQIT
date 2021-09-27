@@ -9,6 +9,7 @@ import LoadingLogo from "../common/loadingLogo/loadingLogo";
 import HeaderHome from "./HeaderHome/HeaderHome";
 import LinesHomeSection from "./LinesHomeSection/LinesHomeSection";
 import ServicesHome from "./ServicesHome/ServicesHome";
+import ScrollNav from "../common/scrollNav/ScrollNav";
 
 export default function Home() {
   const messagesRef = useRef(null);
@@ -62,6 +63,7 @@ export default function Home() {
         <LoadingLogo />
       ) : (
         <div id="top" className={styles.wrapper + " " + "main"}>
+          <ScrollNav />
           {isModalVisible && (
             <Modal
               onClose={() => modalConfig()}
