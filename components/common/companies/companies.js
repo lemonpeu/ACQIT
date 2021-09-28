@@ -36,7 +36,7 @@ const Companies = () => {
 
   return (
     <div className={styles.wrapper + " " + "companiesContainer"}>
-      <div className={`${styles.companiesContainer}`}>
+      <div className={styles.companiesContainer + " " + "companiesAnimation"}>
         {getRandomItems()
           .slice(0, totalArray ? companiesLogos.length : setArrayCount())
           .map((item, key) => (
@@ -53,7 +53,7 @@ const Companies = () => {
           ))}
       </div>
       <button
-        className={styles.plusIconContainer}
+        className={styles.plusIconContainer + " " + "companiesAnimation"}
         onClick={() => setTotalArray(true)}
       >
         <Image

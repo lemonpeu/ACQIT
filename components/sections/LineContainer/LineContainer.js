@@ -1,12 +1,15 @@
 //LineContainer.js
 import styles from "./LineContainer.module.scss";
+import isVisible from "../../utils/isVisible";
 
-const LineContainer = ({ style, ref, isVisible }) => {
+const LineContainer = ({ style }) => {
+  const [setRef, visible] = isVisible({ threshold: 0.2 });
+
   return (
-    <div className={styles.listContainer} style={style} ref={ref}>
+    <div className={styles.listContainer} style={style} ref={setRef}>
       <div
         className={
-          !isVisible && styles.contentlist + " " + "textContainerAnimation"
+          visible && styles.contentlist + " " + "textContainerAnimation"
         }
       >
         <div className={styles.parraphList}>

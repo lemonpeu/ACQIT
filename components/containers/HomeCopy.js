@@ -10,22 +10,24 @@ import HeaderHome from "./HeaderHome/HeaderHome";
 import LinesHomeSection from "./LinesHomeSection/LinesHomeSection";
 import ServicesHome from "./ServicesHome/ServicesHome";
 import ScrollNav from "../common/scrollNav/ScrollNav";
+import Whatsapp from "../common/whatsapp/whatsapp";
+import isVisible from "../utils/isVisible";
+import { useSpring, animated } from "react-spring";
 
 export default function Home() {
-  const messagesRef = useRef(null);
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [userName, setUserName] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [is1thSectionVisible, setIs1thSectionVisible] = useState(false);
+  const [is2ndSectionVisible, setIs2ndSectionVisible] = useState(false);
+  const [is3rdSectionVisible, setIs3rdSectionVisible] = useState(false);
+
   let isPage1200 = useMediaQuery("(min-width: 1200px)");
   let isPage900 = useMediaQuery("(min-width: 900px)");
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");
 
-  useEffect(() => {
-    if (messagesRef.current) {
-      scrollToBottom();
-    }
-  }, [messagesRef]);
+  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0.3 } });
 
   useEffect(() => {
     if (sessionStorage.getItem("isModal")) {
@@ -33,7 +35,7 @@ export default function Home() {
     } else {
       setIsModalVisible(true);
     }
-  }, [isModalVisible]);
+  }, []);
 
   useEffect(() => {
     if (sessionStorage.getItem("loading")) {
@@ -41,13 +43,13 @@ export default function Home() {
     } else {
       setTimeout(setLoadingBoolean, 5000);
     }
-  }, [isLoading]);
+  }, []);
 
   const modalConfig = (e) => {
     setIsModalVisible(false);
-
     if (e) {
       setUserName(e);
+      sessionStorage.setItem("name", e);
     }
     sessionStorage.setItem("isModal", false);
   };
@@ -62,39 +64,52 @@ export default function Home() {
       {isLoading ? (
         <LoadingLogo />
       ) : (
-        <div id="top" className={styles.wrapper + " " + "main"}>
-          <ScrollNav />
-          {isModalVisible && (
-            <Modal
-              onClose={() => modalConfig()}
-              onClick={(e) => modalConfig(e)}
+        <animated.div style={props}>
+          <div id="top" className={styles.wrapper + " " + "main"}>
+            <ScrollNav
+              isVisible3={is3rdSectionVisible}
+              isVisible2={is2ndSectionVisible}
+              isVisible1={is1thSectionVisible}
             />
-          )}
-          {isPage900 ? (
-            <NavDesktop />
-          ) : (
-            isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
-          )}
-          <div className={styles.main}>
-            {!isPage900 && (
-              <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
+            {isModalVisible && (
+              <Modal
+                onClose={() => modalConfig()}
+                onClick={(e) => modalConfig(e)}
+              />
             )}
-            <HeaderHome />
-            <section className={styles.categories}>
-              <div className={`${styles.transition} transition`}></div>
-              <ServicesHome
-                isModalVisible={isModalVisible}
-                isPage1200={isPage1200}
+            {isPage900 ? (
+              <NavDesktop />
+            ) : (
+              isNavVisible && (
+                <NavMobile onClick={() => setIsNavVisible(false)} />
+              )
+            )}
+            <div className={styles.main}>
+              {!isPage900 && (
+                <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
+              )}
+              <HeaderHome
+                is1thSectionVisible={(e) => setIs1thSectionVisible(e)}
               />
-              <LinesHomeSection
-                userName={userName}
-                isModalVisible={isModalVisible}
-                isFooterMobile={isFooterMobile}
-                isPage1200={isPage1200}
-              />
-            </section>
+              <section className={styles.categories}>
+                <div className={`${styles.transition} transition`}></div>
+                <ServicesHome
+                  isModalVisible={isModalVisible}
+                  isPage1200={isPage1200}
+                  is2rdSectionVisible={(e) => setIs2ndSectionVisible(e)}
+                />
+                <LinesHomeSection
+                  userName={sessionStorage.getItem("name") || userName}
+                  isModalVisible={isModalVisible}
+                  isFooterMobile={isFooterMobile}
+                  isPage1200={isPage1200}
+                  is3rdSectionVisible={(e) => setIs3rdSectionVisible(e)}
+                />
+              </section>
+            </div>
+            <Whatsapp />
           </div>
-        </div>
+        </animated.div>
       )}
     </>
   );

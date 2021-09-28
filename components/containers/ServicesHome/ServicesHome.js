@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 //Utils
 import useWindowSize from "../../utils/windowSice";
+import isVisible from "../../utils/isVisible";
 
 //Components
 import ServicesGraphic from "../../common/servicesGraphic/servicesGraphic";
@@ -11,9 +12,16 @@ import Image from "../../common/Image/Image";
 //Styles
 import styles from "./ServicesHome.module.scss";
 
-const ServicesHome = ({ isModalVisible, isPage1200 }) => {
+const ServicesHome = ({ isModalVisible, isPage1200, is2rdSectionVisible }) => {
   const [showServices, setShowServices] = useState(false);
+  const [setRef, visible] = isVisible({ threshold: 0.2 });
+
+  useEffect(() => {
+    is2rdSectionVisible(visible);
+  }, [visible]);
+
   const size = useWindowSize();
+
   return (
     <div
       className={styles.servicesWrapper}
@@ -21,6 +29,7 @@ const ServicesHome = ({ isModalVisible, isPage1200 }) => {
       style={{
         height: isPage1200 ? `${size.height}px` : "100%",
       }}
+      ref={setRef}
     >
       <div className={styles.services}>
         <div className={styles.informationWrapper}>

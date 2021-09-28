@@ -3,7 +3,7 @@
   position: fixed;
   right: 2rem;
   top: 0;
-  z-index: 30;
+  z-index: 11;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -40,9 +40,11 @@
       background-color: transparent;
       box-shadow: -1px 1px 10px 2px rgb(0 135 253 / 99%);
       border-radius: 50%;
+      transition: all 0.5s ease-in;
       &.dot {
         background-color: #0889ea;
         border: none;
+        transition: all 0.5s ease-in;
       }
     }
   }

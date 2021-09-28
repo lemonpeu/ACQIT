@@ -2,6 +2,8 @@
 
 .wrapper {
   position: relative;
+  max-height: 0;
+  overflow: hidden;
 }
 
 .companiesContainer {
@@ -10,13 +12,11 @@
   grid-template-columns: repeat(3, 1fr);
   border-radius: 25px;
   margin-top: 2rem;
-  flex-wrap: wrap;
   border: 1px solid $white;
   border-radius: 30px;
   position: relative;
-  overflow: hidden;
-  box-shadow: -1px 1px 15px 4px rgba(0, 135, 253, 0.99);
-  transition: height 1s ease-in;
+
+  // transition: height 1s ease-in;
   .imgContainer {
     display: flex;
     justify-content: center;
@@ -33,7 +33,6 @@
   background: #212121;
   border-radius: 50%;
   padding: 0;
-  box-shadow: -1px 1px 15px 1px rgba(0, 135, 253, 0.99);
   cursor: pointer;
 }
 

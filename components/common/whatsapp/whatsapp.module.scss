@@ -1,11 +1,11 @@
 .whatsappContainer {
-    position: fixed;
-    bottom: 1rem;
-    right: 0;
-    display: flex;
-    justify-content: flex-end;
-    z-index: 20;
-    .imgContainer .img {
-        width: 8rem;
-    }
+  position: fixed;
+  bottom: 1rem;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 100;
+  .imgContainer .img {
+    width: 8rem;
+  }
 }
