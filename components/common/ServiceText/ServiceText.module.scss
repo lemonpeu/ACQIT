@@ -1,63 +1,66 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .servicesItemContainer {
-  width: auto;
-  position: relative;
-  display: flex;
-  transform: translate(0, 0);
-  &::before {
-    content: "";
-    width: 0;
-    height: 0;
-    top: 0;
-    left: 0;
-  }
-  .titleDescription {
-    @include graphic-title(14em, $grandientBackground, $white);
-    font-size: 1.8rem;
-    justify-content: space-between;
+    width: auto;
+    position: relative;
     display: flex;
-    padding-right: 2rem;
-    span {
-      background-color: $textBlue;
-      color: $white;
-      border-radius: 25px;
-      padding: 0.5rem 1rem;
-      line-height: 1;
+    transform: translate(0, 0);
+    &::before {
+        content: '';
+        width: 0;
+        height: 0;
+        top: 0;
+        left: 0;
     }
-  }
-  .descriptionContainer {
-    width: 35rem;
-    padding-left: 2rem;
-    .graphDescription {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      color: $white;
-      font-family: $montserrat;
+    .titleDescription {
+        @include graphic-title(16em, $grandientBackground, $white);
+        font-size: 1.5rem;
+        justify-content: space-between;
+        display: flex;
+        padding-right: 2rem;
+        span {
+            background-color: $textBlue;
+            color: $white;
+            border-radius: 25px;
+            padding: 0.5rem 1rem;
+            line-height: 1;
+        }
+        .seeMore {
+            box-shadow: -1px 1px 10px 1px rgba(255, 255, 255, 0.7);
+        }
     }
-  }
-  &:first-child {
-    left: 142px;
-    top: -97px;
-  }
-  &:nth-of-type(2) {
-    left: 295px;
-    bottom: -62px;
-  }
-  &:nth-of-type(3) {
-    flex-direction: column;
-    left: -209px;
-    top: 40px;
-    width: 33rem;
     .descriptionContainer {
-      padding-left: 0;
-      margin-top: 1rem;
-      width: calc(100% - 5rem);
+        width: 35rem;
+        padding-left: 2rem;
+        .graphDescription {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: $white;
+            font-family: $montserrat;
+        }
     }
-  }
-  &:last-child {
-    top: -36px;
-    left: 135px;
-  }
+    &:first-child {
+        left: 142px;
+        top: -97px;
+    }
+    &:nth-of-type(2) {
+        left: 295px;
+        bottom: -62px;
+    }
+    &:nth-of-type(3) {
+        flex-direction: column;
+        left: -209px;
+        top: 40px;
+        width: 33rem;
+        .descriptionContainer {
+            padding-left: 0;
+            margin-top: 1rem;
+            width: calc(100% - 5rem);
+        }
+    }
+    &:last-child {
+        top: -36px;
+        left: 135px;
+    }
 }

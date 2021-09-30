@@ -46,7 +46,8 @@
     .inputContainer {
         width: calc(100% - 300px);
         margin-left: auto;
-        top: -18px;
+        top: 50%;
+        transform: translateY(-50%);
         input {
             width: calc(100% - 50px);
         }
