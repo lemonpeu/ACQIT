@@ -5,7 +5,7 @@ import styles from "./linesDesktop.module.scss";
 const LinesDesktop = ({ showAnimation }) => {
   return (
     <div className={`${styles.container} ${showAnimation && "lines"}`}>
-      <div className={styles.line1}>
+      <div className={styles.line1 + " " + "svgAnimation"}>
         <Line1Blue />
       </div>
       <div className={styles.line2}>

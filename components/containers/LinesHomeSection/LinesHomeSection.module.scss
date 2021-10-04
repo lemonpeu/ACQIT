@@ -1,27 +1,32 @@
 .linesHomeSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 5rem;
+  .lines {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    .lines {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 4rem 0;
-    }
+    justify-content: center;
+    padding: 4rem 0;
+  }
 }
 
 @media (min-width: 1000px) {
-    .linesHomeSection {
-        .lines {
-            margin: 5rem 0;
-            padding: 5rem 0 10rem 0;
-        }
+  .linesHomeSection {
+    padding-bottom: 0;
+    .linesGraphicContainer {
+      scroll-snap-align: center;
     }
+    .lines {
+      margin: 5rem 0;
+      padding: 5rem 0 10rem 0;
+    }
+  }
 }
 
 @media (min-width: 1300px) {
-    .lines {
-        margin-bottom: 0;
-        padding: 0 0 10rem 0;
-    }
+  .lines {
+    margin-bottom: 0;
+    padding: 0 0 10rem 0;
+  }
 }

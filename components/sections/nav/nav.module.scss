@@ -7,7 +7,7 @@
   position: fixed;
   width: 100%;
   margin-top: 5rem;
-  z-index: 2000;
+  z-index: 500;
   .navBtnPosition {
     position: absolute;
     left: 1rem;
@@ -61,6 +61,7 @@
       li {
         font-family: $beVietnam;
         font-size: 1.6rem;
+        cursor: pointer;
       }
       &.list {
         margin-left: 8rem;
@@ -68,27 +69,33 @@
           margin-right: 3rem;
         }
       }
-      .usItem:hover .subList {
-        display: flex;
-        flex-direction: column;
-        transition: all 1s ease-in;
-      }
-      .subList {
-        // display: none;
-        top: 0;
-        position: absolute;
-        background: $darkGreen;
-        padding: 1rem;
-        border-bottom-left-radius: 25px;
-        border-bottom-right-radius: 25px;
-        transition: all 1s ease-in;
-        li {
-          transition: all 0.5s ease-in;
-          padding: 1rem 0;
-          &:hover {
-            font-weight: 500;
+      .usItem {
+        position: relative;
+        .subList {
+          display: none;
+          top: 100%;
+          position: absolute;
+          background: $darkGreen;
+          padding: 1rem;
+          border-bottom-left-radius: 25px;
+          border-bottom-right-radius: 25px;
+          transition: all 1s ease-in;
+          z-index: 100;
+          cursor: pointer;
+          li {
             transition: all 0.5s ease-in;
+            padding: 1rem 0;
+            &:hover {
+              font-weight: 500;
+              transition: all 0.5s ease-in;
+            }
           }
+        }
+        &:hover >  .subList {
+          display: flex;
+          flex-direction: column;
+          transition: all 1s ease-in;
+          opacity: 1;
         }
       }
     }

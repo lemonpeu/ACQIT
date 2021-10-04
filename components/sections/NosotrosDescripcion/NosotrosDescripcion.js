@@ -1,7 +1,7 @@
 import Image from "../../common/Image/Image";
 import styles from "./NosotrosDescripcion.module.scss";
 import NosotrosText from "../../common/nosotrosTexto/NosotrosText";
-import { useEffect } from "react";
+import useWindowSize from "../../utils/windowSice";
 
 const NosotrosDescripcion = ({
   showText1,
@@ -12,14 +12,10 @@ const NosotrosDescripcion = ({
   onClick2,
   onClick3,
 }) => {
-  useEffect(() => {
-    console.log(showText1, showText2, showText3);
-  }, [showText1, showText2, showText3]);
+  const size = useWindowSize();
+
   return (
-    <div
-      className={styles.wrapper}
-      style={{ marginBottom: `${showText2 && !isFooterMobile ? "24rem" : 0}` }}
-    >
+    <div className={styles.wrapper}>
       <article className={styles.descriptionContainer}>
         <div
           className={showText1 ? `${styles.setAnimation1}` : `${styles.icon}`}
@@ -51,7 +47,9 @@ const NosotrosDescripcion = ({
         {showText2 && <NosotrosText showText2={showText2} text2 />}
       </article>
       <article
-        className={styles.descriptionContainer}
+        className={`${styles.descriptionContainer} ${
+          showText2 && "usAnimationBox2"
+        }`}
         style={{
           left: `${showText2 ? 0 : "120px"}`,
           top: `${showText2 ? "182px" : ""}`,

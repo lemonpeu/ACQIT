@@ -1,5 +1,10 @@
 @import "../../../styles/variables.scss";
 
+.wrapper {
+  position: relative;
+  scroll-snap-align: center;
+}
+
 .container {
   background-color: $greyBackground;
   display: flex;
@@ -81,8 +86,8 @@
 .containerDesktop {
   justify-content: center;
   padding-top: 6rem;
-  padding-bottom: 3.5rem;
   z-index: 15;
+  height: 27rem;
   .logoContainer {
     padding-right: 10rem;
     padding-top: 3rem;

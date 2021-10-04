@@ -1,18 +1,11 @@
 import { useEffect } from "react";
 import styles from "./LinesHomeSection.module.scss";
-import Footer from "../../sections/footer/footer";
-import FooterDesktop from "../../sections/footer/footerdesktop";
 import BoxUserName from "../../common/boxusername/boxusername";
 import LineContainer from "../../sections/LineContainer/LineContainer";
 import useWindowSize from "../../utils/windowSice";
 import IsVisible from "../../utils/isVisible";
 
-const LinesHomeSection = ({
-  userName,
-  isFooterMobile,
-  isPage1200,
-  is3rdSectionVisible,
-}) => {
+const LinesHomeSection = ({ is3rdSectionVisible, isFooterMobile }) => {
   const [setRef, visible] = IsVisible({ threshold: 0.2 });
 
   useEffect(() => {
@@ -23,18 +16,17 @@ const LinesHomeSection = ({
   return (
     <div
       style={{
-        height: isPage1200 ? `${size.height}px` : "100%",
+        height: isFooterMobile ? `calc(${size.height}px - 35rem)` : "100%",
       }}
-      className={styles.linesHomeSection}
-      ref={setRef}
-      id="thirdSection"
+      className={styles.linesHomeSection + " " + "section"}
     >
-      <section className={styles.linesGraphicContainer}>
+      <section
+        className={styles.linesGraphicContainer}
+        id="thirdSection"
+        ref={setRef}
+      >
         <LineContainer />
       </section>
-
-      <BoxUserName className={styles.boxUserName} boxUserName name={userName} />
-      {isFooterMobile ? <FooterDesktop /> : <Footer />}
     </div>
   );
 };

@@ -18,14 +18,23 @@ const ScrollNav = ({ isVisible1, isVisible2, isVisible3 }) => {
     <div className={styles.scrollNav}>
       <div className={styles.line1}></div>
       <div className={styles.dots}>
-        <Link href="/#top">
-          <div className={showNavDot().isVisible1 && styles.dot}></div>
+        <Link href="/#firstSection" passHref>
+          <div
+            id="link1"
+            className={showNavDot().isVisible1 && styles.dot}
+          ></div>
         </Link>
-        <Link href="/#servicios">
-          <div className={showNavDot().isVisible2 && styles.dot}></div>
+        <Link href="/#servicios" passHref>
+          <div
+            id="link2"
+            className={showNavDot().isVisible2 && styles.dot}
+          ></div>
         </Link>
-        <Link href="/#thirdSection">
-          <div className={showNavDot().isVisible3 && styles.dot}></div>
+        <Link href="/#thirdSection" passHref>
+          <div
+            id="link3"
+            className={showNavDot().isVisible3 && styles.dot}
+          ></div>
         </Link>
       </div>
       <div className={styles.line2}></div>

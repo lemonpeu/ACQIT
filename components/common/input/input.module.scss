@@ -14,6 +14,8 @@
         outline: none;
         height: 30px;
         box-shadow: -6px 2px 32px 0px rgba(105, 105, 105, 0.54);
+        padding-left: 1rem;
+        font-family: $montserrat;
     }
     .button {
         position: absolute;
@@ -47,7 +49,7 @@
         width: calc(100% - 300px);
         margin-left: auto;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-67%);
         input {
             width: calc(100% - 50px);
         }

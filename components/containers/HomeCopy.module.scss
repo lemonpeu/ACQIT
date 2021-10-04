@@ -60,6 +60,8 @@
 
 @media (min-width: 1000px) {
   .wrapper {
+    // overflow-y: auto;
+    // scroll-snap-type: y mandatory;
     .main {
       .transition {
         height: 15rem;

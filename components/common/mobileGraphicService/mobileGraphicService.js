@@ -13,7 +13,7 @@ const MobileGraphicServices = ({ isModalVisible }) => {
         >
           <div className={styles.firstSection}>
             <div className={styles.servicesItemContainer}>
-              <ServiceIcon name="equipamento" width={100} height={80} />
+              <ServiceIcon name="equipamiento" width={100} height={80} />
               <div className={styles.descriptionContainer}>
                 <p className={styles.titleDescription}>01 | Equipamiento</p>
                 <p className={styles.graphDescription}>

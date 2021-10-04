@@ -58,6 +58,7 @@
 @media (min-width: 1000px) {
   .header {
     padding: 5rem 10rem;
+    scroll-snap-align: center;
     .titleContainer {
       .title {
         font-size: 6rem;

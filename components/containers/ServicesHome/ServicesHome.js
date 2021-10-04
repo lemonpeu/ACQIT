@@ -19,18 +19,22 @@ const ServicesHome = ({ isModalVisible, isPage1200, is2rdSectionVisible }) => {
 
   useEffect(() => {
     is2rdSectionVisible(visible);
-  }, [visible]);
+  }, [is2rdSectionVisible, visible]);
 
   const size = useWindowSize();
 
   return (
     <div
-      className={styles.servicesWrapper}
-      id="servicios"
+      className={
+        styles.servicesWrapper +
+        " " +
+        `${showServices && styles["servicesWrapperShow"] + " " + "section"}`
+      }
       style={{
         height: isPage1200 ? `${size.height}px` : "100%",
       }}
       ref={setRef}
+      id="servicios"
     >
       <div className={styles.services}>
         <div className={styles.informationWrapper}>

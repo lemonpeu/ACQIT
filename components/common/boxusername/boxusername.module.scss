@@ -7,7 +7,7 @@
   width: 100%;
   z-index: 20;
   &.boxUserNameStyle {
-    bottom: 25rem;
+   top: -71px;
     position: absolute;
     .container {
       padding-bottom: 5rem;
@@ -56,10 +56,12 @@
   }
 }
 
+// 700 changes to large box
+
 @media (min-width: 700px) {
   .containerBox {
     &.boxUserNameStyle {
-      bottom: 26.5rem;
+      top: -44px;
       .container {
         padding: 2rem;
         width: 80% !important;
@@ -69,7 +71,6 @@
       }
     }
     .container {
-      //   padding-bottom: 1.5rem;
       .welcomeContainer {
         .desktopVersion {
           display: flex;

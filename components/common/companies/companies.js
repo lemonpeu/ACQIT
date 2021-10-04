@@ -2,15 +2,21 @@ import { companiesLogos } from "../../utils/companiesArray";
 import styles from "./companies.module.scss";
 import Image from "../Image/Image";
 import useWindowSize from "../../utils/windowSice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Companies = () => {
   const [totalArray, setTotalArray] = useState(false);
+  const [companies, setCompanies] = useState([]);
   const size = useWindowSize();
 
   const getRandomItems = () => {
-    return companiesLogos.sort(() => Math.random() - 0.5);
+    let items = companiesLogos.sort(() => Math.random() - 0.5);
+    setCompanies(items);
   };
+
+  useEffect(() => {
+    getRandomItems();
+  }, []);
 
   const setImageSize = () => {
     if (size.width > 700 && size.width < 900) {
@@ -37,7 +43,7 @@ const Companies = () => {
   return (
     <div className={styles.wrapper + " " + "companiesContainer"}>
       <div className={styles.companiesContainer + " " + "companiesAnimation"}>
-        {getRandomItems()
+        {companies
           .slice(0, totalArray ? companiesLogos.length : setArrayCount())
           .map((item, key) => (
             <div className={styles.imgContainer} key={key}>
