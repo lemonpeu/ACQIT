@@ -23,7 +23,7 @@ const BoxUserName = (props) => {
                     />
                 )}
                 {boxUserName ? (
-                    <div className={styles.welcomeContainer}>
+                    <div className={styles.welcomeContainer} id="contact">
                         <p className={styles.text}>Hola {name}</p>
                         <div className={styles.desktopVersion}>
                             <p className={styles.text}>¿Necesitas asistencia?</p>

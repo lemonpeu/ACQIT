@@ -1,51 +1,51 @@
 .scrollNav {
-  height: 100%;
-  position: fixed;
-  right: 2rem;
-  top: 0;
-  z-index: 11;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  .line1,
-  .line2 {
-    background-color: #0885e6;
-    width: 1px;
-    height: 45%;
-  }
-  .line1 {
+    height: 100%;
+    position: fixed;
+    right: 2rem;
     top: 0;
-    position: absolute;
-  }
-  .line2 {
-    bottom: 0;
-    position: absolute;
-  }
-  .dots {
-    margin: 0 0 2rem 0;
-    width: 20px;
-    position: absolute;
-    right: 50%;
-    top: 50%;
-    transform: translate(50%, -50%);
+    z-index: 11;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    div {
-      margin: 5px 0;
-      width: 10px;
-      height: 10px;
-      border: 1px solid #fff;
-      background-color: transparent;
-      box-shadow: -1px 1px 10px 2px rgb(0 135 253 / 99%);
-      border-radius: 50%;
-      transition: all 0.5s ease-in;
-      &.dot {
-        background-color: #0889ea;
-        border: none;
-        transition: all 0.5s ease-in;
-      }
+    .line1,
+    .line2 {
+        background-color: #0885e6;
+        width: 1px;
+        height: 45%;
     }
-  }
+    .line1 {
+        top: 0;
+        position: absolute;
+    }
+    .line2 {
+        bottom: 0;
+        position: absolute;
+    }
+    .dots {
+        margin: 0 0 2rem 0;
+        width: 20px;
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        transform: translate(50%, -50%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        div {
+            margin: 5px 0;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #fff;
+            background-color: transparent;
+            box-shadow: -1px 1px 10px 2px rgb(0 135 253 / 99%);
+            border-radius: 50%;
+            transition: all 0.5s ease-in;
+            &.dot {
+                background-color: #0889ea;
+                border: none;
+                transition: all 0.5s ease-in;
+            }
+        }
+    }
 }

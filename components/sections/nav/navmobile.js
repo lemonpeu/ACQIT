@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './nav.module.scss';
 import Image from '../../common/Image/Image';
-import { myLoader } from '../../utils/myLoader';
+import Link from 'next/link';
 
 const NavMobile = ({ onClick }) => {
     return (
@@ -19,39 +19,42 @@ const NavMobile = ({ onClick }) => {
                             alt=""
                         />
                     </button>
-
-                    <Image
-                        width={85}
-                        height={25}
-                        layout="fixed"
-                        className={styles.logoText}
-                        src="/images/icons/SVG/logotext.svg"
-                        alt=""
-                    />
+                    <Link href="/" passHref>
+                        <Image
+                            width={85}
+                            height={25}
+                            layout="fixed"
+                            className={styles.logoText}
+                            src="/images/icons/SVG/logotext.svg"
+                            alt=""
+                        />
+                    </Link>
                 </div>
 
                 <ul className={styles.list}>
-                    <a href="https://3dimpresion.com.ar/Peu/nosotros.html">
+                    <Link href="/nosotros" passHref>
                         <li className={styles.principalItem}>Nosotros</li>
-                    </a>
-                    <a href="https://3dimpresion.com.ar/Peu/index.html#servicios">
+                    </Link>
+                    <Link href="/#servicios" passHref>
                         <li className={styles.principalItem}>Servicios</li>
-                    </a>
-                    <a href="https://3dimpresion.com.ar/Peu/equipamiento.html">
+                    </Link>
+                    <Link href="/equipamiento" passHref>
                         <li className={styles.navItem}>Equipamiento +</li>
-                    </a>
-                    <a href="https://3dimpresion.com.ar/Peu/consultoria.html">
+                    </Link>
+                    <Link href="/consultoria" passHref>
                         <li className={styles.navItem}>ConsultoríaIT +</li>
-                    </a>
-                    <a href="https://3dimpresion.com.ar/Peu/seguridadit.html">
+                    </Link>
+                    <Link href="/seguridadit" passHref>
                         <li className={styles.navItem}>SeguridadIT +</li>
-                    </a>
-                    <a href="https://3dimpresion.com.ar/Peu/disenio.html">
+                    </Link>
+                    <Link href="/disenio" passHref>
                         <li className={styles.navItem}>Diseño web +</li>
-                    </a>
+                    </Link>
                 </ul>
                 <div className={styles.listContact}>
-                    <p className={styles.contact}>Contactate!</p>
+                    <Link href="/#contact" passHref>
+                        <p className={styles.contact}>Contactate!</p>
+                    </Link>
                 </div>
             </nav>
         </div>

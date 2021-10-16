@@ -145,7 +145,6 @@
     .listContainer {
         .contentlist {
             .parraphList {
-                margin: 0 5rem 5rem 5rem;
                 &::before {
                     top: 79px;
                     left: 80px;
@@ -157,6 +156,16 @@
             }
             &::after {
                 left: 133px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1600px) {
+    .listContainer {
+        .contentlist {
+            .parraphList {
+                margin: 0 4rem 5rem 4rem;
             }
         }
     }
