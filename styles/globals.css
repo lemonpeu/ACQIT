@@ -216,7 +216,17 @@ button {
 /* Nav */
 
 .home .navAnimation {
-    --width: calc(100% - 100px);
+    --widthStart: 0;
+    --widthEnd: calc(100% - 100px);
+    animation-name: widthAnimation;
+    animation-duration: 2000ms;
+    animation-iteration-count: forwards;
+    animation-fill-mode: forwards;
+}
+
+.home .navAnimationClose {
+    /* --widthStart: calc(100% - 100px); */
+    --widthEnd: 0;
     animation-name: widthAnimation;
     animation-duration: 2000ms;
     animation-iteration-count: forwards;
@@ -360,13 +370,15 @@ button {
 
 @keyframes translation {
     from {
+        opacity: 0;
         left: 120px;
         top: unset;
         margin-bottom: 0;
     }
     to {
+        opacity: 1;
         left: 0;
-        top: 182px;
+        bottom: 0;
         margin-bottom: 11rem;
     }
 }
@@ -497,10 +509,10 @@ button {
 
 @keyframes widthAnimation {
     0% {
-        width: 0;
+        width: var(--widthStart);
     }
     100% {
-        width: var(--width);
+        width: var(--widthEnd);
     }
 }
 

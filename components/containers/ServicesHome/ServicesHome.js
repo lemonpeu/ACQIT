@@ -25,11 +25,7 @@ const ServicesHome = ({ isModalVisible, isPage1200, is2rdSectionVisible, ref }) 
 
     return (
         <div
-            className={
-                styles.servicesWrapper +
-                ' ' +
-                `${showServices && styles['servicesWrapperShow'] + ' ' + 'section'}`
-            }
+            className={styles.servicesWrapper + ' ' + `${showServices + ' ' + 'section'}`}
             style={{
                 height: isPage1200 ? `${size.height}px` : '100%',
             }}

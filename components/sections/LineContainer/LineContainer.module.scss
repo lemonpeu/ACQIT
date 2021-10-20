@@ -152,10 +152,10 @@
             }
 
             &::before {
-                left: 133px;
+                left: 118px;
             }
             &::after {
-                left: 133px;
+                left: 118px;
             }
         }
     }
@@ -166,27 +166,6 @@
         .contentlist {
             .parraphList {
                 margin: 0 4rem 5rem 4rem;
-            }
-        }
-    }
-}
-
-@media (min-width: 1920px) and (min-height: 1080px) {
-    .listContainer {
-        .contentlist {
-            .parraphList {
-                margin: 0 8rem 5rem 8rem;
-                &::before {
-                    top: 79px;
-                    left: 85px;
-                }
-            }
-
-            &::before {
-                left: 170px;
-            }
-            &::after {
-                left: 170px;
             }
         }
     }

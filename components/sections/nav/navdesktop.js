@@ -4,7 +4,7 @@ import Image from '../../common/Image/Image';
 import Link from 'next/link';
 import { useScrollDown } from '../../utils/isScrollDown';
 
-const NavDesktop = ({ isScrollDown }) => {
+const NavDesktop = () => {
     const [showNav, setShowNav] = useState(true);
     const scrollY = useScrollDown();
 
@@ -29,18 +29,18 @@ const NavDesktop = ({ isScrollDown }) => {
                     alt=""
                 />
             </button>
-            {showNav && (
-                <nav className={`${styles.nav} navAnimation`}>
-                    <Link href="/" passHref>
-                        <Image
-                            width={120}
-                            height={20}
-                            layout="fixed"
-                            className={styles.logoText}
-                            src="/images/icons/SVG/logotext.svg"
-                            alt="logo ACQIT"
-                        />
-                    </Link>
+            <nav className={`${styles.nav} ${showNav ? 'navAnimation' : 'navAnimationClose'}`}>
+                <Link href="/" passHref>
+                    <Image
+                        width={120}
+                        height={20}
+                        layout="fixed"
+                        className={styles.logoText}
+                        src="/images/icons/SVG/logotext.svg"
+                        alt="logo ACQIT"
+                    />
+                </Link>
+                {showNav && (
                     <ul className={styles.list + ' ' + 'navItemsAnimation'}>
                         <Link href="/nosotros" passHref>
                             <li>Nosotros</li>
@@ -65,14 +65,16 @@ const NavDesktop = ({ isScrollDown }) => {
                             </ul>
                         </li>
                     </ul>
+                )}
+                {showNav && (
                     <div className={styles.listContact + ' ' + 'navItemsAnimation'}>
                         <p>11-39844968</p>
                         <Link href="/#contact" passHref>
                             <p className={styles.contact}>Contactate!</p>
                         </Link>
                     </div>
-                </nav>
-            )}
+                )}
+            </nav>
         </div>
     );
 };
