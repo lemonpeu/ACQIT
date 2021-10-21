@@ -3,6 +3,7 @@ import styles from "./companies.module.scss";
 import Image from "../Image/Image";
 import useWindowSize from "../../utils/windowSice";
 import { useEffect, useState } from "react";
+import PlusIcon from "../../../public/images/icons/home/SVG/plusicon";
 
 const Companies = () => {
   const [totalArray, setTotalArray] = useState(false);
@@ -62,12 +63,12 @@ const Companies = () => {
         className={styles.plusIconContainer + " " + "companiesAnimation"}
         onClick={() => setTotalArray(true)}
       >
-        <Image
-          layout={"intrinsic"}
-          width={40}
-          height={38}
-          src={"/images/icons/home/SVG/plusicon.svg"}
-          alt={"Abrir más"}
+        <PlusIcon
+          line={
+            totalArray
+              ? "M 28.77 20.67 H 21 v 0 h -1.6 v 0 h -7.78 v -1.58 h 7.78 v 0 H 21 v 0 h 7.78 z"
+              : "M28.77 20.67H21v7.84h-1.6v-7.84h-7.78v-1.58h7.78v-7.73H21v7.73h7.78z"
+          }
         />
       </button>
     </div>

@@ -9,9 +9,20 @@ body {
     scroll-behavior: smooth;
 }
 
+body::-webkit-scrollbar {
+    width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #00243f;
+}
+
+body::-webkit-scrollbar-thumb {
+   background-color: #00589b;
+}
+
 #__next {
     flex-direction: column;
-    flex: 1;
 }
 
 #__next > div:first-child,
@@ -167,6 +178,15 @@ button {
     animation-fill-mode: forwards;
 }
 
+.third {
+    opacity: 0;
+    animation-name: opacity;
+    animation-duration: 9000ms;
+    animation-iteration-count: forwards;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+}
+
 /* SeguridadIt */
 
 .iconTextAnimation {
@@ -225,7 +245,7 @@ button {
 }
 
 .home .navAnimationClose {
-    /* --widthStart: calc(100% - 100px); */
+    --widthStart: calc(100% - 100px);
     --widthEnd: 0;
     animation-name: widthAnimation;
     animation-duration: 2000ms;
@@ -233,8 +253,11 @@ button {
     animation-fill-mode: forwards;
 }
 
+
+
 .navAnimation {
-    --width: 100%;
+    --widthStart: 0;
+    --widthEnd: 100%;
     animation-name: widthAnimation;
     animation-duration: 2000ms;
     animation-iteration-count: forwards;

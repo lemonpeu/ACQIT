@@ -31,6 +31,15 @@
       padding-left: 2rem;
       .titleDescription {
         @include graphic-title(20rem, $grandientBackground, $white);
+        .seeMore {
+          box-shadow: -1px 1px 10px 1px rgba(255, 255, 255, 0.7);
+          background-color: $textBlue;
+          color: $white;
+          border-radius: 25px;
+          padding: 2px 8px;
+          line-height: 2;
+          margin-left: 5px;
+        }
       }
       .graphDescription {
         font-size: 1.5rem;

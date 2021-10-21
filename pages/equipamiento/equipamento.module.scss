@@ -19,7 +19,7 @@
     position: relative;
     .main {
         position: relative;
-        background-image: url('/images/fondos/equipamento-80.jpg');
+        background-image: url('/images/fondos/equipamento-mobile-80.jpg');
         background-position: center;
         background-size: 300%;
         height: 100%;
@@ -48,6 +48,7 @@
                 @include aclaration;
             }
             .companiesContainer {
+
                 .partnerTitle {
                     @include graphic-title(13rem, transparent, $white);
                     position: relative;
@@ -98,6 +99,7 @@
             padding: 3rem 10rem;
             padding-bottom: 10rem;
             background-size: cover;
+            background-image: url('/images/fondos/equipamento-80.jpg');
             .contentContainer {
                 .title {
                     font-size: 5rem;

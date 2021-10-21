@@ -91,7 +91,9 @@ const Disenio = () => {
               )}
               <div
                 className={styles.contentContainer}
-                style={{ height: "100%", height: size.height + "px" }}
+                style={{
+                  height: `${isNavDesktop ? size.height + "px" : "100%"}`,
+                }}
               >
                 <h1 className={styles.title}>Diseño web</h1>
                 <p className={styles.description}>

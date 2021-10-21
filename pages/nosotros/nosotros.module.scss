@@ -55,6 +55,7 @@
       .textContainerSubContainer {
         .titleContainer {
           @include title-container-style;
+          
           .title {
             .icon1 {
               width: 3rem;
@@ -309,9 +310,6 @@
               height: 13.5rem;
             }
           }
-          // .textContainer {
-          //   margin-left: -4rem;
-          // }
         }
         .title {
           font-size: 5rem;
@@ -365,6 +363,7 @@
 
 @media (min-width: 1200px) {
   .wrapper {
+    overflow-x: hidden;
     .main {
       .contentContainer {
         .contentWrapper {

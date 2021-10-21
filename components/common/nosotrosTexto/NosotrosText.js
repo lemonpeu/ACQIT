@@ -34,11 +34,7 @@ const NosotrosText = ({
       );
     } else if (text2) {
       return (
-        <div
-          className={`${styles.textContainer} ${
-            showText2 ? "textNosotros" : ""
-          }`}
-        >
+        <div className={`${styles.textContainer} ${showText2 ? "third" : ""}`}>
           <p className={styles.description}>
             <span style={{ color: "#0885e6" }}>
               Escuchar e interiorizarnos con la problemática de nuestros
@@ -61,11 +57,7 @@ const NosotrosText = ({
       );
     } else if (text3) {
       return (
-        <div
-          className={`${styles.textContainer} ${
-            showText3 ? "textNosotros" : ""
-          }`}
-        >
+        <div className={`${styles.textContainer} ${showText3 ? "third" : ""}`}>
           <p className={styles.description}>
             Nos gustan los desafíos, el dinamismo y ponernos a prueba
             constantemente&nbsp;
