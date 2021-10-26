@@ -117,7 +117,7 @@ export default function Home() {
                 <div
                   style={{
                     scrollSnapAlign: "start",
-                    height: isPage1200 ? `${size.height}px` : "100vh",
+                    height: "100vh",
                   }}
                 >
                   <HeaderHome
@@ -126,7 +126,7 @@ export default function Home() {
                 </div>
                 <div
                   style={{
-                    scrollSnapAlign: "start",
+                    scrollSnapAlign: "center",
                     height: isPage1200 ? `${size.height}px` : "100vh",
                   }}
                 >
@@ -134,12 +134,11 @@ export default function Home() {
                     isModalVisible={isModalVisible}
                     isPage1200={isPage1200}
                     is2rdSectionVisible={(e) => setIs2ndSectionVisible(e)}
-                    ref={setRef}
                   />
                 </div>
                 <div
                   style={{
-                    scrollSnapAlign: "start",
+                    scrollSnapAlign: "center",
                     height: "100vh",
                     alignContent: "space-between",
                   }}
