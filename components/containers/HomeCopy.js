@@ -33,7 +33,7 @@ export default function Home() {
 
   let isPage1200 = useMediaQuery("(min-width: 1200px)");
   let isPage900 = useMediaQuery("(min-width: 900px)");
-  let isFooterMobile = useMediaQuery("(min-width: 1000px)");
+  let isScreen1000 = useMediaQuery("(min-width: 1000px)");
 
   useEffect(() => {
     if (localStorage.getItem("isModal")) {
@@ -89,12 +89,8 @@ export default function Home() {
                 onClick={(e) => modalConfig(e)}
               />
             )}
-            {isPage900 ? (
-              <NavDesktop showSubNav />
-            ) : (
-              isNavVisible && (
-                <NavMobile onClick={() => setIsNavVisible(false)} />
-              )
+            {!isPage900 && isNavVisible && (
+              <NavMobile onClick={() => setIsNavVisible(false)} />
             )}
 
             <div
@@ -114,9 +110,10 @@ export default function Home() {
                   height: "100%",
                 }}
               >
+                {isPage900 && <NavDesktop />}
                 <div
                   style={{
-                    scrollSnapAlign: "start",
+                    scrollSnapAlign: isScreen1000 && "center",
                     height: "100vh",
                   }}
                 >
@@ -126,7 +123,7 @@ export default function Home() {
                 </div>
                 <div
                   style={{
-                    scrollSnapAlign: "center",
+                    scrollSnapAlign: isScreen1000 && "center",
                     height: isPage1200 ? `${size.height}px` : "100vh",
                   }}
                 >
@@ -138,7 +135,7 @@ export default function Home() {
                 </div>
                 <div
                   style={{
-                    scrollSnapAlign: "center",
+                    scrollSnapAlign: isScreen1000 && "center",
                     height: "100vh",
                     alignContent: "space-between",
                   }}
@@ -146,11 +143,11 @@ export default function Home() {
                   <LinesHomeSection
                     userName={localStorage.getItem("name") || userName}
                     isModalVisible={isModalVisible}
-                    isFooterMobile={isFooterMobile}
+                    isScreen1000={isScreen1000}
                     isPage1200={isPage1200}
                     is3rdSectionVisible={(e) => setIs3rdSectionVisible(e)}
                   />
-                  {isFooterMobile ? (
+                  {isScreen1000 ? (
                     <FooterDesktop
                       name={localStorage.getItem("name") || userName}
                     />

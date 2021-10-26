@@ -10,7 +10,6 @@ const NavDesktop = () => {
   const scrollY = useScrollDown();
 
   useEffect(() => {
-    console.log("scrollY", scrollY);
     if (scrollY > 1) {
       setShowNav(false);
     }

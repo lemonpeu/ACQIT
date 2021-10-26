@@ -10,7 +10,7 @@ const LinesHomeSection = ({ is3rdSectionVisible, isFooterMobile, ref }) => {
 
   useEffect(() => {
     is3rdSectionVisible(visible);
-  }, [visible]);
+  }, [visible, is3rdSectionVisible]);
   return (
     <div
       className={styles.linesHomeSection + " " + "section"}

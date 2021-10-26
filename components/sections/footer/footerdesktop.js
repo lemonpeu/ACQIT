@@ -7,7 +7,7 @@ import Link from "next/link";
 const FooterDesktop = ({ style, name }) => {
   return (
     <div className={styles.wrapper}>
-      {/* <BoxUserName boxUserName name={name} /> */}
+      <BoxUserName boxUserName name={name} />
       <footer
         className={`${styles.containerDesktop} ${styles.container}`}
         style={style}
