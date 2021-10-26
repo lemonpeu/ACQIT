@@ -18,6 +18,8 @@ import { useSpring, animated } from "react-spring";
 const Equipamiento = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
+  const [count, setCount] = useState(0);
+
   const [isLoading, setIsLoading] = useState(true);
   const [userName, setUserName] = useState("");
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");

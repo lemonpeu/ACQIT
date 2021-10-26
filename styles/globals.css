@@ -23,6 +23,7 @@ body::-webkit-scrollbar-thumb {
 
 #__next {
     flex-direction: column;
+    height: 100%;
 }
 
 #__next > div:first-child,

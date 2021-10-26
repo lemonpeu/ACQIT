@@ -39,7 +39,6 @@
                 border-radius: 50%;
             }
         }
-
         &::before {
             content: '';
             width: 1px;
@@ -92,7 +91,6 @@
                     border-radius: 50%;
                 }
             }
-
             &::before {
                 content: '';
                 width: 0%;
@@ -111,7 +109,7 @@
                 background-color: $lightBlue;
                 top: 82px;
                 left: 70.5px;
-                z-index: 45;
+                z-index: 40;
                 transform: translate(0, 0);
                 position: absolute;
                 box-shadow: -1px 1px 10px 4px rgba(0, 135, 253, 0.4);
@@ -130,7 +128,6 @@
                     left: 80px;
                 }
             }
-
             &::before {
                 left: 115px;
             }
@@ -150,7 +147,6 @@
                     left: 80px;
                 }
             }
-
             &::before {
                 left: 118px;
             }

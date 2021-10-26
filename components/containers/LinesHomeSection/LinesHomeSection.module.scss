@@ -14,9 +14,7 @@
 @media (min-width: 1000px) {
   .linesHomeSection {
     padding-bottom: 0;
-    .linesGraphicContainer {
-      scroll-snap-align: center;
-    }
+    height: calc(100% - 27rem);
     .lines {
       margin: 5rem 0;
       padding: 5rem 0 10rem 0;

@@ -16,6 +16,7 @@ import FooterDesktop from "../sections/footer/footerdesktop";
 import { useSpring, animated } from "react-spring";
 import { useScrollDown } from "../utils/isScrollDown";
 import { SectionsContainer, Section } from "react-fullpage";
+import useWindowSize from "../utils/windowSice";
 
 export default function Home() {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -28,43 +29,11 @@ export default function Home() {
   const setRef = useRef(null);
 
   const scrollY = useScrollDown();
+  const size = useWindowSize();
 
   let isPage1200 = useMediaQuery("(min-width: 1200px)");
   let isPage900 = useMediaQuery("(min-width: 900px)");
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");
-
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0.3 } });
-
-  // useEffect(() => {
-  //     const link1 = document.getElementById('link1');
-  //     const link2 = document.getElementById('link2');
-  //     const link3 = document.getElementById('link3');
-  //     const servicios = document.getElementById('servicios');
-  //     const topSection = servicios && servicios.parentElement.offsetTop; // Este me da posicion de #services
-  //     console.log('scrollY', scrollY);
-  //     console.log('topSection', topSection);
-  //     // const topServicios =  servicios.offsetTop;
-  //     // const topSection = servicios.parentElement.offsetTop; // Este me da posicion de #services 688
-  //     // const topSectionFooter = footer.parentElement.offsetTop; // Footer  1446 (hasta donde va Y) - 1864 (posicion footer)
-  //     window.addEventListener('scroll', function (e) {
-  //         if (scrollY - 200 === topSection && is2ndSectionVisible) {
-  //             link2 && link2.click();
-  //         }
-  //         // if (scrollY > topSection && scrollY < 1400 && section2Visible && is2ndSectionVisible) {
-  //         //     link2 && link2.click();
-  //         //     setSection1Visible(true);
-  //         //     setSection2Visible(false);
-  //         //     setSection3Visible(true);
-  //         // }
-  //         // if (scrollY >= 1400 && section3Visible && is3rdSectionVisible) {
-  //         //     link3 && link3.click();
-  //         //     setSection1Visible(true);
-  //         //     setSection2Visible(true);
-  //         //     setSection3Visible(false);
-  //         // }
-  //     });
-  //     // console.log('Scroll', size);
-  // }, [scrollY, is2ndSectionVisible]);
 
   useEffect(() => {
     if (localStorage.getItem("isModal")) {
@@ -101,8 +70,12 @@ export default function Home() {
       {isLoading ? (
         <LoadingLogo />
       ) : (
-        <animated.div style={props}>
-          <div id="top" className={styles.wrapper + " " + "main home"}>
+        <>
+          <div
+            id="top"
+            className={styles.wrapper + " " + "main home"}
+            style={{ height: "100%" }}
+          >
             {isPage900 && (
               <ScrollNav
                 isVisible3={is3rdSectionVisible}
@@ -124,42 +97,73 @@ export default function Home() {
               )
             )}
 
-            <div className={styles.main} id="pageContainer">
+            <div
+              className={styles.main}
+              id="pageContainer"
+              style={{ height: "100%" }}
+            >
               {!isPage900 && (
                 <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
               )}
-              <HeaderHome
-                is1thSectionVisible={(e) => setIs1thSectionVisible(e)}
-              />
 
               <section
                 className={styles.categories + " " + "container"}
-                style={{ scrollSnapType: "x mandatory" }}
+                style={{
+                  scrollSnapType: "y mandatory",
+                  overflow: "auto",
+                  height: "100%",
+                }}
               >
-                <div className={`${styles.transition} transition`}></div>
-                <ServicesHome
-                  isModalVisible={isModalVisible}
-                  isPage1200={isPage1200}
-                  is2rdSectionVisible={(e) => setIs2ndSectionVisible(e)}
-                  ref={setRef}
-                />
-                <LinesHomeSection
-                  userName={localStorage.getItem("name") || userName}
-                  isModalVisible={isModalVisible}
-                  isFooterMobile={isFooterMobile}
-                  isPage1200={isPage1200}
-                  is3rdSectionVisible={(e) => setIs3rdSectionVisible(e)}
-                />
+                <div
+                  style={{
+                    scrollSnapAlign: "start",
+                    height: isPage1200 ? `${size.height}px` : "100vh",
+                  }}
+                >
+                  <HeaderHome
+                    is1thSectionVisible={(e) => setIs1thSectionVisible(e)}
+                  />
+                </div>
+                <div
+                  style={{
+                    scrollSnapAlign: "start",
+                    height: isPage1200 ? `${size.height}px` : "100vh",
+                  }}
+                >
+                  <ServicesHome
+                    isModalVisible={isModalVisible}
+                    isPage1200={isPage1200}
+                    is2rdSectionVisible={(e) => setIs2ndSectionVisible(e)}
+                    ref={setRef}
+                  />
+                </div>
+                <div
+                  style={{
+                    scrollSnapAlign: "start",
+                    height: "100vh",
+                    alignContent: "space-between",
+                  }}
+                >
+                  <LinesHomeSection
+                    userName={localStorage.getItem("name") || userName}
+                    isModalVisible={isModalVisible}
+                    isFooterMobile={isFooterMobile}
+                    isPage1200={isPage1200}
+                    is3rdSectionVisible={(e) => setIs3rdSectionVisible(e)}
+                  />
+                  {isFooterMobile ? (
+                    <FooterDesktop
+                      name={localStorage.getItem("name") || userName}
+                    />
+                  ) : (
+                    <Footer name={localStorage.getItem("name") || userName} />
+                  )}
+                </div>
               </section>
             </div>
             <Whatsapp />
           </div>
-          {isFooterMobile ? (
-            <FooterDesktop name={localStorage.getItem("name") || userName} />
-          ) : (
-            <Footer name={localStorage.getItem("name") || userName} />
-          )}
-        </animated.div>
+        </>
       )}
     </>
   );

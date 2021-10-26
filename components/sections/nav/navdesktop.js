@@ -33,11 +33,7 @@ const NavDesktop = () => {
           alt=""
         />
       </button>
-      <nav
-        className={`${styles.nav} ${
-          showNav ? "navAnimation" : "navAnimationClose"
-        }`}
-      >
+      <nav className={`${styles.nav} ${showNav && "navAnimation"}`}>
         <Link href="/" passHref>
           <Image
             width={120}
