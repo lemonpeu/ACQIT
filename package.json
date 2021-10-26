@@ -5,9 +5,8 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "NODE_ENV=production node server.js",
-        "lint": "next lint",
-        "export": "next build && next export"
+        "start": "next start",
+        "lint": "next lint"
     },
     "dependencies": {
         "framer-motion": "^4.1.17",

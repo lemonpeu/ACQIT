@@ -26,13 +26,7 @@ const ServicesHome = ({
   }, [is2rdSectionVisible, visible]);
 
   return (
-    <div
-      className={
-        styles.servicesWrapper + " " + `${showServices + " " + "section"}`
-      }
-      ref={setRef}
-      id="servicios"
-    >
+    <div className={styles.servicesWrapper} ref={setRef} id="servicios">
       <div className={styles.services}>
         <div className={styles.informationWrapper}>
           <div className={styles.titlesContainer}>

@@ -34,7 +34,7 @@ const NavDesktop = () => {
         />
       </button>
       <nav className={`${styles.nav} ${showNav && "navAnimation"}`}>
-        <Link href="/" passHref>
+        <a href="https://acqit.com.ar/">
           <Image
             width={120}
             height={20}
@@ -43,14 +43,14 @@ const NavDesktop = () => {
             src="/images/icons/SVG/logotext.svg"
             alt="logo ACQIT"
           />
-        </Link>
+        </a>
         {showNav && (
           <ul className={styles.list + " " + "navItemsAnimation"}>
             <Link href="/nosotros" passHref>
               <li>Nosotros</li>
             </Link>
             <li className={styles.usItem}>
-              <Link href="/#servicios" passHref className={styles.servicesItem}>
+              <Link href="/servicios" passHref className={styles.servicesItem}>
                 Servicios
               </Link>
               <ul className={styles.subList}>

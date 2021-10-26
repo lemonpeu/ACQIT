@@ -51,7 +51,7 @@ const NavMobile = ({ onClick }) => {
           </Link>
         </ul>
         <div className={styles.listContact}>
-          <Link href="/#contact" passHref>
+          <Link href="/contact" passHref>
             <p className={styles.contact}>Contactate!</p>
           </Link>
         </div>
