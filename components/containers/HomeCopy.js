@@ -113,7 +113,7 @@ export default function Home() {
                 {isPage900 && <NavDesktop />}
                 <div
                   style={{
-                    scrollSnapAlign: isScreen1000 && "center",
+                    scrollSnapAlign: isScreen1000 ? "center" : "",
                     height: "100vh",
                   }}
                 >
@@ -123,7 +123,7 @@ export default function Home() {
                 </div>
                 <div
                   style={{
-                    scrollSnapAlign: isScreen1000 && "center",
+                    scrollSnapAlign: isScreen1000 ? "center" : "",
                     height: isPage1200 ? `${size.height}px` : "100vh",
                   }}
                 >
@@ -135,7 +135,7 @@ export default function Home() {
                 </div>
                 <div
                   style={{
-                    scrollSnapAlign: isScreen1000 && "center",
+                    scrollSnapAlign: isScreen1000 ? "center" : "",
                     height: "100vh",
                     alignContent: "space-between",
                   }}

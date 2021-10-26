@@ -48,7 +48,7 @@ const NosotrosDescripcion = ({
       </article>
       <article
         className={`${styles.descriptionContainer} ${
-          showText2 && "usAnimationBox2"
+          showText2 ? "usAnimationBox2" : ""
         }`}
         style={{
           left: `${showText2 ? 0 : "120px"}`,

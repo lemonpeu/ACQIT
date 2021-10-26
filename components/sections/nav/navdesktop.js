@@ -33,7 +33,7 @@ const NavDesktop = () => {
           alt=""
         />
       </button>
-      <nav className={`${styles.nav} ${showNav && "navAnimation"}`}>
+      <nav className={`${styles.nav} ${showNav ? "navAnimation" : ""}`}>
         <a href="https://acqit.com.ar/">
           <Image
             width={120}

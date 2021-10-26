@@ -40,7 +40,7 @@ const ServicesHome = ({
             </div>
             <h6
               className={`${styles.titleGraphic} ${
-                !isModalVisible && "animation-title"
+                !isModalVisible ? "animation-title" : ""
               }`}
             >
               <span

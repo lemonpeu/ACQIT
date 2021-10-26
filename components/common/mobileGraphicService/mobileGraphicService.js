@@ -9,7 +9,7 @@ const MobileGraphicServices = ({ isModalVisible }) => {
       <div style={{ overflow: "hidden" }}>
         <div
           className={`${styles.textContainerAnimation}  ${
-            !isModalVisible && "equipamentoContainerAnimation"
+            !isModalVisible ? "equipamentoContainerAnimation" : ""
           }`}
         >
           <div className={styles.firstSection}>
@@ -49,7 +49,7 @@ const MobileGraphicServices = ({ isModalVisible }) => {
           </div>
           <div
             className={`${styles.secondSection}  ${
-              !isModalVisible && "equipamentoContainerSecond"
+              !isModalVisible ? "equipamentoContainerSecond" : ""
             }`}
           >
             <div className={styles.servicesItemContainer}>
