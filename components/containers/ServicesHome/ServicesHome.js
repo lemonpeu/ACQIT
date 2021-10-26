@@ -30,6 +30,7 @@ const ServicesHome = ({
       className={
         styles.servicesWrapper + " " + `${showServices + " " + "section"}`
       }
+      ref={setRef}
       id="servicios"
     >
       <div className={styles.services}>

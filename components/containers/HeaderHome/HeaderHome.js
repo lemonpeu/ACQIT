@@ -6,7 +6,6 @@ import IsVisible from "../../utils/isVisible";
 import Link from "next/link";
 
 const HeaderHome = ({ is1thSectionVisible }) => {
-  const size = useWindowSize();
   //setRef works for choosing position on side nav
   const [setRef, visible] = IsVisible({ threshold: 0.2 });
 
