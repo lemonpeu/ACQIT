@@ -18,7 +18,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-   background-color: #00589b;
+    background-color: #00589b;
 }
 
 #__next {
@@ -245,16 +245,14 @@ button {
     animation-fill-mode: forwards;
 }
 
-.home .navAnimationClose {
+/* .home .navAnimationClose {
     --widthStart: calc(100% - 100px);
     --widthEnd: 0;
     animation-name: widthAnimation;
     animation-duration: 2000ms;
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
-}
-
-
+} */
 
 .navAnimation {
     --widthStart: 0;
@@ -264,6 +262,15 @@ button {
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
 }
+
+/* .navAnimationClose {
+    --widthStart: 100%;
+    --widthEnd: 0;
+    animation-name: widthAnimation;
+    animation-duration: 2000ms;
+    animation-iteration-count: forwards;
+    animation-fill-mode: forwards;
+} */
 
 .navItemsAnimation {
     animation-name: opacity;
@@ -532,10 +539,10 @@ button {
 }
 
 @keyframes widthAnimation {
-    0% {
+    from {
         width: var(--widthStart);
     }
-    100% {
+    to {
         width: var(--widthEnd);
     }
 }

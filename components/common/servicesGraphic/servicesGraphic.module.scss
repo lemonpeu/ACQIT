@@ -1,23 +1,17 @@
-@import "../../../styles/variables.scss";
-@import "../../../styles/mixins.scss";
+@import '../../../styles/variables.scss';
+@import '../../../styles/mixins.scss';
 
 .graphContainer {
-  display: flex;
-  position: relative;
-  max-width: 91rem;
-  margin-bottom: 35rem;
-}
-
-@media (min-width: 1200px) {
-  .graphContainer {
-    margin: 0;
-  }
+    display: flex;
+    position: relative;
+    max-width: 91rem;
+    transform: scale(0.9);
 }
 
 @media (min-width: 1800px) {
-  .graphContainer {
-    top: 28px;
-    left: 35px;
-    transform: translate(0, 0) scale(1.2);
-  }
+    .graphContainer {
+        top: 28px;
+        left: 35px;
+        transform: translate(0, 0) scale(1.2);
+    }
 }

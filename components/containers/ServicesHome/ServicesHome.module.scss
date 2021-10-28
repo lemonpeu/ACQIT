@@ -43,7 +43,7 @@
         }
     }
     &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
@@ -61,8 +61,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        scroll-snap-align: center;
-        justify-content: center;
+        justify-content: flex-start;
+        padding-top: 15rem;
         .services {
             display: flex;
             width: 86%;
@@ -71,6 +71,7 @@
             .informationWrapper {
                 display: flex;
                 align-items: flex-end;
+                margin-top: 1.5rem;
                 .titlesContainer {
                     margin-top: 5rem;
                 }

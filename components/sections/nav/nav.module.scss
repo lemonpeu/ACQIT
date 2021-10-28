@@ -1,197 +1,197 @@
-@import "../../../styles/variables.scss";
+@import '../../../styles/variables.scss';
 
 .containerDesktop {
-  display: flex;
-  justify-content: flex-end;
-  z-index: 10;
-  position: fixed;
-  width: 100%;
-  margin-top: 5rem;
-  z-index: 50;
-  .navBtnPosition {
-    position: absolute;
-    left: 1rem;
-    top: -0.5rem;
-    z-index: 200;
-  }
-  .logo {
-    z-index: 10;
-    width: 6rem;
-  }
-
-  .nav {
-    background-color: $darkGreen;
-    color: $white;
-    font-family: $beVietnam;
     display: flex;
-    height: 5rem;
-    align-items: center;
-    width: 0;
-    position: absolute;
-    font-weight: 100;
-    margin-left: -3rem;
-    padding-left: 2rem;
-    left: 7rem;
-    transform: translateX(0);
-
-    img {
-      fill: white;
-    }
-    .logoText {
-      width: 10rem;
-      height: 3rem;
-      margin-left: 11rem;
-      cursor: pointer;
+    justify-content: flex-end;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    margin-top: 5rem;
+    z-index: 50;
+    .navBtnPosition {
+        position: absolute;
+        left: 1rem;
+        top: -0.5rem;
+        z-index: 200;
     }
     .logo {
-      width: 6rem;
-      position: absolute;
-      left: -10px;
-      z-index: 10;
+        z-index: 10;
+        width: 6rem;
     }
-    .listContact,
-    .list {
-      display: flex;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      opacity: 0;
-      li {
+
+    .nav {
+        background-color: $darkGreen;
+        color: $white;
         font-family: $beVietnam;
-        font-size: 1.6rem;
-        cursor: pointer;
-      }
-      &.list {
-        margin-left: 8rem;
-        li {
-          margin-right: 3rem;
+        display: flex;
+        height: 5rem;
+        align-items: center;
+        width: 0;
+        position: absolute;
+        font-weight: 100;
+        margin-left: -3rem;
+        padding-left: 2rem;
+        left: 7rem;
+        transform: translateX(0);
+
+        img {
+            fill: white;
         }
-      }
-      .usItem {
-        position: relative;
-        .subList {
-          display: none;
-          top: 100%;
-          position: absolute;
-          background: $darkGreen;
-          padding: 1rem;
-          border-bottom-left-radius: 25px;
-          border-bottom-right-radius: 25px;
-          transition: all 1s ease-in;
-          z-index: 100;
-          cursor: pointer;
-          li {
-            transition: all 0.5s ease-in;
-            padding: 1rem 0;
-            &:hover {
-              font-weight: 500;
-              transition: all 0.5s ease-in;
+        .logoText {
+            width: 10rem;
+            height: 3rem;
+            margin-left: 11rem;
+            cursor: pointer;
+        }
+        .logo {
+            width: 6rem;
+            position: absolute;
+            left: -10px;
+            z-index: 10;
+        }
+        .listContact,
+        .list {
+            display: flex;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+            li {
+                font-family: $beVietnam;
+                font-size: 1.6rem;
+                cursor: pointer;
             }
-          }
+            &.list {
+                margin-left: 8rem;
+                li {
+                    margin-right: 3rem;
+                }
+            }
+            .usItem {
+                position: relative;
+                .subList {
+                    display: none;
+                    top: 100%;
+                    position: absolute;
+                    background: $darkGreen;
+                    padding: 1rem;
+                    border-bottom-left-radius: 25px;
+                    border-bottom-right-radius: 25px;
+                    transition: all 1s ease-in;
+                    z-index: 100;
+                    cursor: pointer;
+                    li {
+                        transition: all 0.5s ease-in;
+                        padding: 1rem 0;
+                        &:hover {
+                            font-weight: 500;
+                            transition: all 0.5s ease-in;
+                        }
+                    }
+                }
+                &:hover > .subList {
+                    display: flex;
+                    flex-direction: column;
+                    transition: all 1s ease-in;
+                    opacity: 1;
+                }
+            }
         }
-        &:hover >  .subList {
-          display: flex;
-          flex-direction: column;
-          transition: all 1s ease-in;
-          opacity: 1;
+        .listContact {
+            margin-left: auto;
+            padding-right: 10rem;
+            font-family: $beVietnam;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            .contact {
+                background-color: $textBlue;
+                border-radius: 25px;
+                padding: 5px 10px;
+                margin-left: 2rem;
+                font-weight: 500;
+                cursor: pointer;
+            }
         }
-      }
     }
-    .listContact {
-      margin-left: auto;
-      padding-right: 10rem;
-      font-family: $beVietnam;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      opacity: 0;
-      .contact {
-        background-color: $textBlue;
-        border-radius: 25px;
-        padding: 5px 10px;
-        margin-left: 2rem;
-        font-weight: 500;
-        cursor: pointer;
-      }
-    }
-  }
 }
 
 .containerMobile {
-  display: flex;
-  justify-content: center;
-  z-index: 25;
-  position: absolute;
-  width: 60%;
-  background-color: $darkGreen;
-  right: 0;
-  border-bottom-left-radius: 40px;
-  padding-right: 3rem;
-  .logoText {
-    width: 10rem;
-    padding: 3rem 0;
-  }
-  button {
-    background: transparent;
-    border: none;
-    margin-right: auto;
-    z-index: 10;
-    .close {
-      width: 3rem;
-    }
-  }
-  .nav {
-    color: $white;
-    font-family: $beVietnam;
     display: flex;
-    flex-direction: column;
-    padding-top: 3rem;
-    ul {
-      list-style: none;
-      padding-bottom: 2rem;
-      li {
+    justify-content: center;
+    z-index: 25;
+    position: absolute;
+    width: 60%;
+    background-color: $darkGreen;
+    right: 0;
+    border-bottom-left-radius: 40px;
+    padding-right: 3rem;
+    .logoText {
+        width: 10rem;
+        padding: 3rem 0;
+    }
+    button {
+        background: transparent;
+        border: none;
+        margin-right: auto;
+        z-index: 10;
+        .close {
+            width: 3rem;
+        }
+    }
+    .nav {
         color: $white;
-        padding: 0.5rem 0;
-        font-weight: 100;
-        text-align: right;
-        &.principalItem {
-          font-size: 2rem;
-          text-transform: uppercase;
+        font-family: $beVietnam;
+        display: flex;
+        flex-direction: column;
+        padding-top: 3rem;
+        ul {
+            list-style: none;
+            padding-bottom: 2rem;
+            li {
+                color: $white;
+                padding: 0.5rem 0;
+                font-weight: 100;
+                text-align: right;
+                &.principalItem {
+                    font-size: 2rem;
+                    text-transform: uppercase;
+                }
+                &.navItem {
+                    font-size: 1.5rem;
+                }
+                &:hover {
+                    font-weight: 500;
+                    border-bottom: 2px soloid $textBlue;
+                }
+            }
         }
-        &.navItem {
-          font-size: 1.5rem;
+        .listContact {
+            display: flex;
+            justify-content: flex-end;
+            padding-bottom: 4rem;
+            .contact {
+                background-color: $textBlue;
+                border-radius: 10px;
+                padding: 10px;
+                text-align: center;
+                width: 60%;
+                font-size: 1.3rem;
+                font-weight: 500;
+            }
         }
-        &:hover {
-          font-weight: 500;
-          border-bottom: 2px soloid $textBlue;
+        .imgContainer {
+            display: flex;
+            justify-content: flex-end;
         }
-      }
     }
-    .listContact {
-      display: flex;
-      justify-content: flex-end;
-      padding-bottom: 4rem;
-      .contact {
-        background-color: $textBlue;
-        border-radius: 10px;
-        padding: 10px;
-        text-align: center;
-        width: 60%;
-        font-size: 1.3rem;
-        font-weight: 500;
-      }
-    }
-    .imgContainer {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
 }
 
 @media (min-width: 550px) {
-  .containerMobile {
-    width: 35%;
-  }
+    .containerMobile {
+        width: 35%;
+    }
 }
