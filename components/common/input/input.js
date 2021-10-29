@@ -1,21 +1,16 @@
-import React from 'react';
-import styles from './input.module.scss';
+import React from "react";
+import styles from "./input.module.scss";
 
-const Input = ({ placeholder, id, onClick }) => {
-    return (
-        <div className={styles.inputContainer}>
-            <input
-                autoComplete="off"
-                className={styles.input}
-                id={id}
-                type="text"
-                placeholder={placeholder}
-            />
-            <button className={styles.button} onClick={onClick}>
-                Enviar
-            </button>
-        </div>
-    );
+const Input = ({ placeholder }) => {
+  return (
+    <input
+      autoComplete="off"
+      className={styles.input}
+      id="name"
+      type="text"
+      placeholder={placeholder}
+    />
+  );
 };
 
 export default Input;
