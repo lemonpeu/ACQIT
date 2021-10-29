@@ -27,7 +27,7 @@ const ContactForm = () => {
   };
   return (
     <form ref={form} onSubmit={sendEmail} className={styles.inputContainer}>
-      <Input placeholder="E-mail." />
+      <Input placeholder="E-mail." name="name" />
       <button className={styles.button} type="submit">
         Enviar
       </button>
