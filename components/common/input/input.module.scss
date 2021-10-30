@@ -16,6 +16,9 @@
         box-shadow: -6px 2px 32px 0px rgba(105, 105, 105, 0.54);
         padding-left: 1rem;
         font-family: $montserrat;
+        &:focus {
+            background-color: red;
+        }
     }
     .button {
         position: absolute;

@@ -3,7 +3,7 @@ import Input from '../input/input';
 import Image from '../Image/Image';
 
 const BoxUserName = (props) => {
-    const { icon, name, img, alt, text, boxUserName } = props;
+    const { icon, name, img, alt, text, boxUserName, autofocus } = props;
 
     return (
         <section
@@ -30,7 +30,7 @@ const BoxUserName = (props) => {
                             <label htmlFor="email" className={styles.text}>
                                 Dejanos tu e-mail
                             </label>
-                            <Input placeholder="E-mail." id="email" />
+                            <Input autofocus={autofocus} placeholder="E-mail." id="email" />
                         </div>
                     </div>
                 ) : (

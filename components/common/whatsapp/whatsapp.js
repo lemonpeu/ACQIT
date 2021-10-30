@@ -4,7 +4,7 @@ import Image from '../Image/Image';
 
 const Whatsapp = () => {
     return (
-        <a href="https://wa.me/5491139844968" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/5491171076208" target="_blank" rel="noopener noreferrer">
             <div className={styles.whatsappContainer}>
                 <div className={styles.imgContainer}>
                     <Image

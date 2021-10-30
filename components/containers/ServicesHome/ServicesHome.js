@@ -11,8 +11,9 @@ import Image from '../../common/Image/Image';
 
 //Styles
 import styles from './ServicesHome.module.scss';
+import PlusIcon from '../../../public/images/icons/home/SVG/plusicon';
 
-const ServicesHome = ({ isModalVisible, isPage1200, is2rdSectionVisible, ref }) => {
+const ServicesHome = ({ isModalVisible, isPage1200, is2rdSectionVisible, isVisible }) => {
     const [showServices, setShowServices] = useState(false);
     const [setRef, visible] = IsVisible({ threshold: 0.2 });
 
@@ -26,16 +27,15 @@ const ServicesHome = ({ isModalVisible, isPage1200, is2rdSectionVisible, ref }) 
                 <div className={styles.informationWrapper}>
                     <div className={styles.titlesContainer}>
                         <div
-                            className={
-                                styles.categoriesTitleAnimation + ' ' + !isModalVisible &&
-                                'categories-title-animation'
-                            }
+                            className={`${styles.categoriesTitleAnimation} ${
+                                isVisible ? 'categories-title-animation' : ''
+                            }`}
                         >
                             <h4 className={styles.title}>Servicios</h4>
                         </div>
                         <h6
                             className={`${styles.titleGraphic} ${
-                                !isModalVisible ? 'animation-title' : ''
+                                isVisible ? 'animation-title' : ''
                             }`}
                         >
                             <span style={{ zIndex: 20, position: 'absolute', height: '100%' }}>
@@ -46,21 +46,21 @@ const ServicesHome = ({ isModalVisible, isPage1200, is2rdSectionVisible, ref }) 
                     {isPage1200 && (
                         <button
                             onClick={() => setShowServices(true)}
-                            className="button-graphic-animation"
+                            className={`${styles.plusIconContainer} ${
+                                isVisible ? 'button-graphic-animation' : ''
+                            }`}
                         >
-                            <Image
-                                layout="fixed"
-                                width={40}
-                                height={40}
-                                src="/images/icons/home/SVG/plusicon.svg"
-                                alt="Expandir"
+                            <PlusIcon
+                                line={
+                                    'M28.77 20.67H21v7.84h-1.6v-7.84h-7.78v-1.58h7.78v-7.73H21v7.73h7.78z'
+                                }
                             />
                         </button>
                     )}
                 </div>
 
                 {isPage1200 ? (
-                    <ServicesGraphic isModalVisible={isModalVisible} showServices={showServices} />
+                    <ServicesGraphic isVisible={isVisible} showServices={showServices} />
                 ) : (
                     <MobileGraphicServices isModalVisible={isModalVisible} />
                 )}

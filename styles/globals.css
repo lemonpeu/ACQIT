@@ -9,18 +9,6 @@ body {
     scroll-behavior: smooth;
 }
 
-body::-webkit-scrollbar {
-    width: 15px;
-}
-
-body::-webkit-scrollbar-track {
-    background-color: #00243f;
-}
-
-body::-webkit-scrollbar-thumb {
-    background-color: #00589b;
-}
-
 #__next {
     flex-direction: column;
     height: 100%;
@@ -72,12 +60,11 @@ button {
 
 .button-graphic-animation {
     animation-name: opacity;
-    animation-delay: 4000ms;
-    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-duration: 3s;
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
     opacity: 0;
-    margin-bottom: -0.5rem;
 }
 
 .equipamentoContainerAnimation {
@@ -179,6 +166,10 @@ button {
     animation-fill-mode: forwards;
 }
 
+.first {
+    left: 240px !important;
+}
+
 .third {
     opacity: 0;
     animation-name: opacity;
@@ -186,6 +177,8 @@ button {
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
     animation-delay: 1s;
+    left: 100px;
+    top: 20px;
 }
 
 /* SeguridadIt */
@@ -301,23 +294,28 @@ button {
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
     animation: dash 5s linear forwards;
+    animation-delay: 2s;
 }
 
 .path2 {
     stroke-dasharray: 800;
     stroke-dashoffset: 800;
     animation: dash 5s linear forwards;
+    animation-delay: 2s;
 }
 
 .path3 {
     stroke-dasharray: 500;
     stroke-dashoffset: 500;
     animation: dash 5s linear forwards;
+    animation-delay: 2s;
 }
 
 .lines {
     animation-name: opacity;
+    animation-delay: 2s;
     animation-duration: 5s;
+
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
 }
@@ -404,13 +402,11 @@ button {
         opacity: 0;
         left: 120px;
         top: unset;
-        margin-bottom: 0;
     }
     to {
         opacity: 1;
         left: 0;
         bottom: 0;
-        margin-bottom: 11rem;
     }
 }
 

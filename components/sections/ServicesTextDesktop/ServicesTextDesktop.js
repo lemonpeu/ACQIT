@@ -35,7 +35,7 @@ const ServicesTextDesktop = ({ isModalVisible }) => {
     return (
         <div
             className={`${styles.textContainerAnimation} ${
-                !isModalVisible && 'equipamentoContainer'
+                isModalVisible && 'equipamentoContainer'
             }`}
         >
             {textContent.map((item) => (

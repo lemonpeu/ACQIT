@@ -16,7 +16,7 @@ const Footer = ({ name }) => {
                             src="/images/icons/SVG/teliconblack.svg"
                             alt="telefono"
                         />{' '}
-                        11-39844968
+                        <a href="tel:5491139844968">(11) 3984-4968</a>
                     </li>
                     <li className={styles.listItem}>
                         <Image
@@ -26,7 +26,7 @@ const Footer = ({ name }) => {
                             src="/images/icons/SVG/emailblack.svg"
                             alt="email icon"
                         />
-                        info@acqit.com.ar
+                        <a href="mailto:info@acqit.com.ar">info@acqit.com.ar</a>
                     </li>
                     <li className={styles.listItem}>
                         <Image
@@ -36,7 +36,13 @@ const Footer = ({ name }) => {
                             src="/images/icons/SVG/placeicon.svg"
                             alt="place icon"
                         />
-                        Arcos 2836
+                        <a
+                            href="https://goo.gl/maps/nUsXBVnkfPPpEKfNA"
+                            rel="noreferrer"
+                            target="_blank"
+                        >
+                            Arcos 2836
+                        </a>
                     </li>
                 </ul>
                 <hr />
