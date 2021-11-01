@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Home from "@/components/containers/HomeContainer/Home";
+import React, { useState, useEffect } from "react";
+import ITConsultingContainer from "@/components/containers/PagesContainer/ITConsulting/ITConsulting";
 import LoadingLogo from "@/components/common/loadingLogo/LoadingLogo";
 
-export default function Principal() {
+const Consultoria = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -17,5 +17,7 @@ export default function Principal() {
     localStorage.setItem("loading", false);
     setIsLoading(false);
   };
-  return <>{isLoading ? <LoadingLogo /> : <Home />}</>;
-}
+  return <>{isLoading ? <LoadingLogo /> : <ITConsultingContainer />}</>;
+};
+
+export default Consultoria;

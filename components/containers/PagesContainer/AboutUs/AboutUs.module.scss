@@ -1,5 +1,5 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
+@import "../../../../styles/mixins.scss";
+@import "../../../../styles/variables.scss";
 
 .logoLoadingContainer {
     width: 100%;
@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+    background-color: black;
     video {
         position: absolute;
         height: 100%;

@@ -1,5 +1,4 @@
 import styles from "./boxusername.module.scss";
-import Input from "../input/input";
 import Image from "../Image/Image";
 import ContactForm from "../../sections/ContactForm/ContactForm";
 

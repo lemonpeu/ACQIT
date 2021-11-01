@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Home from "@/components/containers/HomeContainer/Home";
+import React, { useState, useEffect } from "react";
+import WebDesignContainer from "@/components/containers/PagesContainer/WebDesign/WebDesign";
 import LoadingLogo from "@/components/common/loadingLogo/LoadingLogo";
 
-export default function Principal() {
+const Disenio = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -17,5 +17,7 @@ export default function Principal() {
     localStorage.setItem("loading", false);
     setIsLoading(false);
   };
-  return <>{isLoading ? <LoadingLogo /> : <Home />}</>;
-}
+  return <>{isLoading ? <LoadingLogo /> : <WebDesignContainer />}</>;
+};
+
+export default Disenio;

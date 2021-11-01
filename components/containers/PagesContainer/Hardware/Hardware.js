@@ -1,43 +1,35 @@
 import { useState, useEffect } from "react";
-import Footer from "../../components/sections/footer/footer";
-import Companies from "../../components/common/companies/companies";
-import styles from "./equipamento.module.scss";
-import Whatsapp from "../../components/common/whatsapp/whatsapp";
-import FooterDesktop from "../../components/sections/footer/footerdesktop";
-import { useMediaQuery } from "../../components/utils/mediaquery";
-import NavMobile from "../../components/sections/nav/navmobile";
-import NavDesktop from "../../components/sections/nav/navdesktop";
-import ButtonNav from "../../components/common/buttonNav/buttonNav";
-import Modal from "../../components/common/Modal/modal";
-import Image from "../../components/common/Image/Image";
-import { useScrollDown } from "../../components/utils/isScrollDown";
-import useWindowSize from "../../components/utils/windowSice";
+import Footer from "@/components/sections/footer/footer";
+import Companies from "@/components/common/companies/companies";
+import styles from "./Hardware.module.scss";
+import Whatsapp from "@/components/common/whatsapp/whatsapp";
+import FooterDesktop from "@/components/sections/footer/footerdesktop";
+import { useMediaQuery } from "@/components/utils/mediaquery";
+import NavMobile from "@/components/sections/nav/navmobile";
+import NavDesktop from "@/components/sections/nav/navdesktop";
+import ButtonNav from "@/components/common/buttonNav/buttonNav";
+import Modal from "@/components/common/Modal/modal";
+import Image from "@/components/common/Image/Image";
+import { useScrollDown } from "@/components/utils/isScrollDown";
 
-import { useSpring, animated } from "react-spring";
-
-const Equipamiento = () => {
+const HardwareContainer = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
-  const [count, setCount] = useState(0);
 
   const [isLoading, setIsLoading] = useState(true);
   const [userName, setUserName] = useState("");
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");
   let isNavDesktop = useMediaQuery("(min-width: 900px)");
   const scrollY = useScrollDown();
-  const size = useWindowSize();
-
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0.3 } });
 
   const modalConfig = (e) => {
     setIsModalVisible(false);
-
     if (e) {
       setUserName(e);
       localStorage.setItem("name", e);
     }
-
     localStorage.setItem("isModal", false);
+    localStorage.setItem("name", "");
   };
 
   useEffect(() => {
@@ -48,11 +40,6 @@ const Equipamiento = () => {
     }
   }, [isModalVisible]);
 
-  const setLoadingBoolean = () => {
-    localStorage.setItem("loading", false);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
     if (localStorage.getItem("loading")) {
       setIsLoading(false);
@@ -61,23 +48,17 @@ const Equipamiento = () => {
     }
   }, [isLoading]);
 
+  const setLoadingBoolean = () => {
+    localStorage.setItem("loading", false);
+    setIsLoading(false);
+  };
+
   return (
     <>
-      {isLoading ? (
-        <div className={styles.logoLoadingContainer}>
-          <div className={"imgContainer"}>
-            <Image
-              className={"logoLoading"}
-              width={300}
-              height={100}
-              layout="fixed"
-              src="/images/logopage/logopage.png"
-              alt="logo"
-            />
-          </div>
-        </div>
+      {isModalVisible ? (
+        <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
       ) : (
-        <animated.div style={props}>
+        <>
           <div id="top" className={styles.wrapper + " " + "main"}>
             {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
             {isNavDesktop ? (
@@ -130,10 +111,10 @@ const Equipamiento = () => {
               <Footer name={localStorage.getItem("name") || userName} />
             )}
           </div>
-        </animated.div>
+        </>
       )}
     </>
   );
 };
 
-export default Equipamiento;
+export default HardwareContainer;

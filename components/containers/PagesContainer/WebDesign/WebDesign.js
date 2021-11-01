@@ -1,21 +1,19 @@
 import { useState, useEffect, useCallback } from "react";
-import BoxUserName from "../../components/common/boxusername/boxusername";
-import Footer from "../../components/sections/footer/footer";
-import styles from "./disenio.module.scss";
-import FooterDesktop from "../../components/sections/footer/footerdesktop";
-import NavMobile from "../../components/sections/nav/navmobile";
-import NavDesktop from "../../components/sections/nav/navdesktop";
-import { useMediaQuery } from "../../components/utils/mediaquery";
-import ButtonNav from "../../components/common/buttonNav/buttonNav";
-import Modal from "../../components/common/Modal/modal";
-import Image from "../../components/common/Image/Image";
-import Whatsapp from "../../components/common/whatsapp/whatsapp";
-import useWindowSize from "../../components/utils/windowSice";
-import { useScrollDown } from "../../components/utils/isScrollDown";
+import BoxUserName from "@/components/common/boxusername/boxusername";
+import Footer from "@/components/sections/footer/footer";
+import styles from "./WebDesign.module.scss";
+import FooterDesktop from "@/components/sections/footer/footerdesktop";
+import NavMobile from "@/components/sections/nav/navmobile";
+import NavDesktop from "@/components/sections/nav/navdesktop";
+import { useMediaQuery } from "@/components/utils/mediaquery";
+import ButtonNav from "@/components/common/buttonNav/buttonNav";
+import Modal from "@/components/common/Modal/modal";
+import Image from "@/components/common/Image/Image";
+import Whatsapp from "@/components/common/whatsapp/whatsapp";
+import useWindowSize from "@/components/utils/windowSice";
+import { useScrollDown } from "@/components/utils/isScrollDown";
 
-import { useSpring, animated } from "react-spring";
-
-const Disenio = () => {
+const WebDesignContainer = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,8 +24,6 @@ const Disenio = () => {
 
   const size = useWindowSize();
 
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0.3 } });
-
   const modalConfig = (e) => {
     setIsModalVisible(false);
     if (e) {
@@ -35,6 +31,7 @@ const Disenio = () => {
       localStorage.setItem("name", e);
     }
     localStorage.setItem("isModal", false);
+    localStorage.setItem("name", "");
   };
 
   useEffect(() => {
@@ -60,21 +57,10 @@ const Disenio = () => {
 
   return (
     <>
-      {isLoading ? (
-        <div className={styles.logoLoadingContainer}>
-          <div className={"imgContainer"}>
-            <Image
-              className={"logoLoading"}
-              width={300}
-              height={100}
-              layout="fixed"
-              src="/images/logopage/logopage.png"
-              alt="logo"
-            />
-          </div>
-        </div>
+      {isModalVisible ? (
+        <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
       ) : (
-        <animated.div style={props}>
+        <>
           <div id="top" className={styles.wrapper + " " + "main"}>
             <Whatsapp />
             {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
@@ -142,10 +128,10 @@ const Disenio = () => {
               <Footer name={localStorage.getItem("name") || userName} />
             )}
           </div>
-        </animated.div>
+        </>
       )}
     </>
   );
 };
 
-export default Disenio;
+export default WebDesignContainer;

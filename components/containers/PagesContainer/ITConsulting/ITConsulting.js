@@ -1,20 +1,18 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../../components/sections/footer/footer";
-import styles from "./consultoria.module.scss";
-import IconConsultancy from "../../components/common/iconConsultancy/iconConsultancy";
-import Whatsapp from "../../components/common/whatsapp/whatsapp";
-import FooterDesktop from "../../components/sections/footer/footerdesktop";
-import { useMediaQuery } from "../../components/utils/mediaquery";
-import NavMobile from "../../components/sections/nav/navmobile";
-import NavDesktop from "../../components/sections/nav/navdesktop";
-import ButtonNav from "../../components/common/buttonNav/buttonNav";
-import Image from "../../components/common/Image/Image";
-import Modal from "../../components/common/Modal/modal";
-import { useScrollDown } from "../../components/utils/isScrollDown";
+import Footer from "@/components/sections/footer/footer";
+import styles from "./ITConsulting.module.scss";
+import IconConsultancy from "@/components/common/iconConsultancy/iconConsultancy";
+import Whatsapp from "@/components/common/whatsapp/whatsapp";
+import FooterDesktop from "@/components/sections/footer/footerdesktop";
+import { useMediaQuery } from "@/components/utils/mediaquery";
+import NavMobile from "@/components/sections/nav/navmobile";
+import NavDesktop from "@/components/sections/nav/navdesktop";
+import ButtonNav from "@/components/common/buttonNav/buttonNav";
+import Image from "@/components/common/Image/Image";
+import Modal from "@/components/common/Modal/modal";
+import { useScrollDown } from "@/components/utils/isScrollDown";
 
-import { useSpring, animated } from "react-spring";
-
-const Consultoria = () => {
+const ITConsultingContainer = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [userName, setUserName] = useState("");
@@ -22,8 +20,6 @@ const Consultoria = () => {
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");
   let isNavDesktop = useMediaQuery("(min-width: 900px)");
   const [isLoading, setIsLoading] = useState(true);
-
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0.3 } });
 
   const iconsConsultancy = [
     {
@@ -95,6 +91,7 @@ const Consultoria = () => {
       localStorage.setItem("name", e);
     }
     localStorage.setItem("isModal", false);
+    localStorage.setItem("name", "");
   };
 
   useEffect(() => {
@@ -120,22 +117,11 @@ const Consultoria = () => {
 
   return (
     <>
-      {isLoading ? (
-        <div className={styles.logoLoadingContainer}>
-          <div className={"imgContainer"}>
-            <Image
-              className={"logoLoading"}
-              width={300}
-              height={100}
-              layout="fixed"
-              src="/images/logopage/logopage.png"
-              alt="logo"
-            />
-          </div>
-        </div>
+      {isModalVisible ? (
+        <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
       ) : (
         <>
-          <animated.div style={props}>
+          <>
             <div id="top" className={styles.wrapper + " " + "main"}>
               {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
               {isNavDesktop ? (
@@ -200,11 +186,11 @@ const Consultoria = () => {
                 )}
               </div>
             </div>
-          </animated.div>
+          </>
         </>
       )}
     </>
   );
 };
 
-export default Consultoria;
+export default ITConsultingContainer;

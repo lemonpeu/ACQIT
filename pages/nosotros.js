@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Home from "@/components/containers/HomeContainer/Home";
 import LoadingLogo from "@/components/common/loadingLogo/LoadingLogo";
+import AboutUsContainer from "@/components/containers/PagesContainer/AboutUs/AboutUs";
+import { useState, useEffect } from "react";
 
-export default function Principal() {
+const Nosotros = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -17,5 +17,8 @@ export default function Principal() {
     localStorage.setItem("loading", false);
     setIsLoading(false);
   };
-  return <>{isLoading ? <LoadingLogo /> : <Home />}</>;
-}
+
+  return <>{isLoading ? <LoadingLogo /> : <AboutUsContainer />}</>;
+};
+
+export default Nosotros;

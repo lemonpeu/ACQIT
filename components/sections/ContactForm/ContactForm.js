@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import Input from "../../common/input/input";
 import styles from "./ContactForm.module.scss";
 
 const ContactForm = () => {
+  const [isSent, setIsSent] = useState(false);
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -16,8 +17,8 @@ const ContactForm = () => {
         "user_GI8rh9mp4el9mblKdbvnU"
       )
       .then(
-        (result) => {
-          console.log(result.text);
+        () => {
+          setIsSent(true);
         },
         (error) => {
           console.log(error.text);
@@ -25,13 +26,20 @@ const ContactForm = () => {
       );
     e.target.reset();
   };
+
   return (
-    <form ref={form} onSubmit={sendEmail} className={styles.inputContainer}>
-      <Input placeholder="E-mail." name="name" />
-      <button className={styles.button} type="submit">
-        Enviar
-      </button>
-    </form>
+    <>
+      {isSent ? (
+        <p style={{ marginLeft: "auto" }}>Tu mensaje ha sido enviado.</p>
+      ) : (
+        <form ref={form} onSubmit={sendEmail} className={styles.inputContainer}>
+          <Input placeholder="E-mail." name="name" />
+          <button className={styles.button} type="submit">
+            Enviar
+          </button>
+        </form>
+      )}
+    </>
   );
 };
 

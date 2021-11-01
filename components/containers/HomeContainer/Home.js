@@ -1,35 +1,27 @@
 import { useEffect, useState, useCallback, useRef } from "react";
-import styles from "./HomeCopy.module.scss";
-import { useMediaQuery } from "../utils/mediaquery";
-import NavDesktop from "../sections/nav/navdesktop";
-import NavMobile from "../sections/nav/navmobile";
-import ButtonNav from "../common/buttonNav/buttonNav";
-import Modal from "../common/Modal/modal";
-import LoadingLogo from "../common/loadingLogo/loadingLogo";
-import HeaderHome from "./HeaderHome/HeaderHome";
-import LinesHomeSection from "./LinesHomeSection/LinesHomeSection";
-import ServicesHome from "./ServicesHome/ServicesHome";
-import ScrollNav from "../common/scrollNav/ScrollNav";
-import Whatsapp from "../common/whatsapp/whatsapp";
-import Footer from "../sections/footer/footer";
-import FooterDesktop from "../sections/footer/footerdesktop";
-import { useSpring, animated } from "react-spring";
-import { useScrollDown } from "../utils/isScrollDown";
-import { SectionsContainer, Section } from "react-fullpage";
-import useWindowSize from "../utils/windowSice";
+import styles from "./Home.module.scss";
+import { useMediaQuery } from "@/components/utils/mediaquery";
+import NavDesktop from "@/components/sections/nav/navdesktop";
+import NavMobile from "@/components/sections/nav/navmobile";
+import ButtonNav from "@/components/common/buttonNav/buttonNav";
+import Modal from "@/components/common/Modal/modal";
+import HeaderHome from "@/components/containers/HeaderHome/HeaderHome";
+import LinesHomeSection from "@/components/containers/LinesHomeSection/LinesHomeSection";
+import ServicesHome from "@/components/containers/ServicesHome/ServicesHome";
+import ScrollNav from "@/components/common/scrollNav/ScrollNav";
+import Whatsapp from "@/components/common/whatsapp/whatsapp";
+import Footer from "@/components/sections/footer/footer";
+import FooterDesktop from "@/components/sections/footer/footerdesktop";
+import useWindowSize from "@/components/utils/windowSice";
 
-export default function Home() {
+const HomeSection = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [userName, setUserName] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
   const [is1thSectionVisible, setIs1thSectionVisible] = useState(false);
   const [is2ndSectionVisible, setIs2ndSectionVisible] = useState(false);
   const [is3rdSectionVisible, setIs3rdSectionVisible] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
-  const setRef = useRef(null);
-
-  const scrollY = useScrollDown();
   const size = useWindowSize();
 
   let isPage1200 = useMediaQuery("(min-width: 1200px)");
@@ -37,12 +29,12 @@ export default function Home() {
   let isScreen1000 = useMediaQuery("(min-width: 1000px)");
 
   useEffect(() => {
-    if (localStorage.getItem("loading")) {
-      setIsLoading(false);
+    if (localStorage.getItem("isModal")) {
+      setIsModalVisible(false);
     } else {
-      setTimeout(setLoadingBoolean, 5000);
+      setIsModalVisible(true);
     }
-  }, []);
+  }, [isModalVisible]);
 
   const modalConfig = (e) => {
     setIsModalVisible(false);
@@ -51,17 +43,13 @@ export default function Home() {
       localStorage.setItem("name", e);
     }
     localStorage.setItem("isModal", false);
-  };
-
-  const setLoadingBoolean = () => {
-    localStorage.setItem("loading", false);
-    setIsLoading(false);
+    localStorage.setItem("name", "");
   };
 
   return (
     <>
-      {isLoading ? (
-        <LoadingLogo />
+      {isModalVisible ? (
+        <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
       ) : (
         <>
           <div
@@ -159,4 +147,6 @@ export default function Home() {
       )}
     </>
   );
-}
+};
+
+export default HomeSection;
