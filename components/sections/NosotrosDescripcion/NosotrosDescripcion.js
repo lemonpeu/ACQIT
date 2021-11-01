@@ -30,7 +30,7 @@ const NosotrosDescripcion = ({
                 {showText1 && <NosotrosText showText1={showText1} text1 />}
             </article>
             <article
-                className={`${styles.descriptionContainer} ${showText2 ? 'usAnimationBox2' : ''}`}
+                className={`${styles.descriptionContainer} ${showText3 ? 'usAnimationBox2' : ''}`}
             >
                 <div className={showText3 ? `${styles.setAnimation3}` : `${styles.icon}`}>
                     <Image
@@ -44,7 +44,13 @@ const NosotrosDescripcion = ({
                 </div>
                 {showText3 && <NosotrosText showText3={showText3} text3 />}
             </article>
-            <article className={styles.descriptionContainer}>
+            <article
+                className={styles.descriptionContainer}
+                style={{
+                    display: showText2 && isFooterMobile && 'flex',
+                    flexDirection: showText2 && isFooterMobile && 'row-reverse',
+                }}
+            >
                 <div className={showText2 ? `${styles.setAnimation2}` : `${styles.icon}`}>
                     <Image
                         layout="fixed"

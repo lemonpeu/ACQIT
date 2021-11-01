@@ -59,8 +59,7 @@
         .descriptionContainer {
             position: relative;
             .setAnimation2 {
-                right: 0;
-                position: absolute !important;
+                position: absolute;
             }
             &:nth-of-type(2) {
                 bottom: -10px;

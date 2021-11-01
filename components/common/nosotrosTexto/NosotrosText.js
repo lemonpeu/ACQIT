@@ -45,7 +45,7 @@ const NosotrosText = ({ text1, text2, text3, showText1, showText2, showText3 }) 
             );
         } else if (text3) {
             return (
-                <div className={`${styles.textContainer} ${showText3 ? 'third' : ''}`}>
+                <div className={`${styles.textContainer} ${showText3 ? 'third first' : ''}`}>
                     <p className={styles.description}>
                         Nos gustan los desafíos, el dinamismo y ponernos a prueba
                         constantemente&nbsp;

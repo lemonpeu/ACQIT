@@ -36,6 +36,10 @@ button {
     border: none;
 }
 
+.first {
+    left: 170px !important;
+}
+
 .main {
     height: 100%;
     display: flex;
@@ -166,10 +170,6 @@ button {
     animation-fill-mode: forwards;
 }
 
-.first {
-    left: 240px !important;
-}
-
 .third {
     opacity: 0;
     animation-name: opacity;
@@ -177,7 +177,7 @@ button {
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
     animation-delay: 1s;
-    left: 100px;
+    left: 200px;
     top: 20px;
 }
 
@@ -357,6 +357,9 @@ button {
 }
 
 @media (min-width: 1000px) {
+    .first {
+        left: 240px !important;
+    }
     .companiesContainer {
         --height: 500rem;
         animation-duration: 12s;
@@ -406,7 +409,7 @@ button {
     to {
         opacity: 1;
         left: 0;
-        bottom: 0;
+        bottom: -150px;
     }
 }
 
