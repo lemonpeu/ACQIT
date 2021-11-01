@@ -1,66 +1,15 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
-.inputContainer {
-    display: flex;
-    position: relative;
-    margin-top: 1rem;
-    .input {
-        position: absolute;
-        z-index: 4;
-        left: 0;
-        width: calc(100% - 59px);
-        border-radius: 10px;
-        border: 1px solid #f0f0f0;
-        outline: none;
-        height: 30px;
-        box-shadow: -6px 2px 32px 0px rgba(105, 105, 105, 0.54);
-        padding-left: 1rem;
-        font-family: $montserrat;
-        &:focus {
-            background-color: red;
-        }
-    }
-    .button {
-        position: absolute;
-        z-index: 2;
-        right: 0;
-        height: 30px;
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-        padding-left: 2rem;
-        padding-right: 1rem;
-        border: none;
-        background-color: $lightBlue;
-        color: $white;
-        font-family: $montserrat;
-        font-size: 1.1rem;
-        box-shadow: 13px 2px 32px 0px rgba(105, 105, 105, 0.54);
-    }
-}
-
-@media (min-width: 700px) {
-    .inputContainer {
-        width: calc(100% - 300px);
-        margin-left: auto;
-        top: -15px;
-        margin-top: 0;
-    }
-}
-
-@media (min-width: 1000px) {
-    .inputContainer {
-        width: calc(100% - 300px);
-        margin-left: auto;
-        top: 50%;
-        transform: translateY(-67%);
-        input {
-            width: calc(100% - 50px);
-        }
-    }
-}
-
-@media (min-width: 1200px) {
-    .inputContainer {
-        width: calc(100% - 400px);
-    }
+.input {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  width: calc(100% - 59px);
+  border-radius: 10px;
+  border: 1px solid #f0f0f0;
+  outline: none;
+  height: 30px;
+  box-shadow: -6px 2px 32px 0px rgba(105, 105, 105, 0.54);
+  padding-left: 1rem;
+  font-family: $montserrat;
 }

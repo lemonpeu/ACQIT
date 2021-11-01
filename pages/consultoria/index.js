@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import BoxUserName from "../../components/common/boxusername/boxusername";
 import Footer from "../../components/sections/footer/footer";
 import styles from "./consultoria.module.scss";
 import IconConsultancy from "../../components/common/iconConsultancy/iconConsultancy";
