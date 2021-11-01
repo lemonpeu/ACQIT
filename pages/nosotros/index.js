@@ -233,7 +233,6 @@ const Nosotros = () => {
                                             integral, sino que todos son tratados como problemas
                                             separados.
                                             <span style={{ color: '#0885e6' }}>
-                                                {' '}
                                                 Nosotros como compañía entendemos que todo tiene un
                                                 vínculo y la mejor forma de tratarlo es como un
                                                 único objetivo.

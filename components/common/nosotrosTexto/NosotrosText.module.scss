@@ -1,12 +1,13 @@
 @import '../../../styles/variables.scss';
 
 .textContainer {
-    width: 60%;
+    width: 70%;
     position: absolute;
-    left: 12rem;
+    left: 16rem;
     top: 0;
     transform: translateX(0);
     padding-top: 2rem;
+    margin-left: -4rem;
     .description {
         color: $white;
         font-size: 1.4rem;
@@ -18,8 +19,15 @@
 
 @media (min-width: 1000px) {
     .textContainer {
-        left: 200px;
-        top: 20px;
         transform: translate(0, 0);
+        .description {
+            font-size: 1.7rem;
+        }
+    }
+}
+
+@media (min-width: 1000px) {
+    .textContainer {
+        left: 14rem;
     }
 }

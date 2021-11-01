@@ -6,7 +6,7 @@ const ServiceText = ({ isModalVisible, name, link, text, title, id }) => {
     return (
         <div
             className={`${styles.servicesItemContainer} ${
-                !isModalVisible && 'servicesItemAnimation'
+                isModalVisible && 'servicesItemAnimation'
             }`}
         >
             <ServiceIcon name={name} layout={'fixed'} width={40} height={40} />

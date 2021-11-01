@@ -3,13 +3,13 @@ import React from 'react';
 import LinesDesktop from '../../svg/linesDesktop';
 import ServicesTextDesktop from '../../sections/ServicesTextDesktop/ServicesTextDesktop';
 
-const ServicesGraphic = ({ isModalVisible, showServices }) => {
+const ServicesGraphic = ({ isVisible }) => {
     return (
         <div className={styles.graphContainer}>
-            {showServices && (
+            {isVisible && (
                 <>
-                    <LinesDesktop showAnimation={showServices} />
-                    <ServicesTextDesktop isModalVisible={isModalVisible} />
+                    <LinesDesktop showAnimation={isVisible} />
+                    <ServicesTextDesktop isModalVisible={isVisible} />
                 </>
             )}
         </div>

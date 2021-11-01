@@ -26,6 +26,7 @@ export default function Home() {
     const [is1thSectionVisible, setIs1thSectionVisible] = useState(false);
     const [is2ndSectionVisible, setIs2ndSectionVisible] = useState(false);
     const [is3rdSectionVisible, setIs3rdSectionVisible] = useState(false);
+    const [isFocused, setIsFocused] = useState(false);
     const setRef = useRef(null);
 
     const scrollY = useScrollDown();
@@ -98,14 +99,14 @@ export default function Home() {
                                     overflow: 'auto',
                                     height: '100%',
                                 }}
-                                id="top"
                             >
-                                {isPage900 && <NavDesktop />}
+                                {isPage900 && <NavDesktop isFocused={(e) => setIsFocused(e)} />}
                                 <div
                                     style={{
                                         scrollSnapAlign: isScreen1000 ? 'center' : '',
                                         height: '100vh',
                                     }}
+                                    id="top"
                                 >
                                     <HeaderHome
                                         is1thSectionVisible={(e) => setIs1thSectionVisible(e)}
@@ -114,13 +115,14 @@ export default function Home() {
                                 <div
                                     style={{
                                         scrollSnapAlign: isScreen1000 ? 'center' : '',
-                                        height: isPage1200 ? `${size.height}px` : '100vh',
+                                        height: isPage1200 && `${size.height}px`,
                                     }}
                                 >
                                     <ServicesHome
                                         isModalVisible={isModalVisible}
                                         isPage1200={isPage1200}
                                         is2rdSectionVisible={(e) => setIs2ndSectionVisible(e)}
+                                        isVisible={is2ndSectionVisible}
                                     />
                                 </div>
                                 <div
@@ -136,10 +138,12 @@ export default function Home() {
                                         isScreen1000={isScreen1000}
                                         isPage1200={isPage1200}
                                         is3rdSectionVisible={(e) => setIs3rdSectionVisible(e)}
+                                        isVisible={is3rdSectionVisible}
                                     />
                                     {isScreen1000 ? (
                                         <FooterDesktop
                                             name={localStorage.getItem('name') || userName}
+                                            autofocus={isFocused}
                                         />
                                     ) : (
                                         <Footer name={localStorage.getItem('name') || userName} />

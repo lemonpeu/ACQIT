@@ -3,7 +3,7 @@ import styles from './nav.module.scss';
 import Image from '../../common/Image/Image';
 import Link from 'next/link';
 
-const NavDesktop = () => {
+const NavDesktop = ({ isFocused }) => {
     const [showNav, setShowNav] = useState(true);
 
     const hideNav = useCallback(() => {
@@ -54,10 +54,10 @@ const NavDesktop = () => {
                                         <li className={styles.navItem}>Equipamiento</li>
                                     </Link>
                                     <Link href="/consultoria" passHref>
-                                        <li className={styles.navItem}>ConsultoríaIT</li>
+                                        <li className={styles.navItem}>Consultoría IT</li>
                                     </Link>
                                     <Link href="/seguridadit" passHref>
-                                        <li className={styles.navItem}>SeguridadIT</li>
+                                        <li className={styles.navItem}>Seguridad IT</li>
                                     </Link>
                                     <Link href="/disenio" passHref>
                                         <li className={styles.navItem}>Diseño web</li>
@@ -72,9 +72,9 @@ const NavDesktop = () => {
                     <>
                         <div className={styles.listContact + ' ' + 'navItemsAnimation'}>
                             <p>11-39844968</p>
-                            <Link href="/#contact" passHref>
-                                <p className={styles.contact}>Contactate!</p>
-                            </Link>
+                            <button className={styles.contact} onClick={() => isFocused(true)}>
+                                Contactate!
+                            </button>
                         </div>
                     </>
                 )}

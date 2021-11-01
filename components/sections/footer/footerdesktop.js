@@ -4,10 +4,11 @@ import Image from '../../common/Image/Image';
 import BoxUserName from '../../common/boxusername/boxusername';
 import Link from 'next/link';
 
-const FooterDesktop = ({ style, name }) => {
+const FooterDesktop = ({ style, name, autofocus }) => {
+    console.log('autofocus', autofocus);
     return (
         <div className={styles.wrapper}>
-            <BoxUserName boxUserName name={name} />
+            <BoxUserName boxUserName name={name} autofocus={autofocus} />
             <footer
                 className={`${styles.containerDesktop} ${styles.container}`}
                 style={style}
@@ -33,7 +34,7 @@ const FooterDesktop = ({ style, name }) => {
                                 src="/images/icons/SVG/teliconblack.svg"
                                 alt="telefono"
                             />
-                            11-39844968
+                            <a href="tel:5491139844968">(11) 3984-4968</a>
                         </li>
                         <li className={styles.listItem}>
                             <Image
@@ -42,7 +43,7 @@ const FooterDesktop = ({ style, name }) => {
                                 src="/images/icons/SVG/emailblack.svg"
                                 alt="email"
                             />
-                            info@acqit.com.ar
+                            <a href="mailto:info@acqit.com.ar">info@acqit.com.ar</a>
                         </li>
                         <li className={styles.listItem}>
                             <Image
@@ -51,7 +52,13 @@ const FooterDesktop = ({ style, name }) => {
                                 src="/images/icons/SVG/placeicon.svg"
                                 alt="place"
                             />
-                            Arcos 2836
+                            <a
+                                href="https://goo.gl/maps/nUsXBVnkfPPpEKfNA"
+                                rel="noreferrer"
+                                target="_blank"
+                            >
+                                Arcos 2836
+                            </a>
                         </li>
                     </ul>
                     <ul className={styles.socialList}>
