@@ -46,6 +46,7 @@
 @media (min-width: 1000px) {
     .wrapper {
         width: 100%;
+        margin-left: 0;
         .descriptionContainer {
             div:first-child {
                 margin-bottom: -2rem;
@@ -69,6 +70,9 @@
                 top: -180px;
                 transform: translate(0, 0);
             }
+            &.middle {
+                    top: -230px;
+            }
         }
     }
 }
@@ -79,6 +83,14 @@
             .setAnimation2 {
                 margin-right: 15rem;
             }
+        }
+    }
+}
+
+@media(min-width: 1700px) {
+    .wrapper {
+        .descriptionContainer.middle {
+            top: -283px;
         }
     }
 }

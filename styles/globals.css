@@ -275,13 +275,6 @@ button {
 
 /* Nosotros */
 
-.usAnimationBox2 {
-    animation-name: translation;
-    animation-duration: 5000ms;
-    animation-iteration-count: forwards;
-    animation-fill-mode: forwards;
-}
-
 /* Lines */
 
 .path1,
@@ -387,6 +380,79 @@ button {
         animation-name: boxSectionAnimate;
         animation-duration: 2000ms;
     }
+    .setAnimation2 {
+        --topFrom: -225px;
+        --topTo: -170px;
+        --leftTo: 102px;
+        animation-name: animationnn;
+        animation-duration: 5s;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    .usAnimationBox2 {
+        /* --leftFrom: 120px; */
+        --bottomTo: -160px;
+        animation-name: translation;
+        animation-duration: 5000ms;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
+}
+
+@media(min-width: 1500px) {
+    .setAnimation2 {
+        --topFrom: -225px;
+        --topTo: -150px;
+        --leftTo: 102px;
+        animation-name: animationnn;
+        animation-duration: 5s;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    .usAnimationBox2 {
+        --leftFrom: 120px;
+        --leftTo: 0;
+        --bottomTo: -220px;
+        animation-name: translation;
+        animation-duration: 5000ms;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
+}
+
+@media(min-width: 1700px) {
+    .setAnimation2 {
+        --topFrom: -225px;
+        --topTo: -220px;
+        --leftTo: 100px;
+        animation-name: animationnn;
+        animation-duration: 5s;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    .usAnimationBox2 {
+        --leftFrom: 120px;
+        --leftTo: 0;
+        --bottomTo: -200px;
+        animation-name: translation;
+        animation-duration: 5000ms;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
+}
+
+
+@keyframes animationnn {
+    from {
+        top:  var(--topFrom);
+    }
+    to {
+        top:  var(--topTo);
+        left:  var(--leftTo);
+    }
 }
 
 @keyframes boxSectionAnimate {
@@ -403,13 +469,13 @@ button {
 @keyframes translation {
     from {
         opacity: 0;
-        left: 120px;
-        top: unset;
+        left:  var(--leftFrom);
+        top: var(--topFrom);
     }
     to {
         opacity: 1;
-        left: 0;
-        bottom: -150px;
+        left:  var(--leftTo);
+        bottom: var(--bottomTo);
     }
 }
 

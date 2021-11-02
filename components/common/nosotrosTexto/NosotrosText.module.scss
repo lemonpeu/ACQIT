@@ -20,14 +20,34 @@
 @media (min-width: 1000px) {
     .textContainer {
         transform: translate(0, 0);
+        padding-top: 0;
         .description {
             font-size: 1.7rem;
         }
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
     .textContainer {
         left: 14rem;
+        top: 30px;
     }
 }
+
+@media(min-width: 1500px) {
+    .textContainer {
+        .description {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+@media(min-width: 1700px) {
+    .textContainer {
+        margin-left: 2rem;
+        .description {
+            font-size: 2.2rem;
+        }
+    }
+}
+

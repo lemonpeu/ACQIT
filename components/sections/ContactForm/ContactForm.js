@@ -1,30 +1,31 @@
-import React, { useEffect, useRef, useState } from "react";
-import emailjs from "emailjs-com";
+import React, { useState } from "react";
 import Input from "../../common/input/input";
 import styles from "./ContactForm.module.scss";
 
 const ContactForm = () => {
   const [isSent, setIsSent] = useState(false);
-  const form = useRef();
+  const [emailText, sendEmailText] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_yoid8dh",
-        "template_tbsmko7",
-        form.current,
-        "user_GI8rh9mp4el9mblKdbvnU"
-      )
-      .then(
-        () => {
-          setIsSent(true);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-    e.target.reset();
+    sendData(emailText);
+  };
+
+  // data to be sent to the POST request
+
+  const sendData = async (email) => {
+    try {
+      const response = await fetch("https://acqit.com.ar/contact/contact.php", {
+        method: "POST",
+        headers: new Headers({
+          "Content-Type": "application/x-www-form-urlencoded",
+        }),
+        body: "email= " + email,
+      });
+      console.log("Response", response);
+    } catch (e) {
+      console.log("Error", e);
+    }
   };
 
   return (
@@ -32,8 +33,13 @@ const ContactForm = () => {
       {isSent ? (
         <p style={{ marginLeft: "auto" }}>Tu mensaje ha sido enviado.</p>
       ) : (
-        <form ref={form} onSubmit={sendEmail} className={styles.inputContainer}>
-          <Input placeholder="E-mail." name="name" />
+        <form onSubmit={sendEmail} className={styles.inputContainer}>
+          <Input
+            placeholder="E-mail."
+            name="email"
+            value={emailText}
+            onChange={(e) => sendEmailText(e.target.value)}
+          />
           <button className={styles.button} type="submit">
             Enviar
           </button>

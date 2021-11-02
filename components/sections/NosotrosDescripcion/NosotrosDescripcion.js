@@ -14,6 +14,16 @@ const NosotrosDescripcion = ({
 }) => {
   const size = useWindowSize();
 
+  const imageWidth = () => {
+    if (size.width < 1000) {
+      return { width: 130, height: 120 };
+    } else if (size.width > 1000 && size.width < 1700) {
+      return { width: 200, height: 190 };
+    } else {
+      return { width: 250, height: 230 };
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
       <article className={styles.descriptionContainer}>
@@ -22,8 +32,8 @@ const NosotrosDescripcion = ({
         >
           <Image
             layout="fixed"
-            width={isFooterMobile ? 200 : 130}
-            height={isFooterMobile ? 190 : 120}
+            width={imageWidth().width}
+            height={imageWidth().height}
             src="/images/extra/SVG/nosotros/line1.png"
             alt="aaaaaa"
             onClick={() => onClick1(true)}
@@ -41,8 +51,8 @@ const NosotrosDescripcion = ({
         >
           <Image
             layout="fixed"
-            width={isFooterMobile ? 200 : 130}
-            height={isFooterMobile ? 190 : 120}
+            width={imageWidth().width}
+            height={imageWidth().height}
             src="/images/extra/SVG/nosotros/line2.png"
             alt="aaaaaa"
             onClick={() => onClick3(true)}
@@ -51,7 +61,9 @@ const NosotrosDescripcion = ({
         {showText3 && <NosotrosText showText3={showText3} text3 />}
       </article>
       <article
-        className={styles.descriptionContainer}
+        className={`${styles.descriptionContainer} ${styles.middle} ${
+          showText2 ? "setAnimation2" : ""
+        }`}
         style={{
           display: showText2 && isFooterMobile && "flex",
           flexDirection: showText2 && isFooterMobile && "row-reverse",
@@ -62,8 +74,8 @@ const NosotrosDescripcion = ({
         >
           <Image
             layout="fixed"
-            width={isFooterMobile ? 200 : 130}
-            height={isFooterMobile ? 190 : 120}
+            width={imageWidth().width}
+            height={imageWidth().height}
             src="/images/extra/SVG/nosotros/line3.png"
             alt="aaaaaa"
             onClick={() => onClick2(true)}
