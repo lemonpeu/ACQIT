@@ -57,31 +57,15 @@
 
 @media (min-width: 1200px) {
     .wrapper {
+        width: 90%;
         .descriptionContainer {
             position: relative;
-            .setAnimation2 {
-                position: absolute;
-            }
-            &:nth-of-type(2) {
-                bottom: -10px;
-            }
+            display: flex;
+            align-items: center;
             &:nth-of-type(3) {
                 left: 120px;
-                top: -180px;
+                top: -230px;
                 transform: translate(0, 0);
-            }
-            &.middle {
-                    top: -230px;
-            }
-        }
-    }
-}
-
-@media (min-width: 1400px) {
-    .wrapper {
-        .descriptionContainer {
-            .setAnimation2 {
-                margin-right: 15rem;
             }
         }
     }
@@ -89,8 +73,16 @@
 
 @media(min-width: 1700px) {
     .wrapper {
-        .descriptionContainer.middle {
-            top: -283px;
+        width: 100%;
+        .descriptionContainer {
+            &:nth-of-type(3) {
+                left: 120px;
+                top: -300px;
+                transform: translate(0, 0);
+            }
+            &:nth-of-type(2) {
+                top: -20px;
+            }
         }
     }
 }

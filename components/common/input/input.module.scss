@@ -1,7 +1,6 @@
 @import "../../../styles/variables.scss";
 
 .input {
-  position: absolute;
   z-index: 4;
   left: 0;
   width: calc(100% - 59px);
@@ -12,4 +11,7 @@
   box-shadow: -6px 2px 32px 0px rgba(105, 105, 105, 0.54);
   padding-left: 1rem;
   font-family: $montserrat;
+  &.isFocused {
+    border: 1px solid $textBlue;
+  }
 }

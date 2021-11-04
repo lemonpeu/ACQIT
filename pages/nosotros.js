@@ -18,7 +18,15 @@ const Nosotros = () => {
     setIsLoading(false);
   };
 
-  return <>{isLoading ? <LoadingLogo /> : <AboutUsContainer />}</>;
+  return (
+    <>
+      {isLoading ? (
+        <LoadingLogo />
+      ) : (
+        <AboutUsContainer videoPath={"/videos/video-nosotros.mp4"} />
+      )}
+    </>
+  );
 };
 
 export default Nosotros;

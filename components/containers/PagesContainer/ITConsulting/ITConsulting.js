@@ -20,6 +20,7 @@ const ITConsultingContainer = () => {
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");
   let isNavDesktop = useMediaQuery("(min-width: 900px)");
   const [isLoading, setIsLoading] = useState(true);
+  const [isFocused, setIsFocused] = useState(false);
 
   const iconsConsultancy = [
     {
@@ -116,80 +117,73 @@ const ITConsultingContainer = () => {
   }, [isLoading]);
 
   return (
-    <>
-      {isModalVisible ? (
-        <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
+    <div className={styles.wrapper + " " + "main"}>
+      {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
+      {isNavDesktop ? (
+        <NavDesktop
+          showSubNav
+          isScrollDown={scrollY}
+          isFocused={(e) => setIsFocused(e)}
+        />
       ) : (
-        <>
-          <>
-            <div id="top" className={styles.wrapper + " " + "main"}>
-              {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
-              {isNavDesktop ? (
-                <NavDesktop showSubNav isScrollDown={scrollY} />
-              ) : (
-                isNavVisible && (
-                  <NavMobile onClick={() => setIsNavVisible(false)} />
-                )
-              )}
-              <div>
-                <div className={styles.background}></div>
-                <section className={styles.main}>
-                  {!isNavDesktop && (
-                    <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
-                  )}
-                  <div className={styles.contentContainer}>
-                    <h1 className={styles.title}>Consultoria IT</h1>
-                    <p className={styles.description}>
-                      ACQ it cuenta con un equipo especializado enfocado en la
-                      administración, configuración e integración de tus
-                      ambientes. Desarrollamos esquemas de trabajo que se
-                      ajusten a las necesidades de cada compañía
-                    </p>
-                    <p className={styles.description}>
-                      Analizamos, ejecutamos y controlamos el accionar de tus
-                      sistemas, llevando un registro del equipamiento colocando
-                      especial atención a la performance, la reducción de
-                      riesgos y los tiempos de respuesta.
-                    </p>
-                    <p className={styles.description}>
-                      Definimos y gestionamos un plan de actualizaciones en base
-                      a tecnologías y metodologías ágiles.
-                    </p>
-                    <h4 className={styles.aclaration}>
-                      Nuestra atención en los detalles facilita las decisiones
-                      al cliente.
-                    </h4>
-                    <div
-                      className={
-                        styles.iconsContainer + " " + "iconsContainerAnimation"
-                      }
-                    >
-                      {iconsConsultancy.map((item, index) => (
-                        <IconConsultancy
-                          key={index}
-                          src={item.icon}
-                          alt={item.text}
-                          text={item.text}
-                        />
-                      ))}
-                    </div>
-                    <Whatsapp />
-                  </div>
-                </section>
-                {isFooterMobile ? (
-                  <FooterDesktop
-                    style={{ zIndex: 5 }}
-                    name={localStorage.getItem("name") || userName}
-                  />
-                ) : (
-                  <Footer name={localStorage.getItem("name") || userName} />
-                )}
-              </div>
-            </div>
-          </>
-        </>
+        isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
       )}
-    </>
+      <div>
+        <div className={styles.background}></div>
+        <section className={styles.main}>
+          {!isNavDesktop && (
+            <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
+          )}
+          <div className={styles.contentContainer} id="top">
+            <h1 className={styles.title}>Consultoria IT</h1>
+            <p className={styles.description}>
+              ACQ it cuenta con un equipo especializado enfocado en la
+              administración, configuración e integración de tus ambientes.
+              Desarrollamos esquemas de trabajo que se ajusten a las necesidades
+              de cada compañía
+            </p>
+            <p className={styles.description}>
+              Analizamos, ejecutamos y controlamos el accionar de tus sistemas,
+              llevando un registro del equipamiento colocando especial atención
+              a la performance, la reducción de riesgos y los tiempos de
+              respuesta.
+            </p>
+            <p className={styles.description}>
+              Definimos y gestionamos un plan de actualizaciones en base a
+              tecnologías y metodologías ágiles.
+            </p>
+            <h4 className={styles.aclaration}>
+              Nuestra atención en los detalles facilita las decisiones al
+              cliente.
+            </h4>
+            <div
+              className={
+                styles.iconsContainer + " " + "iconsContainerAnimation"
+              }
+            >
+              {iconsConsultancy.map((item, index) => (
+                <IconConsultancy
+                  key={index}
+                  src={item.icon}
+                  alt={item.text}
+                  text={item.text}
+                />
+              ))}
+            </div>
+            <Whatsapp />
+          </div>
+        </section>
+        {isFooterMobile ? (
+          <FooterDesktop
+            style={{ zIndex: 5 }}
+            name={localStorage.getItem("name") || userName}
+            autofocus={isFocused}
+          />
+        ) : (
+          <Footer name={localStorage.getItem("name") || userName} />
+        )}
+      </div>
+    </div>
   );
 };
 

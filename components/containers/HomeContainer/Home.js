@@ -27,9 +27,11 @@ const HomeSection = () => {
   let isPage1200 = useMediaQuery("(min-width: 1200px)");
   let isPage900 = useMediaQuery("(min-width: 900px)");
   let isScreen1000 = useMediaQuery("(min-width: 1000px)");
+  let isScreen700 = useMediaQuery("(min-width: 700px)");
 
   useEffect(() => {
-    if (localStorage.getItem("isModal")) {
+    const isModalOnLocalStorage = localStorage.getItem("isModal");
+    if (isModalOnLocalStorage) {
       setIsModalVisible(false);
     } else {
       setIsModalVisible(true);
@@ -48,103 +50,97 @@ const HomeSection = () => {
 
   return (
     <>
-      {isModalVisible ? (
-        <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
-      ) : (
-        <>
-          <div
-            className={styles.wrapper + " " + "main home"}
-            style={{ height: "100%" }}
+      <div
+        className={styles.wrapper + " " + "main home"}
+        style={{ height: "100%" }}
+      >
+        {isPage900 && (
+          <ScrollNav
+            isVisible3={is3rdSectionVisible}
+            isVisible2={is2ndSectionVisible}
+            isVisible1={is1thSectionVisible}
+          />
+        )}
+        {isModalVisible && (
+          <Modal
+            onClose={() => modalConfig()}
+            onClick={(e) => modalConfig(e)}
+          />
+        )}
+        {!isPage900 && isNavVisible && (
+          <NavMobile onClick={() => setIsNavVisible(false)} />
+        )}
+
+        <div
+          className={styles.main}
+          id="pageContainer"
+          style={{ height: "100%" }}
+        >
+          {!isPage900 && (
+            <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
+          )}
+
+          <section
+            className={styles.categories + " " + "container"}
+            style={{
+              scrollSnapType: "y mandatory",
+              overflow: "auto",
+              height: "100%",
+            }}
           >
-            {isPage900 && (
-              <ScrollNav
-                isVisible3={is3rdSectionVisible}
-                isVisible2={is2ndSectionVisible}
-                isVisible1={is1thSectionVisible}
-              />
-            )}
-            {isModalVisible && (
-              <Modal
-                onClose={() => modalConfig()}
-                onClick={(e) => modalConfig(e)}
-              />
-            )}
-            {!isPage900 && isNavVisible && (
-              <NavMobile onClick={() => setIsNavVisible(false)} />
-            )}
-
+            {isPage900 && <NavDesktop isFocused={(e) => setIsFocused(e)} />}
             <div
-              className={styles.main}
-              id="pageContainer"
-              style={{ height: "100%" }}
+              style={{
+                scrollSnapAlign: isScreen1000 ? "center" : "",
+                height: "100vh",
+              }}
+              id="top"
             >
-              {!isPage900 && (
-                <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
-              )}
-
-              <section
-                className={styles.categories + " " + "container"}
-                style={{
-                  scrollSnapType: "y mandatory",
-                  overflow: "auto",
-                  height: "100%",
-                }}
-              >
-                {isPage900 && <NavDesktop isFocused={(e) => setIsFocused(e)} />}
-                <div
-                  style={{
-                    scrollSnapAlign: isScreen1000 ? "center" : "",
-                    height: "100vh",
-                  }}
-                  id="top"
-                >
-                  <HeaderHome
-                    is1thSectionVisible={(e) => setIs1thSectionVisible(e)}
-                  />
-                </div>
-                <div
-                  style={{
-                    scrollSnapAlign: isScreen1000 ? "center" : "",
-                    height: isPage1200 && `${size.height}px`,
-                  }}
-                >
-                  <ServicesHome
-                    isModalVisible={isModalVisible}
-                    isPage1200={isPage1200}
-                    is2rdSectionVisible={(e) => setIs2ndSectionVisible(e)}
-                    isVisible={is2ndSectionVisible}
-                  />
-                </div>
-                <div
-                  style={{
-                    scrollSnapAlign: isScreen1000 ? "center" : "",
-                    height: "100vh",
-                    alignContent: "space-between",
-                  }}
-                >
-                  <LinesHomeSection
-                    userName={localStorage.getItem("name") || userName}
-                    isModalVisible={isModalVisible}
-                    isScreen1000={isScreen1000}
-                    isPage1200={isPage1200}
-                    is3rdSectionVisible={(e) => setIs3rdSectionVisible(e)}
-                    isVisible={is3rdSectionVisible}
-                  />
-                  {isScreen1000 ? (
-                    <FooterDesktop
-                      name={localStorage.getItem("name") || userName}
-                      autofocus={isFocused}
-                    />
-                  ) : (
-                    <Footer name={localStorage.getItem("name") || userName} />
-                  )}
-                </div>
-              </section>
+              <HeaderHome
+                is1thSectionVisible={(e) => setIs1thSectionVisible(e)}
+              />
             </div>
-            <Whatsapp />
-          </div>
-        </>
-      )}
+            <div
+              style={{
+                scrollSnapAlign: isScreen1000 ? "center" : "",
+                height: isPage1200 && `${size.height}px`,
+              }}
+            >
+              <ServicesHome
+                isModalVisible={isModalVisible}
+                isPage1200={isPage1200}
+                is2rdSectionVisible={(e) => setIs2ndSectionVisible(e)}
+                isVisible={is2ndSectionVisible}
+              />
+            </div>
+            <div
+              style={{
+                scrollSnapAlign: isScreen1000 ? "center" : "",
+                height: "100vh",
+                alignContent: "space-between",
+              }}
+            >
+              <LinesHomeSection
+                userName={localStorage.getItem("name") || userName}
+                isModalVisible={isModalVisible}
+                isScreen1000={isScreen1000}
+                isPage1200={isPage1200}
+                is3rdSectionVisible={(e) => setIs3rdSectionVisible(e)}
+                isVisible={is3rdSectionVisible}
+              />
+              {isScreen1000 ? (
+                <FooterDesktop
+                  name={localStorage.getItem("name") || userName}
+                  autofocus={isFocused}
+                />
+              ) : (
+                <Footer name={localStorage.getItem("name") || userName} />
+              )}
+            </div>
+          </section>
+        </div>
+        <Whatsapp />
+      </div>
     </>
   );
 };

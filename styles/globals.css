@@ -17,8 +17,14 @@ body {
 #__next > div:first-child,
 #__next .main {
     display: flex;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     flex-direction: column;
+}
+
+.main {
+    animation-name: opacity;
+    animation-duration: 4000ms;
+    animation-fill-mode: forwards;
 }
 
 a {
@@ -41,10 +47,8 @@ button {
 }
 
 .main {
-    height: 100%;
     display: flex;
     flex-direction: column;
-    flex: 1;
 }
 
 /* Animations */
@@ -94,6 +98,13 @@ button {
     animation-fill-mode: forwards;
 }
 
+.logoContainerAnimation {
+    animation-name: fading;
+    animation-duration: 5s;
+    animation-iteration-count: forwards;
+    animation-fill-mode: forwards;
+}
+
 /* Services Graphic */
 
 @media (min-width: 1200px) {
@@ -126,21 +137,21 @@ button {
     animation-delay: 1000ms;
 }
 
-.companiesContainer {
-    --height: 55rem;
+/* .companiesContainer {
+    --height: 100%;
     animation-name: companiesBoxHeight;
     animation-duration: 5s;
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
-}
+} */
 
-.companiesAnimation {
+/* .companiesAnimation {
     animation-name: boxShadow;
     animation-duration: 5s;
     animation-delay: 1s;
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
-}
+} */
 
 /* Transition black */
 
@@ -165,7 +176,7 @@ button {
 .textNosotros {
     opacity: 0;
     animation-name: opacity;
-    animation-duration: 9000ms;
+    animation-duration: 2s;
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
 }
@@ -173,23 +184,14 @@ button {
 .third {
     opacity: 0;
     animation-name: opacity;
-    animation-duration: 9000ms;
+    animation-duration: 2s;
     animation-iteration-count: forwards;
     animation-fill-mode: forwards;
-    animation-delay: 1s;
     left: 200px;
     top: 20px;
 }
 
 /* SeguridadIt */
-
-.iconTextAnimation {
-    opacity: 0;
-    animation-name: opacity;
-    animation-duration: 9000ms;
-    animation-iteration-count: forwards;
-    animation-fill-mode: forwards;
-}
 
 .prefix__cls-1 {
     --color: #0885e6;
@@ -341,6 +343,18 @@ button {
     }
 }
 
+@keyframes fading {
+    0% {
+        opacity: 0.5;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .textContainerAnimation {
     animation-name: heightScanAnimation;
     animation-duration: 5s;
@@ -350,12 +364,22 @@ button {
 }
 
 @media (min-width: 1000px) {
+    .fullWrapperCompany {
+        width: 80%;
+        animation-name: widthAnimate;
+        animation-duration: 3s;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
     .first {
         left: 240px !important;
     }
     .companiesContainer {
         --height: 500rem;
-        animation-duration: 12s;
+        animation-name: companiesBoxHeight;
+        animation-duration: 4s;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
     }
 
     .textContainerAnimation {
@@ -380,67 +404,100 @@ button {
         animation-name: boxSectionAnimate;
         animation-duration: 2000ms;
     }
-    .setAnimation2 {
-        --topFrom: -225px;
-        --topTo: -170px;
-        --leftTo: 102px;
-        animation-name: animationnn;
-        animation-duration: 5s;
-        animation-iteration-count: forwards;
-        animation-fill-mode: forwards;
-    }
+}
 
-    .usAnimationBox2 {
-        /* --leftFrom: 120px; */
-        --bottomTo: -160px;
-        animation-name: translation;
-        animation-duration: 5000ms;
-        animation-iteration-count: forwards;
-        animation-fill-mode: forwards;
+@keyframes widthAnimate {
+    0% {
+
+    }
+    100% {
+        width: 100%;
     }
 }
 
-@media(min-width: 1500px) {
-    .setAnimation2 {
-        --topFrom: -225px;
-        --topTo: -150px;
-        --leftTo: 102px;
-        animation-name: animationnn;
-        animation-duration: 5s;
+@media (min-width: 1200px) {
+    .NosotrosDescriptionWrapper .descriptionWrapperAnimation {
+        --topStart: 0;
+        --topEnd: 140px !important;
+        animation-name: topPositionAnimate;
+        animation-duration: 1.5s;
         animation-iteration-count: forwards;
         animation-fill-mode: forwards;
     }
-
-    .usAnimationBox2 {
-        --leftFrom: 120px;
-        --leftTo: 0;
-        --bottomTo: -220px;
-        animation-name: translation;
-        animation-duration: 5000ms;
+    .NosotrosDescriptionWrapper .descriptionWrapperMiddle {
+        /* top: -190px !important; */
+        
+        --topStart: -230px;
+        --topEnd: -190px !important;
+        animation-name: topPositionAnimate;
+        animation-duration: 1.5s;
         animation-iteration-count: forwards;
         animation-fill-mode: forwards;
+    }
+    .NosotrosDescriptionWrapper .descriptionWrapperRight {
+        display: flex;
+        flex-direction: row-reverse;
+        left: 99px !important;
     }
 }
 
-@media(min-width: 1700px) {
-    .setAnimation2 {
-        --topFrom: -225px;
-        --topTo: -220px;
-        --leftTo: 100px;
-        animation-name: animationnn;
-        animation-duration: 5s;
+@media (min-width: 1500px) {
+    .NosotrosDescriptionWrapper .descriptionWrapperAnimation {
+        --topStart: 0;
+        --topEnd: 160px !important;
+        animation-name: topPositionAnimate;
+        animation-duration: 1.5s;
         animation-iteration-count: forwards;
         animation-fill-mode: forwards;
     }
-
-    .usAnimationBox2 {
-        --leftFrom: 120px;
-        --leftTo: 0;
-        --bottomTo: -200px;
-        animation-name: translation;
-        animation-duration: 5000ms;
+    .NosotrosDescriptionWrapper .descriptionWrapperMiddle {
+        /* top: -190px !important; */
+        
+        --topStart: -230px;
+        --topEnd: -170px !important;
+        animation-name: topPositionAnimate;
+        animation-duration: 1.5s;
         animation-iteration-count: forwards;
         animation-fill-mode: forwards;
+    }
+    .NosotrosDescriptionWrapper .descriptionWrapperRight {
+        display: flex;
+        flex-direction: row-reverse;
+        left: 99px !important;
+    }
+}
+
+@media (min-width: 1700px) {
+    .NosotrosDescriptionWrapper .descriptionWrapperAnimation {
+        --topStart: 0;
+        --topEnd: 250px !important;
+        animation-name: topPositionAnimate;
+        animation-duration: 1.5s;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
+    .NosotrosDescriptionWrapper .descriptionWrapperMiddle {
+        --topStart: -230px;
+        --topEnd: -205px !important;
+        left: 170px !important;
+        animation-name: topPositionAnimate;
+        animation-duration: 1.5s;
+        animation-iteration-count: forwards;
+        animation-fill-mode: forwards;
+    }
+    .NosotrosDescriptionWrapper .descriptionWrapperRight {
+        display: flex;
+        flex-direction: row-reverse;
+        left: 99px !important;
+    }
+}
+
+@keyframes topPositionAnimate {
+    from {
+        top: var(--topStart);
+    }
+    to {
+        top:  var(--topEnd);
     }
 }
 

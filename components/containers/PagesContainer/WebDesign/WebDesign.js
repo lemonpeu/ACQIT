@@ -21,6 +21,7 @@ const WebDesignContainer = () => {
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");
   let isNavDesktop = useMediaQuery("(min-width: 900px)");
   const scrollY = useScrollDown();
+  const [isFocused, setIsFocused] = useState(false);
 
   const size = useWindowSize();
 
@@ -56,81 +57,80 @@ const WebDesignContainer = () => {
   }, [isLoading]);
 
   return (
-    <>
-      {isModalVisible ? (
-        <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
+    <div id="top" className={styles.wrapper + " " + "main"}>
+      <Whatsapp />
+      {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
+      {isNavDesktop ? (
+        <NavDesktop
+          showSubNav
+          isScrollDown={scrollY}
+          isFocused={(e) => setIsFocused(e)}
+        />
       ) : (
-        <>
-          <div id="top" className={styles.wrapper + " " + "main"}>
-            <Whatsapp />
-            {isModalVisible && <Modal onClick={(e) => modalConfig(e)} />}
-            {isNavDesktop ? (
-              <NavDesktop showSubNav isScrollDown={scrollY} />
-            ) : (
-              isNavVisible && (
-                <NavMobile onClick={() => setIsNavVisible(false)} />
-              )
-            )}
-            <section className={styles.main}>
-              {!isNavDesktop && (
-                <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
-              )}
-              <div
-                className={styles.contentContainer}
-                style={{
-                  height: `${isNavDesktop ? size.height + "px" : "100%"}`,
-                }}
-              >
-                <h1 className={styles.title}>Diseño web</h1>
-                <p className={styles.description}>
-                  ACQit crea sitios web enfatizando el desarrollo y diseño para
-                  así obtener un producto acorde a la excelencia que demandan
-                  nuestros clientes.
-                </p>
-                <p className={styles.description}>
-                  En nuestro equipo aplicamos nuestra experiencia y
-                  conocimientos al momento de construir soluciones sólidas
-                  orientadas a cada mercado, creando sitios profesionales que
-                  logren proyectar confianza apoyándonos en un diseño atractivo
-                  y minimalista.
-                </p>
-                <div>
-                  <h4 className={styles.aclaration}>
-                    Desarrollamos sitios innovadores, funcionales y atractivos
-                    enfocados en las necesidades del cliente.
-                  </h4>
-                </div>
-                <div className="boxSection">
-                  <div
-                    className={`${styles.boxUserNameAnimation} boxUserNameAnimation`}
-                  >
-                    <BoxUserName
-                      icon
-                      img={"/images/icons/SVG/pcicon.svg"}
-                      text={"Diseño web para desktop (para computadoras)"}
-                    ></BoxUserName>
-                  </div>
-                  <div
-                    className={`${styles.boxUserNameAnimation} boxUserNameAnimation`}
-                  >
-                    <BoxUserName
-                      icon
-                      img={"/images/icons/SVG/celphoneicon.svg"}
-                      text={"Diseño web responsive (para celulares y tablets)"}
-                    />
-                  </div>
-                </div>
-              </div>
-            </section>
-            {isFooterMobile ? (
-              <FooterDesktop name={localStorage.getItem("name") || userName} />
-            ) : (
-              <Footer name={localStorage.getItem("name") || userName} />
-            )}
-          </div>
-        </>
+        isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
       )}
-    </>
+      {isModalVisible && (
+        <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
+      )}
+      <section className={styles.main}>
+        {!isNavDesktop && (
+          <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
+        )}
+        <div
+          className={styles.contentContainer}
+          style={{
+            height: `${isNavDesktop ? size.height + "px" : "100%"}`,
+          }}
+        >
+          <h1 className={styles.title}>Diseño web</h1>
+          <p className={styles.description}>
+            ACQit crea sitios web enfatizando el desarrollo y diseño para así
+            obtener un producto acorde a la excelencia que demandan nuestros
+            clientes.
+          </p>
+          <p className={styles.description}>
+            En nuestro equipo aplicamos nuestra experiencia y conocimientos al
+            momento de construir soluciones sólidas orientadas a cada mercado,
+            creando sitios profesionales que logren proyectar confianza
+            apoyándonos en un diseño atractivo y minimalista.
+          </p>
+          <div>
+            <h4 className={styles.aclaration}>
+              Desarrollamos sitios innovadores, funcionales y atractivos
+              enfocados en las necesidades del cliente.
+            </h4>
+          </div>
+          <div className="boxSection">
+            <div
+              className={`${styles.boxUserNameAnimation} boxUserNameAnimation`}
+            >
+              <BoxUserName
+                icon
+                img={"/images/icons/SVG/pcicon.svg"}
+                text={"Diseño web para desktop (para computadoras)"}
+              ></BoxUserName>
+            </div>
+            <div
+              className={`${styles.boxUserNameAnimation} boxUserNameAnimation`}
+            >
+              <BoxUserName
+                icon
+                img={"/images/icons/SVG/celphoneicon.svg"}
+                text={"Diseño web responsive (para celulares y tablets)"}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      {isFooterMobile ? (
+        <FooterDesktop
+          name={localStorage.getItem("name") || userName}
+          autofocus={isFocused}
+        />
+      ) : (
+        <Footer name={localStorage.getItem("name") || userName} />
+      )}
+    </div>
   );
 };
 

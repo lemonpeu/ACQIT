@@ -3,7 +3,7 @@ import Image from "../Image/Image";
 import ContactForm from "../../sections/ContactForm/ContactForm";
 
 const BoxUserName = (props) => {
-  const { icon, name, img, alt, text, boxUserName } = props;
+  const { icon, name, img, alt, text, boxUserName, autofocus } = props;
 
   return (
     <section
@@ -30,7 +30,7 @@ const BoxUserName = (props) => {
               <label htmlFor="email" className={styles.text}>
                 Dejanos tu e-mail
               </label>
-              <ContactForm />
+              <ContactForm autofocus={autofocus} />
             </div>
           </div>
         ) : (

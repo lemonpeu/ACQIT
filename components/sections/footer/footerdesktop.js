@@ -4,10 +4,10 @@ import Image from "../../common/Image/Image";
 import BoxUserName from "../../common/boxusername/boxusername";
 import Link from "next/link";
 
-const FooterDesktop = ({ style, name }) => {
+const FooterDesktop = ({ style, name, autofocus }) => {
   return (
     <div className={styles.wrapper}>
-      <BoxUserName boxUserName name={name} />
+      <BoxUserName boxUserName name={name} autofocus={autofocus} />
       <footer
         className={`${styles.containerDesktop} ${styles.container}`}
         style={style}

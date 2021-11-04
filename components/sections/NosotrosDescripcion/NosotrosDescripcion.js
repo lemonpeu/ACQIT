@@ -25,11 +25,9 @@ const NosotrosDescripcion = ({
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper + " " + "NosotrosDescriptionWrapper"}>
       <article className={styles.descriptionContainer}>
-        <div
-          className={showText1 ? `${styles.setAnimation1}` : `${styles.icon}`}
-        >
+        <div>
           <Image
             layout="fixed"
             width={imageWidth().width}
@@ -43,12 +41,10 @@ const NosotrosDescripcion = ({
       </article>
       <article
         className={`${styles.descriptionContainer} ${
-          showText3 ? "usAnimationBox2" : ""
+          showText3 ? "descriptionWrapperAnimation" : ""
         }`}
       >
-        <div
-          className={showText3 ? `${styles.setAnimation3}` : `${styles.icon}`}
-        >
+        <div>
           <Image
             layout="fixed"
             width={imageWidth().width}
@@ -60,18 +56,13 @@ const NosotrosDescripcion = ({
         </div>
         {showText3 && <NosotrosText showText3={showText3} text3 />}
       </article>
+      {/* Es el que queda en el medio */}
       <article
-        className={`${styles.descriptionContainer} ${styles.middle} ${
-          showText2 ? "setAnimation2" : ""
-        }`}
-        style={{
-          display: showText2 && isFooterMobile && "flex",
-          flexDirection: showText2 && isFooterMobile && "row-reverse",
-        }}
+        className={`${styles.descriptionContainer} ${
+          showText1 ? "descriptionWrapperMiddle" : ""
+        } ${showText2 ? "descriptionWrapperRight" : ""}`}
       >
-        <div
-          className={showText2 ? `${styles.setAnimation2}` : `${styles.icon}`}
-        >
+        <div>
           <Image
             layout="fixed"
             width={imageWidth().width}

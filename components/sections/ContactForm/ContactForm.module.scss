@@ -23,28 +23,35 @@
 }
 
 @media (min-width: 700px) {
-    .inputContainer {
-        width: calc(100% - 300px);
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: space-betweensd;
+        width: calc(100% - 400px);
         margin-left: auto;
-        top: -15px;
-        margin-top: 0;
+        .inputContainer {
+            width: 100%;
+           
+            top: -15px;
+            margin-top: 0;
+        } 
     }
 }
 
 @media (min-width: 1000px) {
-    .inputContainer {
-        width: calc(100% - 300px);
-        margin-left: auto;
-        top: 50%;
-        transform: translateY(-67%);
-        input {
-            width: calc(100% - 50px);
+    .container {
+        .inputContainer {
+            width: 100%;
         }
-    }
+    }  
 }
 
 @media (min-width: 1200px) {
-    .inputContainer {
-        width: calc(100% - 400px);
+    .container {
+        .inputContainer {
+            width: 100%;
+        }
+        
     }
 }

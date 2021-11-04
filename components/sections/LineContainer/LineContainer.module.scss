@@ -163,6 +163,12 @@
             .parraphList {
                 margin: 0 4rem 5rem 4rem;
             }
+            &::before {
+                left: 120px;
+            }
+            &::after {
+                left: 120px;
+            }
         }
     }
 }

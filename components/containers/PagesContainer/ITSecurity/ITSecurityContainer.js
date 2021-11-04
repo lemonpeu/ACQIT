@@ -19,6 +19,7 @@ const ITSecurityContainer = () => {
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [userName, setUserName] = useState("");
   const scrollY = useScrollDown();
+  const [isFocused, setIsFocused] = useState(false);
 
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");
   let isNavDesktop = useMediaQuery("(min-width: 900px)");
@@ -51,94 +52,82 @@ const ITSecurityContainer = () => {
   };
 
   return (
-    <>
-      {isModalVisible ? (
+    <div className={styles.wrapper + " " + "main"}>
+      {isModalVisible && (
         <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
-      ) : (
-        <>
-          <div id="top" className={styles.wrapper + " " + "main"}>
-            {isNavDesktop ? (
-              <NavDesktop showSubNav isScrollDown={scrollY} />
-            ) : (
-              isNavVisible && (
-                <NavMobile onClick={() => setIsNavVisible(false)} />
-              )
-            )}
-            <section className={styles.main}>
-              {!isNavDesktop && (
-                <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
-              )}
-              <div
-                className={styles.contentContainer}
-                style={{ minHeight: size.height + "px" }}
-              >
-                <h1 className={styles.title}>Seguridad It</h1>
-                <p className={styles.description}>
-                  ACQit velamos por el cuidado de la organización, sus datos y
-                  sus empleados proveyendo soluciones para proteger la
-                  integridad de los ambientes digitales. Nos mantenemos a la
-                  vanguardia de las mejores prácticas redefiniendo y ajustando
-                  las políticas de seguridad de la empresa.
-                </p>
-                <h4 className={styles.aclaration}>
-                  Analizamos y gestionamos los procesos internos y externos
-                  garantizando resultados y reduciendo potenciales riesgos
-                </h4>
-                <div className={styles.graphicContainer}>
-                  <div className={styles.graphic}>
-                    <div
-                      className={styles.iconText + " " + "iconTextAnimation"}
-                    >
-                      <p
-                        className={
-                          styles.graphicText + " " + "securityTextAnimation"
-                        }
-                      >
-                        Analizamos
-                      </p>
-                      <LupaIcon />
-                    </div>
-                    <div
-                      className={styles.iconText + " " + "iconTextAnimation"}
-                    >
-                      <p
-                        className={
-                          styles.graphicText + " " + "securityTextAnimation"
-                        }
-                      >
-                        Gestionamos
-                      </p>
-                      <GestionamosIcon />
-                    </div>
-                    <div
-                      className={styles.iconText + " " + "iconTextAnimation"}
-                    >
-                      <p
-                        className={
-                          styles.graphicText + " " + "securityTextAnimation"
-                        }
-                      >
-                        Optimizamos
-                      </p>
-                      <ResultIcon />
-                    </div>
-                  </div>
-                </div>
-                <Whatsapp />
-              </div>
-            </section>
-            {isFooterMobile ? (
-              <FooterDesktop
-                style={{ zIndex: 0 }}
-                name={localStorage.getItem("name") || userName}
-              />
-            ) : (
-              <Footer name={localStorage.getItem("name") || userName} />
-            )}
-          </div>
-        </>
       )}
-    </>
+
+      {isNavDesktop ? (
+        <NavDesktop
+          showSubNav
+          isScrollDown={scrollY}
+          isFocused={(e) => setIsFocused(e)}
+        />
+      ) : (
+        isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
+      )}
+      <section className={styles.main}>
+        {!isNavDesktop && (
+          <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
+        )}
+        <div
+          className={styles.contentContainer}
+          style={{ minHeight: size.height + "px" }}
+          id="top"
+        >
+          <h1 className={styles.title}>Seguridad It</h1>
+          <p className={styles.description}>
+            ACQit velamos por el cuidado de la organización, sus datos y sus
+            empleados proveyendo soluciones para proteger la integridad de los
+            ambientes digitales. Nos mantenemos a la vanguardia de las mejores
+            prácticas redefiniendo y ajustando las políticas de seguridad de la
+            empresa.
+          </p>
+          <h4 className={styles.aclaration}>
+            Analizamos y gestionamos los procesos internos y externos
+            garantizando resultados y reduciendo potenciales riesgos
+          </h4>
+          <div className={styles.graphicContainer}>
+            <div className={styles.graphic}>
+              <div className={styles.iconText + " " + "iconTextAnimation"}>
+                <p
+                  className={styles.graphicText + " " + "securityTextAnimation"}
+                >
+                  Analizamos
+                </p>
+                <LupaIcon />
+              </div>
+              <div className={styles.iconText + " " + "iconTextAnimation"}>
+                <p
+                  className={styles.graphicText + " " + "securityTextAnimation"}
+                >
+                  Gestionamos
+                </p>
+                <GestionamosIcon />
+              </div>
+              <div className={styles.iconText + " " + "iconTextAnimation"}>
+                <p
+                  className={styles.graphicText + " " + "securityTextAnimation"}
+                >
+                  Optimizamos
+                </p>
+                <ResultIcon />
+              </div>
+            </div>
+          </div>
+          <Whatsapp />
+        </div>
+      </section>
+      {isFooterMobile ? (
+        <FooterDesktop
+          style={{ zIndex: 0 }}
+          name={localStorage.getItem("name") || userName}
+          autofocus={isFocused}
+        />
+      ) : (
+        <Footer name={localStorage.getItem("name") || userName} />
+      )}
+    </div>
   );
 };
 
