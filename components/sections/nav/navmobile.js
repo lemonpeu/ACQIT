@@ -3,7 +3,7 @@ import styles from "./nav.module.scss";
 import Image from "../../common/Image/Image";
 import Link from "next/link";
 
-const NavMobile = ({ onClick }) => {
+const NavMobile = ({ onClick, isFocused }) => {
   return (
     <div className={styles.containerMobile}>
       <nav className={styles.nav}>
@@ -41,19 +41,23 @@ const NavMobile = ({ onClick }) => {
             <li className={styles.navItem}>Equipamiento +</li>
           </Link>
           <Link href="/consultoria" passHref>
-            <li className={styles.navItem}>ConsultoríaIT +</li>
+            <li className={styles.navItem}>Consultoría IT +</li>
           </Link>
           <Link href="/seguridadit" passHref>
-            <li className={styles.navItem}>SeguridadIT +</li>
+            <li className={styles.navItem}>Segurida dIT +</li>
           </Link>
           <Link href="/disenio" passHref>
             <li className={styles.navItem}>Diseño web +</li>
           </Link>
         </ul>
         <div className={styles.listContact}>
-          <Link href="/contact" passHref>
-            <p className={styles.contact}>Contactate!</p>
-          </Link>
+          <a
+            href="#email"
+            className={styles.contact}
+            onClick={() => isFocused(true)}
+          >
+            ¡Contactate!
+          </a>
         </div>
       </nav>
     </div>

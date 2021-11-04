@@ -68,7 +68,10 @@ const HomeSection = () => {
           />
         )}
         {!isPage900 && isNavVisible && (
-          <NavMobile onClick={() => setIsNavVisible(false)} />
+          <NavMobile
+            onClick={() => setIsNavVisible(false)}
+            isFocused={(e) => setIsFocused(e)}
+          />
         )}
 
         <div
@@ -134,7 +137,10 @@ const HomeSection = () => {
                   autofocus={isFocused}
                 />
               ) : (
-                <Footer name={localStorage.getItem("name") || userName} />
+                <Footer
+                  name={localStorage.getItem("name") || userName}
+                  autofocus={isFocused}
+                />
               )}
             </div>
           </section>

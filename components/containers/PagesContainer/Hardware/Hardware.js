@@ -64,7 +64,12 @@ const HardwareContainer = () => {
           isFocused={(e) => setIsFocused(e)}
         />
       ) : (
-        isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
+        isNavVisible && (
+          <NavMobile
+            onClick={() => setIsNavVisible(false)}
+            isFocused={(e) => setIsFocused(e)}
+          />
+        )
       )}
       <div className={styles.main}>
         {!isNavDesktop && (
@@ -110,7 +115,10 @@ const HardwareContainer = () => {
           autofocus={isFocused}
         />
       ) : (
-        <Footer name={localStorage.getItem("name") || userName} />
+        <Footer
+          name={localStorage.getItem("name") || userName}
+          autofocus={isFocused}
+        />
       )}
     </div>
   );

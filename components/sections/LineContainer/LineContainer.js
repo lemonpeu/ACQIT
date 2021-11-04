@@ -1,4 +1,5 @@
 //LineContainer.js
+import { useState, useEffect } from "react";
 import styles from "./LineContainer.module.scss";
 
 const LineContainer = ({ style, isVisible }) => {

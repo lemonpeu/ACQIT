@@ -67,7 +67,12 @@ const WebDesignContainer = () => {
           isFocused={(e) => setIsFocused(e)}
         />
       ) : (
-        isNavVisible && <NavMobile onClick={() => setIsNavVisible(false)} />
+        isNavVisible && (
+          <NavMobile
+            onClick={() => setIsNavVisible(false)}
+            isFocused={(e) => setIsFocused(e)}
+          />
+        )
       )}
       {isModalVisible && (
         <Modal onClick={(e) => modalConfig(e)} onClose={() => modalConfig()} />
@@ -128,7 +133,10 @@ const WebDesignContainer = () => {
           autofocus={isFocused}
         />
       ) : (
-        <Footer name={localStorage.getItem("name") || userName} />
+        <Footer
+          name={localStorage.getItem("name") || userName}
+          autofocus={isFocused}
+        />
       )}
     </div>
   );

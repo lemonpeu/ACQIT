@@ -2,7 +2,6 @@ import styles from "./footer.module.scss";
 import React from "react";
 import Image from "../../common/Image/Image";
 import BoxUserName from "../../common/boxusername/boxusername";
-import Link from "next/link";
 
 const FooterDesktop = ({ style, name, autofocus }) => {
   return (

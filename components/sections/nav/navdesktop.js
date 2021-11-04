@@ -84,7 +84,7 @@ const NavDesktop = ({ isFocused }) => {
                 className={styles.contact}
                 onClick={() => isFocused(true)}
               >
-                Contactate!
+                ¡Contactate!
               </a>
             </div>
           </>
