@@ -38,7 +38,7 @@
             }
             p {
                 color: $white;
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 font-family: $montserrat;
                 font-weight: 500;
             }
@@ -103,7 +103,7 @@
                     font-size: 5rem;
                 }
                 p {
-                    font-size: 1.5rem;
+                    font-size: 1.7rem;
                     width: 90%;
                 }
                 .aclaration {
@@ -114,6 +114,30 @@
                         @include graphic-title(13rem, transparent, $white, 1.8rem);
                         margin: 3rem 0 !important;
                     }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1500px) {
+    .wrapper {
+        .main {
+            .contentContainer {
+                p {
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1500px) {
+    .wrapper {
+        .main {
+            .contentContainer {
+                p {
+                    font-size: 2.2rem;
                 }
             }
         }

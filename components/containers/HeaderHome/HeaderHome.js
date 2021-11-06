@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import styles from "./HeaderHome.module.scss";
 import Image from "../../common/Image/Image";
-import useWindowSize from "../../utils/windowSice";
 import IsVisible from "../../utils/isVisible";
-import Link from "next/link";
 
 const HeaderHome = ({ is1thSectionVisible }) => {
   //setRef works for choosing position on side nav
@@ -59,6 +57,21 @@ const HeaderHome = ({ is1thSectionVisible }) => {
                   height={40}
                   src="/images/icons/SVG/linkedinicon.svg"
                   alt="linkedin"
+                />
+              </a>
+            </div>
+            <div className={styles.imgContainer}>
+              <a
+                href="https://twitter.com/acq_it"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  layout="fixed"
+                  width={40}
+                  height={40}
+                  src="/images/icons/home/twitter.png"
+                  alt="twitter"
                 />
               </a>
             </div>

@@ -1,26 +1,28 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import styles from "./nav.module.scss";
 import Image from "../../common/Image/Image";
 import Link from "next/link";
+import { useScrollDown } from "@/components/utils/isScrollDown";
 
-const NavDesktop = ({ isFocused }) => {
-  const [showNav, setShowNav] = useState(true);
+const NavDesktop = ({ isFocused, goingUp }) => {
+  const scrollY = useScrollDown();
+  const [isVisible, setIsVisible] = useState(true);
 
-  const hideNav = useCallback(() => {
-    setTimeout(() => {
-      setShowNav(false);
-    }, 5000);
-  }, []);
+  const number = scrollY < 100;
 
   useEffect(() => {
-    hideNav();
-  }, [hideNav]);
+    if (goingUp || number) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  }, [goingUp, number]);
 
   return (
     <div className={styles.containerDesktop}>
       <button
         className={styles.navBtnPosition}
-        onClick={() => setShowNav(!showNav)}
+        onClick={() => setIsVisible(!isVisible)}
       >
         <Image
           width={60}
@@ -31,8 +33,8 @@ const NavDesktop = ({ isFocused }) => {
           alt=""
         />
       </button>
-      <nav className={`${styles.nav} ${showNav ? "navAnimation" : ""}`}>
-        {showNav && (
+      <nav className={`${styles.nav} ${isVisible ? "navAnimation" : ""}`}>
+        {isVisible && (
           <>
             <Link href="/" passHref>
               <Image
@@ -75,10 +77,10 @@ const NavDesktop = ({ isFocused }) => {
           </>
         )}
 
-        {showNav && (
+        {isVisible && (
           <>
             <div className={styles.listContact + " " + "navItemsAnimation"}>
-              <p>11-39844968</p>
+              <p>(11) 3984-4968</p>
               <a
                 href="#email"
                 className={styles.contact}

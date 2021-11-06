@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./LinesHomeSection.module.scss";
 import BoxUserName from "../../common/boxusername/boxusername";
 import LineContainer from "../../sections/LineContainer/LineContainer";
@@ -12,10 +12,14 @@ const LinesHomeSection = ({
   isVisible,
 }) => {
   const [setRef, visible] = IsVisible({ threshold: 0.2 });
+  const [isAnimation, setIsAnimation] = useState(false);
 
   useEffect(() => {
-    is3rdSectionVisible(visible);
-  }, [visible, is3rdSectionVisible]);
+    if (visible) {
+      setIsAnimation(true);
+      is3rdSectionVisible(isAnimation);
+    }
+  }, [visible, is3rdSectionVisible, isAnimation]);
   return (
     <div
       className={styles.linesHomeSection + " " + "section"}

@@ -1,22 +1,22 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export function useScrollDown() {
-    const [scrollY, setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrollY(window.scrollY);
-        };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
 
-        handleScroll();
+    handleScroll();
 
-        window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-    return scrollY;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return scrollY;
 }

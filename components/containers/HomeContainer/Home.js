@@ -18,16 +18,43 @@ const HomeSection = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [userName, setUserName] = useState("");
+
+  //Estados que sirven para la navegación en sidebar
+
   const [is1thSectionVisible, setIs1thSectionVisible] = useState(false);
   const [is2ndSectionVisible, setIs2ndSectionVisible] = useState(false);
   const [is3rdSectionVisible, setIs3rdSectionVisible] = useState(false);
+
+  //
   const [isFocused, setIsFocused] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const [goingUp, setGoingUp] = useState(false);
   const size = useWindowSize();
+
+  //Media querys
 
   let isPage1200 = useMediaQuery("(min-width: 1200px)");
   let isPage900 = useMediaQuery("(min-width: 900px)");
   let isScreen1000 = useMediaQuery("(min-width: 1000px)");
-  let isScreen700 = useMediaQuery("(min-width: 700px)");
+
+  const prevScrollY = useRef(0);
+
+  const onScroll = (e) => {
+    const currentScrollY = e.target.scrollTop;
+    if (prevScrollY.current < currentScrollY && goingUp) {
+      setGoingUp(false);
+    }
+    if (prevScrollY.current > currentScrollY && !goingUp) {
+      setGoingUp(true);
+    }
+    prevScrollY.current = currentScrollY;
+    console.log(goingUp, currentScrollY);
+    if (currentScrollY > 10) {
+      setShowNav(false);
+    } else {
+      setShowNav(true);
+    }
+  };
 
   useEffect(() => {
     const isModalOnLocalStorage = localStorage.getItem("isModal");
@@ -90,8 +117,14 @@ const HomeSection = () => {
               overflow: "auto",
               height: "100%",
             }}
+            onScroll={onScroll}
           >
-            {isPage900 && <NavDesktop isFocused={(e) => setIsFocused(e)} />}
+            {isPage900 && (
+              <NavDesktop
+                isFocused={(e) => setIsFocused(e)}
+                goingUp={showNav}
+              />
+            )}
             <div
               style={{
                 scrollSnapAlign: isScreen1000 ? "center" : "",

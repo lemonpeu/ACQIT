@@ -100,11 +100,7 @@ const AboutUsContainer = ({ videoPath }) => {
         <Modal onClose={() => modalConfig()} onClick={(e) => modalConfig(e)} />
       )}
       {isNavDesktop ? (
-        <NavDesktop
-          showSubNav
-          isScrollDown={scrollY}
-          isFocused={(e) => setIsFocused(e)}
-        />
+        <NavDesktop showSubNav isFocused={(e) => setIsFocused(e)} />
       ) : (
         isNavVisible && (
           <NavMobile

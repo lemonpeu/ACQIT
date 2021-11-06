@@ -82,6 +82,7 @@
                     transition: all 1s ease-in;
                     z-index: 100;
                     cursor: pointer;
+                    width: 18rem;
                     li {
                         transition: all 0.5s ease-in;
                         padding: 1rem 0;
@@ -168,6 +169,9 @@
                 &:hover {
                     font-weight: 500;
                     border-bottom: 2px soloid $textBlue;
+                }
+                .subList {
+                    width: 10rem !important;
                 }
             }
         }

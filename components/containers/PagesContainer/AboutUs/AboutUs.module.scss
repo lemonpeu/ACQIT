@@ -43,9 +43,9 @@
       .contentWrapper {
         display: flex;
         width: 100%;
+        height: 100vh;
         padding: 2rem 1rem 0 1rem;
-        margin-bottom: 10rem;
-
+        margin-bottom: -10rem;
         .imgContainer {
           position: relative;
 

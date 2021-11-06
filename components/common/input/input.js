@@ -10,7 +10,7 @@ const Input = ({ placeholder, name, value, onChange, autofocus }) => {
         setIsFocused(false);
       }, 4000);
     }
-  }, [autofocus]);
+  }, [autofocus, isFocused]);
 
   return (
     <input
