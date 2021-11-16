@@ -18,6 +18,7 @@ const HomeSection = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
   const [userName, setUserName] = useState("");
+  const [isEsp, setIsEsp] = useState(localStorage.getItem("language") || true);
 
   //Estados que sirven para la navegación en sidebar
 
@@ -41,19 +42,19 @@ const HomeSection = () => {
 
   const onScroll = (e) => {
     const currentScrollY = e.target.scrollTop;
-    if (prevScrollY.current < currentScrollY && goingUp) {
+    if (prevScrollY.current > currentScrollY && goingUp) {
       setGoingUp(false);
     }
-    if (prevScrollY.current > currentScrollY && !goingUp) {
+    if (prevScrollY.current < currentScrollY && !goingUp) {
       setGoingUp(true);
     }
     prevScrollY.current = currentScrollY;
-    console.log(goingUp, currentScrollY);
     if (currentScrollY > 10) {
       setShowNav(false);
     } else {
       setShowNav(true);
     }
+    console.log("SetShowNav", showNav);
   };
 
   useEffect(() => {
@@ -98,6 +99,7 @@ const HomeSection = () => {
           <NavMobile
             onClick={() => setIsNavVisible(false)}
             isFocused={(e) => setIsFocused(e)}
+            setEspLanguage={(e) => setIsEsp(e)}
           />
         )}
 
@@ -123,6 +125,8 @@ const HomeSection = () => {
               <NavDesktop
                 isFocused={(e) => setIsFocused(e)}
                 goingUp={showNav}
+                setEspLanguage={(e) => setIsEsp(e)}
+                navHome
               />
             )}
             <div
@@ -134,6 +138,7 @@ const HomeSection = () => {
             >
               <HeaderHome
                 is1thSectionVisible={(e) => setIs1thSectionVisible(e)}
+                isEsp={localStorage.getItem("language") || isEsp}
               />
             </div>
             <div
@@ -147,6 +152,7 @@ const HomeSection = () => {
                 isPage1200={isPage1200}
                 is2rdSectionVisible={(e) => setIs2ndSectionVisible(e)}
                 isVisible={is2ndSectionVisible}
+                isEsp={localStorage.getItem("language") || isEsp}
               />
             </div>
             <div
@@ -163,11 +169,13 @@ const HomeSection = () => {
                 isPage1200={isPage1200}
                 is3rdSectionVisible={(e) => setIs3rdSectionVisible(e)}
                 isVisible={is3rdSectionVisible}
+                isEsp={localStorage.getItem("language") || isEsp}
               />
               {isScreen1000 ? (
                 <FooterDesktop
                   name={localStorage.getItem("name") || userName}
                   autofocus={isFocused}
+                  isEsp={localStorage.getItem("language") || isEsp}
                 />
               ) : (
                 <Footer

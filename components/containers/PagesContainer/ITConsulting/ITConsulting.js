@@ -12,6 +12,9 @@ import Image from "@/components/common/Image/Image";
 import Modal from "@/components/common/Modal/modal";
 import { useScrollDown } from "@/components/utils/isScrollDown";
 
+import { inicio } from "@/locales/es/inicio";
+import { home } from "@/locales/en/home";
+
 const ITConsultingContainer = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
@@ -22,66 +25,82 @@ const ITConsultingContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isFocused, setIsFocused] = useState(false);
 
+  const [isEsp, setIsEsp] = useState(true);
+  const [language, setLanguage] = useState(inicio);
+
+  useEffect(() => {
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    let localStorageElement = localStorage.getItem("language");
+    if (localStorageElement === "true" || firstLetters === "es") {
+      setLanguage(inicio);
+    } else if (localStorageElement === "false" || firstLetters === "en") {
+      setLanguage(home);
+    } else {
+      setLanguage(home);
+    }
+  }, [isEsp]);
+
   const iconsConsultancy = [
     {
       id: 1,
       icon: "/images/icons/SVG/supporticon.svg",
-      text: "Soporte",
+      text: language.itConsulting.icons.support,
     },
     {
       id: 2,
       icon: "/images/icons/SVG/ejecucionicon.svg",
-      text: "Ejecución",
+      text: language.itConsulting.icons.execution,
     },
     {
       id: 3,
       icon: "/images/icons/SVG/controlicon.svg",
-      text: "Controles monitoreo",
+      text: language.itConsulting.icons.monitoring,
     },
     {
       id: 4,
       icon: "/images/icons/SVG/trabajoremoto.svg",
-      text: "Trabajo remoto",
+      text: language.itConsulting.icons.remote,
     },
     {
       id: 5,
       icon: "/images/icons/SVG/configuracionicon.svg",
-      text: "Configuración",
+      text: language.itConsulting.icons.settings,
     },
     {
       id: 6,
       icon: "/images/icons/SVG/asesoramientoicon.svg",
-      text: "Asesoramiento",
+      text: language.itConsulting.icons.supervision,
     },
     {
       id: 7,
       icon: "/images/icons/SVG/integracionicon.svg",
-      text: "Integración de los sistemas",
+      text: language.itConsulting.icons.system,
     },
     {
       id: 8,
       icon: "/images/icons/SVG/reducciondetiempos.svg",
-      text: "Reducción de tiempos",
+      text: language.itConsulting.icons.time,
     },
     {
       id: 9,
       icon: "/images/icons/SVG/riesgosicon.svg",
-      text: "Reducción de riesgos",
+      text: language.itConsulting.icons.risk,
     },
     {
       id: 10,
       icon: "/images/icons/SVG/innovacionicon.svg",
-      text: "Innovación",
+      text: language.itConsulting.icons.innovation,
     },
     {
       id: 11,
       icon: "/images/icons/SVG/equipamientoicon.svg",
-      text: "Equipamiento",
+      text: language.itConsulting.icons.hardware,
     },
     {
       id: 12,
       icon: "/images/icons/SVG/lupa.svg",
-      text: "Análisis",
+      text: language.itConsulting.icons.analize,
     },
   ];
 
@@ -124,12 +143,14 @@ const ITConsultingContainer = () => {
           showSubNav
           isScrollDown={scrollY}
           isFocused={(e) => setIsFocused(e)}
+          setEspLanguage={(e) => setIsEsp(e)}
         />
       ) : (
         isNavVisible && (
           <NavMobile
             onClick={() => setIsNavVisible(false)}
             isFocused={(e) => setIsFocused(e)}
+            setEspLanguage={(e) => setIsEsp(e)}
           />
         )
       )}
@@ -140,26 +161,15 @@ const ITConsultingContainer = () => {
             <ButtonNav setIsNavVisible={(e) => setIsNavVisible(e)} />
           )}
           <div className={styles.contentContainer} id="top">
-            <h1 className={styles.title}>Consultoria IT</h1>
+            <h1 className={styles.title}>{language.itConsulting.title}</h1>
             <p className={styles.description}>
-              ACQ it cuenta con un equipo especializado enfocado en la
-              administración, configuración e integración de tus ambientes.
-              Desarrollamos esquemas de trabajo que se ajusten a las necesidades
-              de cada compañía
+              {language.itConsulting.parraph_1}
             </p>
             <p className={styles.description}>
-              Analizamos, ejecutamos y controlamos el accionar de tus sistemas,
-              llevando un registro del equipamiento colocando especial atención
-              a la performance, la reducción de riesgos y los tiempos de
-              respuesta.
-            </p>
-            <p className={styles.description}>
-              Definimos y gestionamos un plan de actualizaciones en base a
-              tecnologías y metodologías ágiles.
+              {language.itConsulting.parraph_2}
             </p>
             <h4 className={styles.aclaration}>
-              Nuestra atención en los detalles facilita las decisiones al
-              cliente.
+              {language.itConsulting.aclaration}
             </h4>
             <div
               className={
@@ -183,6 +193,7 @@ const ITConsultingContainer = () => {
             style={{ zIndex: 5 }}
             name={localStorage.getItem("name") || userName}
             autofocus={isFocused}
+            isEsp={isEsp}
           />
         ) : (
           <Footer

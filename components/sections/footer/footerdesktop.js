@@ -1,12 +1,35 @@
+import { useState, useEffect } from "react";
 import styles from "./footer.module.scss";
 import React from "react";
 import Image from "../../common/Image/Image";
 import BoxUserName from "../../common/boxusername/boxusername";
 
-const FooterDesktop = ({ style, name, autofocus }) => {
+import { inicio } from "@/locales/es/inicio";
+import { home } from "@/locales/en/home";
+
+const FooterDesktop = ({ style, name, autofocus, isEsp }) => {
+  const [language, setLanguage] = useState(inicio);
+
+  useEffect(() => {
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    let localStorageElement = localStorage.getItem("language");
+    if (localStorageElement === "true" || firstLetters === "es") {
+      setLanguage(inicio);
+    } else if (localStorageElement === "false" || firstLetters === "en") {
+      setLanguage(home);
+    } else {
+      setLanguage(home);
+    }
+  }, [isEsp]);
   return (
     <div className={styles.wrapper}>
-      <BoxUserName boxUserName name={name} autofocus={autofocus} />
+      <BoxUserName
+        boxUserName
+        name={name}
+        autofocus={autofocus}
+        isEsp={isEsp}
+      />
       <footer
         className={`${styles.containerDesktop} ${styles.container}`}
         style={style}
@@ -24,7 +47,7 @@ const FooterDesktop = ({ style, name, autofocus }) => {
         </section>
         <div className={styles.footerInfoContainer}>
           <ul className={styles.footerList}>
-            <p className={styles.contactTitle}>Contáctanos</p>
+            <p className={styles.contactTitle}>{language.footer.contact}</p>
             <li className={styles.listItem}>
               <Image
                 width={30}
@@ -91,9 +114,7 @@ const FooterDesktop = ({ style, name, autofocus }) => {
           </ul>
         </div>
         <div className={styles.line}></div>
-        <p className={styles.footerText}>
-          Transformamos tus problemas en soluciones
-        </p>
+        <p className={styles.footerText}>{language.footer.text}</p>
         <a href="#top">
           <div className={styles.goToTop}>
             <Image
@@ -103,7 +124,7 @@ const FooterDesktop = ({ style, name, autofocus }) => {
               src="/images/icons/SVG/flecha.svg"
               alt="go to top"
             />
-            <p>
+            <p style={{ textAlign: "center" }}>
               Go to <span style={{ fontWeight: "bold" }}>the top</span>
             </p>
           </div>

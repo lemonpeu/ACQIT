@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Image from "@/components/common/Image/Image";
 import styles from "./NosotrosDescripcion.module.scss";
 import NosotrosText from "@/components/common/nosotrosTexto/NosotrosText";
@@ -11,6 +12,7 @@ const NosotrosDescripcion = ({
   onClick1,
   onClick2,
   onClick3,
+  isEsp,
 }) => {
   const size = useWindowSize();
 
@@ -37,7 +39,9 @@ const NosotrosDescripcion = ({
             onClick={() => onClick1(true)}
           />
         </div>
-        {showText1 && <NosotrosText showText1={showText1} text1 />}
+        {showText1 && (
+          <NosotrosText showText1={showText1} text1 isEsp={isEsp} />
+        )}
       </article>
       <article
         className={`${styles.descriptionContainer} ${
@@ -54,7 +58,9 @@ const NosotrosDescripcion = ({
             onClick={() => onClick3(true)}
           />
         </div>
-        {showText3 && <NosotrosText showText3={showText3} text3 />}
+        {showText3 && (
+          <NosotrosText showText3={showText3} text3 isEsp={isEsp} />
+        )}
       </article>
       {/* Es el que queda en el medio */}
       <article
@@ -72,7 +78,9 @@ const NosotrosDescripcion = ({
             onClick={() => onClick2(true)}
           />
         </div>
-        {showText2 && <NosotrosText showText2={showText2} text2 />}
+        {showText2 && (
+          <NosotrosText showText2={showText2} text2 isEsp={isEsp} />
+        )}
       </article>
     </div>
   );

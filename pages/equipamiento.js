@@ -16,6 +16,13 @@ const Equipamiento = () => {
   const setLoadingBoolean = () => {
     localStorage.setItem("loading", false);
     setIsLoading(false);
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    if (firstLetters === "es") {
+      localStorage.setItem("language", true);
+    } else {
+      localStorage.setItem("language", false);
+    }
   };
   return <>{isLoading ? <LoadingLogo /> : <HardwareContainer />}</>;
 };
