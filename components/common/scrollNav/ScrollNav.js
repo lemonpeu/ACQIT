@@ -1,11 +1,10 @@
 import styles from "./ScrollNav.module.scss";
-import a from "next/link";
 
 const ScrollNav = ({ isVisible1, isVisible2, isVisible3 }) => {
   const showNavDot = () => {
     if (isVisible1) {
       return { isVisible1: true, isVisible2: false, isVisible3: false };
-    } else if (isVisible2) {
+    } else if (isVisible2 && !isVisible3) {
       return { isVisible1: false, isVisible2: true, isVisible3: false };
     } else if (isVisible3) {
       return { isVisible1: false, isVisible2: false, isVisible3: true };

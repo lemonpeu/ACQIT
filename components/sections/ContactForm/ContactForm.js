@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Input from "../../common/input/input";
 import styles from "./ContactForm.module.scss";
 
-const ContactForm = ({ autofocus }) => {
+const ContactForm = ({ autofocus, send }) => {
   const [isSent, setIsSent] = useState(false);
   const [emailText, sendEmailText] = useState("");
   const [error, setError] = useState("");
@@ -64,7 +64,7 @@ const ContactForm = ({ autofocus }) => {
               autofocus={autofocus}
             />
             <button className={styles.button} type="submit">
-              Enviar
+              {send}
             </button>
           </form>
           <p style={{ padding: 0, margin: 0, fontSize: "10px" }}>

@@ -1,18 +1,42 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./nav.module.scss";
 import Image from "../../common/Image/Image";
 import Link from "next/link";
 import { useScrollDown } from "@/components/utils/isScrollDown";
 
-const NavDesktop = ({ isFocused, goingUp }) => {
+import { inicio } from "@/locales/es/inicio";
+import { home } from "@/locales/en/home";
+
+const NavDesktop = ({ isFocused, goingUp, setEspLanguage, navHome }) => {
   const scrollY = useScrollDown();
   const [isVisible, setIsVisible] = useState(true);
+  const [language, setLanguage] = useState(inicio);
+  const [isEsp, setIsEsp] = useState(true);
 
-  const number = scrollY < 100;
+  const setTranslation = (data) => {
+    setEspLanguage(data);
+    setIsEsp(data);
+    localStorage.setItem("language", data);
+  };
+
+  useEffect(() => {
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    let localStorageElement = localStorage.getItem("language");
+    if (localStorageElement === "true" || firstLetters === "es") {
+      setLanguage(inicio);
+    } else if (localStorageElement === "false" || firstLetters === "en") {
+      setLanguage(home);
+    } else {
+      setLanguage(home);
+    }
+  }, [isEsp]);
+
+  const number = !navHome && scrollY < 100;
 
   useEffect(() => {
     if (goingUp || number) {
-      setIsVisible(true);
+      return setIsVisible(true);
     } else {
       setIsVisible(false);
     }
@@ -48,7 +72,7 @@ const NavDesktop = ({ isFocused, goingUp }) => {
             </Link>
             <ul className={styles.list + " " + "navItemsAnimation"}>
               <Link href="/nosotros" passHref>
-                <li>Nosotros</li>
+                <li>{language.nav.us}</li>
               </Link>
               <li className={styles.usItem}>
                 <Link
@@ -56,20 +80,24 @@ const NavDesktop = ({ isFocused, goingUp }) => {
                   passHref
                   className={styles.servicesItem}
                 >
-                  Servicios
+                  {language.nav.services}
                 </Link>
                 <ul className={styles.subList}>
                   <Link href="/equipamiento" passHref>
-                    <li className={styles.navItem}>Equipamiento</li>
+                    <li className={styles.navItem}>{language.nav.hardware}</li>
                   </Link>
                   <Link href="/consultoria" passHref>
-                    <li className={styles.navItem}>Consultoría IT</li>
+                    <li className={styles.navItem}>
+                      {language.nav.itConsulting}
+                    </li>
                   </Link>
                   <Link href="/seguridadit" passHref>
-                    <li className={styles.navItem}>Seguridad IT</li>
+                    <li className={styles.navItem}>
+                      {language.nav.itSecurity}
+                    </li>
                   </Link>
                   <Link href="/disenio" passHref>
-                    <li className={styles.navItem}>Diseño web</li>
+                    <li className={styles.navItem}>{language.nav.webDesign}</li>
                   </Link>
                 </ul>
               </li>
@@ -86,8 +114,23 @@ const NavDesktop = ({ isFocused, goingUp }) => {
                 className={styles.contact}
                 onClick={() => isFocused(true)}
               >
-                ¡Contactate!
+                {language.nav.contact}
               </a>
+              <div style={{ color: "white", marginLeft: "2rem" }}>
+                <button
+                  style={{ color: "white" }}
+                  onClick={() => setTranslation(true)}
+                >
+                  ES
+                </button>
+                |
+                <button
+                  style={{ color: "white" }}
+                  onClick={() => setTranslation(false)}
+                >
+                  EN
+                </button>
+              </div>
             </div>
           </>
         )}

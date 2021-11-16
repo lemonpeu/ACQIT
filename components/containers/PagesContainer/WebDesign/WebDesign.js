@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import BoxUserName from "@/components/common/boxusername/boxusername";
 import Footer from "@/components/sections/footer/footer";
 import styles from "./WebDesign.module.scss";
@@ -8,10 +8,12 @@ import NavDesktop from "@/components/sections/nav/navdesktop";
 import { useMediaQuery } from "@/components/utils/mediaquery";
 import ButtonNav from "@/components/common/buttonNav/buttonNav";
 import Modal from "@/components/common/Modal/modal";
-import Image from "@/components/common/Image/Image";
 import Whatsapp from "@/components/common/whatsapp/whatsapp";
 import useWindowSize from "@/components/utils/windowSice";
 import { useScrollDown } from "@/components/utils/isScrollDown";
+
+import { inicio } from "@/locales/es/inicio";
+import { home } from "@/locales/en/home";
 
 const WebDesignContainer = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -23,7 +25,23 @@ const WebDesignContainer = () => {
   const scrollY = useScrollDown();
   const [isFocused, setIsFocused] = useState(false);
 
+  const [isEsp, setIsEsp] = useState(true);
+  const [language, setLanguage] = useState(inicio);
+
   const size = useWindowSize();
+
+  useEffect(() => {
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    let localStorageElement = localStorage.getItem("language");
+    if (localStorageElement === "true" || firstLetters === "es") {
+      setLanguage(inicio);
+    } else if (localStorageElement === "false" || firstLetters === "en") {
+      setLanguage(home);
+    } else {
+      setLanguage(home);
+    }
+  }, [isEsp]);
 
   const modalConfig = (e) => {
     setIsModalVisible(false);
@@ -65,12 +83,14 @@ const WebDesignContainer = () => {
           showSubNav
           isScrollDown={scrollY}
           isFocused={(e) => setIsFocused(e)}
+          setEspLanguage={(e) => setIsEsp(e)}
         />
       ) : (
         isNavVisible && (
           <NavMobile
             onClick={() => setIsNavVisible(false)}
             isFocused={(e) => setIsFocused(e)}
+            setEspLanguage={(e) => setIsEsp(e)}
           />
         )
       )}
@@ -87,22 +107,12 @@ const WebDesignContainer = () => {
             height: `${isNavDesktop ? size.height + "px" : "100%"}`,
           }}
         >
-          <h1 className={styles.title}>Diseño web</h1>
-          <p className={styles.description}>
-            ACQit crea sitios web enfatizando el desarrollo y diseño para así
-            obtener un producto acorde a la excelencia que demandan nuestros
-            clientes.
-          </p>
-          <p className={styles.description}>
-            En nuestro equipo aplicamos nuestra experiencia y conocimientos al
-            momento de construir soluciones sólidas orientadas a cada mercado,
-            creando sitios profesionales que logren proyectar confianza
-            apoyándonos en un diseño atractivo y minimalista.
-          </p>
+          <h1 className={styles.title}>{language.webDesign.title}</h1>
+          <p className={styles.description}>{language.webDesign.parraph_1}</p>
+          <p className={styles.description}>{language.webDesign.parraph_2}</p>
           <div>
             <h4 className={styles.aclaration}>
-              Desarrollamos sitios innovadores, funcionales y atractivos
-              enfocados en las necesidades del cliente.
+              {language.webDesign.aclaration}
             </h4>
           </div>
           <div className="boxSection">
@@ -112,7 +122,7 @@ const WebDesignContainer = () => {
               <BoxUserName
                 icon
                 img={"/images/icons/SVG/pcicon.svg"}
-                text={"Diseño web para desktop (para computadoras)"}
+                text={language.webDesign.box1}
               ></BoxUserName>
             </div>
             <div
@@ -121,7 +131,7 @@ const WebDesignContainer = () => {
               <BoxUserName
                 icon
                 img={"/images/icons/SVG/celphoneicon.svg"}
-                text={"Diseño web responsive (para celulares y tablets)"}
+                text={language.webDesign.box2}
               />
             </div>
           </div>
@@ -131,6 +141,7 @@ const WebDesignContainer = () => {
         <FooterDesktop
           name={localStorage.getItem("name") || userName}
           autofocus={isFocused}
+          isEsp={isEsp}
         />
       ) : (
         <Footer

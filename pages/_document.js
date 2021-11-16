@@ -6,6 +6,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <>
+            <title>ACQIT</title>
             <meta name="title" content="ACQIT" />
             <meta
               name="description"
@@ -50,6 +51,7 @@ class MyDocument extends Document {
               href="https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@100;300;400;500;700&display=swap"
               rel="stylesheet"
             />
+            {/* <link rel="icon" type="image/png" href="/favicon.png"/> */}
           </>
         </Head>
         <body>

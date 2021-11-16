@@ -2,8 +2,27 @@ import styles from "./mobileGraphicService.module.scss";
 import React from "react";
 import ServiceIcon from "../serviceIcon/serviceIcon";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
-const MobileGraphicServices = ({ isModalVisible }) => {
+import { inicio } from "@/locales/es/inicio";
+import { home } from "@/locales/en/home";
+
+const MobileGraphicServices = ({ isModalVisible, isEsp }) => {
+  const [language, setLanguage] = useState(inicio);
+
+  useEffect(() => {
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    let localStorageElement = localStorage.getItem("language");
+    if (localStorageElement === "true" || firstLetters === "es") {
+      setLanguage(inicio);
+    } else if (localStorageElement === "false" || firstLetters === "en") {
+      setLanguage(home);
+    } else {
+      setLanguage(home);
+    }
+  }, [isEsp]);
+
   return (
     <div className={styles.graphContainer}>
       <div style={{ overflow: "hidden" }}>
@@ -18,14 +37,12 @@ const MobileGraphicServices = ({ isModalVisible }) => {
               <div className={styles.descriptionContainer}>
                 <Link href="/equipamiento" passHref>
                   <p className={styles.titleDescription}>
-                    01 | Equipamiento{" "}
+                    01 | {language.services.hardware}{" "}
                     <span className={styles.seeMore}>ver +</span>
                   </p>
                 </Link>
                 <p className={styles.graphDescription}>
-                  Proveemos desde notebooks hasta equipos de hiperconvergencia
-                  para almacenar u optimizar todos los recursos informáticos
-                  necesarios de tu empresa.
+                  {language.services.hardwareDescription}
                 </p>
               </div>
             </div>
@@ -34,15 +51,13 @@ const MobileGraphicServices = ({ isModalVisible }) => {
               <div className={styles.descriptionContainer}>
                 <Link href="/consultoria" passHref>
                   <p className={styles.titleDescription}>
-                    02 | Consultoria IT{" "}
+                    02 | {language.services.itConsulting}{" "}
                     <span className={styles.seeMore}>ver +</span>
                   </p>
                 </Link>
 
                 <p className={styles.graphDescription}>
-                  Nuestro equipo se encarga de gestionar, administrar y
-                  optimizar tus sistemas y procesos enfocándonos en obtener los
-                  mejores resultados.
+                  {language.services.itConsultingDescription}
                 </p>
               </div>
             </div>
@@ -57,14 +72,13 @@ const MobileGraphicServices = ({ isModalVisible }) => {
               <div className={styles.descriptionContainer}>
                 <Link href="/seguridadit" passHref>
                   <p className={styles.titleDescription}>
-                    03 | Seguridad IT{" "}
+                    03 | {language.services.itSecurity}{" "}
                     <span className={styles.seeMore}>ver +</span>
                   </p>
                 </Link>
 
                 <p className={styles.graphDescription}>
-                  Tu sitio web al alcance de tus manos con diseño y responsive
-                  sujeto a las necesitadas de cada cliente
+                  {language.services.itSecurityDescription}
                 </p>
               </div>
             </div>
@@ -73,15 +87,13 @@ const MobileGraphicServices = ({ isModalVisible }) => {
               <div className={styles.descriptionContainer}>
                 <Link href="/disenio" passHref>
                   <p className={styles.titleDescription}>
-                    04 | Diseño web{" "}
+                    04 | {language.services.webDesign}{" "}
                     <span className={styles.seeMore}>ver +</span>
                   </p>
                 </Link>
 
                 <p className={styles.graphDescription}>
-                  Protegemos tu organización y tus datos de cualquier
-                  ciberataque haciendo uso de herramientas de control de primer
-                  nivel.
+                  P{language.services.webDesignDescription}
                 </p>
               </div>
             </div>

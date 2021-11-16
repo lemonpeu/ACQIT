@@ -3,6 +3,8 @@ import Link from "next/link";
 
 //Utils
 import IsVisible from "../../utils/isVisible";
+import { inicio } from "@/locales/es/inicio";
+import { home } from "@/locales/en/home";
 
 //Components
 import ServicesGraphic from "../../common/servicesGraphic/servicesGraphic";
@@ -12,9 +14,28 @@ import MobileGraphicServices from "../../common/mobileGraphicService/mobileGraph
 import styles from "./ServicesHome.module.scss";
 import PlusIcon from "../../../public/images/icons/home/SVG/plusicon";
 
-const ServicesHome = ({ isPage1200, is2rdSectionVisible, isVisible }) => {
+const ServicesHome = ({
+  isPage1200,
+  is2rdSectionVisible,
+  isVisible,
+  isEsp,
+}) => {
   const [setRef, visible] = IsVisible({ threshold: 0.2 });
   const [isAnimation, setIsAnimation] = useState(false);
+  const [language, setLanguage] = useState(inicio);
+
+  useEffect(() => {
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    let localStorageElement = localStorage.getItem("language");
+    if (localStorageElement === "true" || firstLetters === "es") {
+      setLanguage(inicio);
+    } else if (localStorageElement === "false" || firstLetters === "en") {
+      setLanguage(home);
+    } else {
+      setLanguage(home);
+    }
+  }, [isEsp]);
 
   useEffect(() => {
     if (visible) {
@@ -33,7 +54,7 @@ const ServicesHome = ({ isPage1200, is2rdSectionVisible, isVisible }) => {
                 isVisible ? "categories-title-animation" : ""
               }`}
             >
-              <h4 className={styles.title}>Servicios</h4>
+              <h4 className={styles.title}>{language.services.title}</h4>
             </div>
             <h6
               className={`${styles.titleGraphic} ${
@@ -43,7 +64,7 @@ const ServicesHome = ({ isPage1200, is2rdSectionVisible, isVisible }) => {
               <span
                 style={{ zIndex: 20, position: "absolute", height: "100%" }}
               >
-                Conocer los servicios
+                {language.services.subTitle}
               </span>
             </h6>
           </div>
@@ -63,9 +84,9 @@ const ServicesHome = ({ isPage1200, is2rdSectionVisible, isVisible }) => {
         </div>
 
         {isPage1200 ? (
-          <ServicesGraphic isVisible={isVisible} />
+          <ServicesGraphic isVisible={isVisible} isEsp={isEsp} />
         ) : (
-          <MobileGraphicServices isModalVisible={isVisible} />
+          <MobileGraphicServices isModalVisible={isVisible} isEsp={isEsp} />
         )}
       </div>
     </div>

@@ -14,6 +14,9 @@ import LupaIcon from "../../../../public/images/icons/seguridadit/SVG/lupaicon";
 import useWindowSize from "@/components/utils/windowSice";
 import { useScrollDown } from "@/components/utils/isScrollDown";
 
+import { inicio } from "@/locales/es/inicio";
+import { home } from "@/locales/en/home";
+
 const ITSecurityContainer = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
@@ -21,9 +24,25 @@ const ITSecurityContainer = () => {
   const scrollY = useScrollDown();
   const [isFocused, setIsFocused] = useState(false);
 
+  const [isEsp, setIsEsp] = useState(true);
+  const [language, setLanguage] = useState(inicio);
+
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");
   let isNavDesktop = useMediaQuery("(min-width: 900px)");
   const size = useWindowSize();
+
+  useEffect(() => {
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    let localStorageElement = localStorage.getItem("language");
+    if (localStorageElement === "true" || firstLetters === "es") {
+      setLanguage(inicio);
+    } else if (localStorageElement === "false" || firstLetters === "en") {
+      setLanguage(home);
+    } else {
+      setLanguage(home);
+    }
+  }, [isEsp]);
 
   useEffect(() => {
     if (localStorage.getItem("isModal")) {
@@ -62,12 +81,14 @@ const ITSecurityContainer = () => {
           showSubNav
           isScrollDown={scrollY}
           isFocused={(e) => setIsFocused(e)}
+          setEspLanguage={(e) => setIsEsp(e)}
         />
       ) : (
         isNavVisible && (
           <NavMobile
             onClick={() => setIsNavVisible(false)}
             isFocused={(e) => setIsFocused(e)}
+            setEspLanguage={(e) => setIsEsp(e)}
           />
         )
       )}
@@ -80,17 +101,10 @@ const ITSecurityContainer = () => {
           style={{ minHeight: size.height + "px" }}
           id="top"
         >
-          <h1 className={styles.title}>Seguridad It</h1>
-          <p className={styles.description}>
-            ACQit velamos por el cuidado de la organización, sus datos y sus
-            empleados proveyendo soluciones para proteger la integridad de los
-            ambientes digitales. Nos mantenemos a la vanguardia de las mejores
-            prácticas redefiniendo y ajustando las políticas de seguridad de la
-            empresa.
-          </p>
+          <h1 className={styles.title}>{language.itSecurity.title}</h1>
+          <p className={styles.description}>{language.itSecurity.parraph_1}</p>
           <h4 className={styles.aclaration}>
-            Analizamos y gestionamos los procesos internos y externos
-            garantizando resultados y reduciendo potenciales riesgos
+            {language.itSecurity.aclaration}
           </h4>
           <div className={styles.graphicContainer}>
             <div className={styles.graphic}>
@@ -128,6 +142,7 @@ const ITSecurityContainer = () => {
           style={{ zIndex: 0 }}
           name={localStorage.getItem("name") || userName}
           autofocus={isFocused}
+          isEsp={isEsp}
         />
       ) : (
         <Footer

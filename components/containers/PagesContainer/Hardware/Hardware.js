@@ -12,6 +12,9 @@ import Modal from "@/components/common/Modal/modal";
 import Image from "@/components/common/Image/Image";
 import { useScrollDown } from "@/components/utils/isScrollDown";
 
+import { inicio } from "@/locales/es/inicio";
+import { home } from "@/locales/en/home";
+
 const HardwareContainer = () => {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(true);
@@ -22,6 +25,22 @@ const HardwareContainer = () => {
   let isNavDesktop = useMediaQuery("(min-width: 900px)");
   const scrollY = useScrollDown();
   const [isFocused, setIsFocused] = useState(false);
+
+  const [isEsp, setIsEsp] = useState(true);
+  const [language, setLanguage] = useState(inicio);
+
+  useEffect(() => {
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    let localStorageElement = localStorage.getItem("language");
+    if (localStorageElement === "true" || firstLetters === "es") {
+      setLanguage(inicio);
+    } else if (localStorageElement === "false" || firstLetters === "en") {
+      setLanguage(home);
+    } else {
+      setLanguage(home);
+    }
+  }, [isEsp]);
 
   const modalConfig = (e) => {
     setIsModalVisible(false);
@@ -62,12 +81,14 @@ const HardwareContainer = () => {
           showSubNav
           isScrollDown={scrollY}
           isFocused={(e) => setIsFocused(e)}
+          setEspLanguage={(e) => setIsEsp(e)}
         />
       ) : (
         isNavVisible && (
           <NavMobile
             onClick={() => setIsNavVisible(false)}
             isFocused={(e) => setIsFocused(e)}
+            setEspLanguage={(e) => setIsEsp(e)}
           />
         )
       )}
@@ -77,20 +98,13 @@ const HardwareContainer = () => {
         )}
 
         <section className={styles.contentContainer} id="top">
-          <h1 className={styles.title}>Equipamiento</h1>
+          <h1 className={styles.title}>{language.hardware.title}</h1>
           <p>
-            ACQit contamos con más de diez años de experiencia en el mercado
-            aportando el expertise necesario para identificar oportunidades de
-            mejora asegurando el éxito en tus proyectos y optimizando el
-            funcionamiento. Nuestros convenios y vínculos con primeras marcas
-            nos permiten obtener una amplia gama de productos a un valor
-            competitivo. Definimos y gestionamos un plan de actualización para
-            potenciar y acompañar el crecimiento de tu compañía.
+            {language.hardware.parraph_1}
+            <br></br>
+            {language.hardware.parraph_2}
           </p>
-          <h4 className={styles.aclaration}>
-            ACQit nos encargamos de facilitarte las decisiones de
-            infraestructura.
-          </h4>
+          <h4 className={styles.aclaration}>{language.hardware.aclaration}</h4>
           <div className={styles.companiesContainer}>
             <h6 className={styles.partnerTitle + " " + "animation-title"}>
               <span
@@ -100,7 +114,7 @@ const HardwareContainer = () => {
                   height: "100%",
                 }}
               >
-                PARTNERS
+                {language.hardware.companiesTitle}
               </span>
             </h6>
             <Companies />
@@ -113,6 +127,7 @@ const HardwareContainer = () => {
         <FooterDesktop
           name={localStorage.getItem("name") || userName}
           autofocus={isFocused}
+          isEsp={isEsp}
         />
       ) : (
         <Footer

@@ -13,7 +13,8 @@ import { useScrollDown } from "@/components/utils/isScrollDown";
 import useWindowSize from "@/components/utils/windowSice";
 import Whatsapp from "@/components/common/whatsapp/whatsapp";
 
-import { useSpring, animated } from "react-spring";
+import { inicio } from "@/locales/es/inicio";
+import { home } from "@/locales/en/home";
 
 const AboutUsContainer = ({ videoPath }) => {
   const [isNavVisible, setIsNavVisible] = useState(false);
@@ -27,11 +28,25 @@ const AboutUsContainer = ({ videoPath }) => {
   const size = useWindowSize();
   const [isFocused, setIsFocused] = useState(false);
 
+  const [isEsp, setIsEsp] = useState(true);
+  const [language, setLanguage] = useState(inicio);
+
   let isFooterMobile = useMediaQuery("(min-width: 1000px)");
   let isNavDesktop = useMediaQuery("(min-width: 900px)");
   let is1200 = useMediaQuery("(min-width: 1200px)");
 
-  const props = useSpring({ to: { opacity: 1 }, from: { opacity: 0.3 } });
+  useEffect(() => {
+    let userLang = navigator.language || navigator.userLanguage;
+    let firstLetters = userLang.slice(0, 2);
+    let localStorageElement = localStorage.getItem("language");
+    if (localStorageElement === "true" || firstLetters === "es") {
+      setLanguage(inicio);
+    } else if (localStorageElement === "false" || firstLetters === "en") {
+      setLanguage(home);
+    } else {
+      setLanguage(home);
+    }
+  }, [isEsp]);
 
   const modalConfig = (e) => {
     setIsModalVisible(false);
@@ -100,12 +115,16 @@ const AboutUsContainer = ({ videoPath }) => {
         <Modal onClose={() => modalConfig()} onClick={(e) => modalConfig(e)} />
       )}
       {isNavDesktop ? (
-        <NavDesktop showSubNav isFocused={(e) => setIsFocused(e)} />
+        <NavDesktop
+          isFocused={(e) => setIsFocused(e)}
+          setEspLanguage={(e) => setIsEsp(e)}
+        />
       ) : (
         isNavVisible && (
           <NavMobile
             onClick={() => setIsNavVisible(false)}
             isFocused={(e) => setIsFocused(e)}
+            setEspLanguage={(e) => setIsEsp(e)}
           />
         )
       )}
@@ -129,7 +148,7 @@ const AboutUsContainer = ({ videoPath }) => {
                 styles.titleContainer + " " + styles.titleContainerPrincipal
               }
             >
-              <h1 className={styles.title}>Nosotros</h1>
+              <h1 className={styles.title}> {language.us.title}</h1>
               <div className={styles.lineTitle}></div>
             </div>
             <div className={styles.contentWrapper}>
@@ -141,6 +160,7 @@ const AboutUsContainer = ({ videoPath }) => {
                 onClick1={(e) => setText1(e)}
                 onClick2={(e) => setText2(e)}
                 onClick3={(e) => setText3(e)}
+                isEsp={isEsp}
               />
             </div>
           </div>
@@ -153,7 +173,9 @@ const AboutUsContainer = ({ videoPath }) => {
                   src="/images/icons/nosotros/valoresicoon.svg"
                   alt="valores icono"
                 />{" "}
-                <span style={{ paddingLeft: "1rem" }}>Valores</span>
+                <span style={{ paddingLeft: "1rem" }}>
+                  {language.us.values.title}
+                </span>
               </h4>
               <div className={styles.lineTitle}></div>
             </div>
@@ -162,38 +184,37 @@ const AboutUsContainer = ({ videoPath }) => {
                 className={styles.description}
                 style={{ marginBottom: "2rem" }}
               >
-                Nuestros valores definen quiénes somos, cómo trabajamos y cómo
-                es nuestro equipo. Nos gusta trabajar con el dinamismo necesario
-                para poder optimizar los recursos de nuestros clientes.&nbsp;
+                {language.us.parraph_1}
                 <span style={{ color: "#0885e6" }}>
-                  Escuchar, interpretar, son palabras que nos destacan y nos
-                  ayudan a crear vínculos, incluso más allá de los laborales.
+                  {language.us.values.parraph_2}
                 </span>
               </p>
               <p
                 className={styles.description}
                 style={{ marginBottom: "2rem" }}
               >
-                <span className={styles.subTitle}>Innovación</span>:
+                <span className={styles.subTitle}>
+                  {language.us.values.innovation}
+                </span>
+                :
                 <span>
-                  &nbsp;nuestra pasión por la tecnología y experiencia nos
-                  enseñan que este mercado se encuentra en constante
-                  crecimiento. Nos mantenemos en&nbsp;
+                  &nbsp;{language.us.innovation_1}&nbsp;
+                  {language.us.values.innovation_2}&nbsp;
                   <span style={{ color: "#0885e6" }}>
-                    constante estudio y búsqueda de las últimas tendencias, para
-                    brindar las respuestas más eficientes y eficaces para su
-                    empresa.
+                    {language.us.values.innovation_3}
                   </span>
                 </span>
               </p>
               <p className={styles.description}>
-                <span className={styles.subTitle}>Personalización</span>:
+                <span className={styles.subTitle}>
+                  {language.us.values.personalization}
+                </span>
+                :
                 <span>
-                  &nbsp;nuestra dinámica de trabajo es completamente personal,
-                  dándole a nuestros clientes un trato post venta que asegure
-                  el&nbsp;
+                  &nbsp;{language.us.values.personalization_1}
+                  &nbsp;
                   <span style={{ color: "#0885e6" }}>
-                    seguimiento y análisis de rendimiento de cada proyecto.
+                    {language.us.values.personalization_2}
                   </span>
                 </span>
               </p>
@@ -209,18 +230,17 @@ const AboutUsContainer = ({ videoPath }) => {
                   alt="valores icono"
                 />
 
-                <span style={{ marginLeft: "1rem" }}>Mision</span>
+                <span style={{ marginLeft: "1rem" }}>
+                  {language.us.mission.title}
+                </span>
                 <div className={styles.lineTitle}></div>
               </h4>
             </div>
             <div className={styles.textContainer}>
               <p className={styles.description}>
-                ACQit nace para llenar un vacío en los servicios actuales del
-                mercado ya que ningún es un servicio integral, sino que todos
-                son tratados como problemas separados.
+                {language.us.mission.mission_1}
                 <span style={{ color: "#0885e6" }}>
-                  Nosotros como compañía entendemos que todo tiene un vínculo y
-                  la mejor forma de tratarlo es como un único objetivo.
+                  {language.us.mission.mission_2}
                 </span>
               </p>
             </div>
@@ -234,21 +254,19 @@ const AboutUsContainer = ({ videoPath }) => {
                   src="/images/icons/nosotros/visionicon.svg"
                   alt="valores icono"
                 />
-                <span style={{ paddingLeft: "1rem" }}>Visión</span>
+                <span style={{ paddingLeft: "1rem" }}>
+                  {language.us.vision.title}
+                </span>
               </h4>
               <div className={styles.lineTitle}></div>
             </div>
             <div className={styles.textContainer}>
               <p className={styles.description}>
-                ACQit busca ser una empresa líder en el mercado,
-                ofreciendo&nbsp;
+                {language.us.vision.vision_1}&nbsp;
                 <span style={{ color: "#0885e6" }}>
-                  servicios de excelencia que ponen su foco en la innovación y
-                  personalización.&nbsp;
+                  {language.us.vision.vision_2}&nbsp;
                 </span>
-                Estamos convencidos de que, una buena experiencia para nuestros
-                clientes, es la forma correcta para que nos sigan eligiéndolos
-                sus socios esenciales.
+                {language.us.vision.vision_3}
               </p>
             </div>
           </div>
@@ -260,6 +278,7 @@ const AboutUsContainer = ({ videoPath }) => {
           name={localStorage.getItem("name") || userName}
           style={{ zIndex: 0 }}
           autofocus={isFocused}
+          isEsp={isEsp}
         />
       ) : (
         <Footer
