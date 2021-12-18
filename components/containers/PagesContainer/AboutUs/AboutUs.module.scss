@@ -223,8 +223,10 @@
   .wrapper {
     .main {
       .contentContainer {
-        & > .title {
-          padding-top: 10rem;
+        .titleContainer {
+          h1.title {
+            padding-top: 5rem;
+          }
         }
       }
     }

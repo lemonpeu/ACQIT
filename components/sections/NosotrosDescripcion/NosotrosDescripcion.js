@@ -29,14 +29,13 @@ const NosotrosDescripcion = ({
   return (
     <div className={styles.wrapper + " " + "NosotrosDescriptionWrapper"}>
       <article className={styles.descriptionContainer}>
-        <div>
+        <div onClick={() => onClick1(true)}>
           <Image
             layout="fixed"
             width={imageWidth().width}
             height={imageWidth().height}
             src="/images/extra/SVG/nosotros/line1.png"
-            alt="aaaaaa"
-            onClick={() => onClick1(true)}
+            alt="Click to show information"
           />
         </div>
         {showText1 && (
@@ -54,7 +53,7 @@ const NosotrosDescripcion = ({
             width={imageWidth().width}
             height={imageWidth().height}
             src="/images/extra/SVG/nosotros/line2.png"
-            alt="aaaaaa"
+            alt="Click to show information"
             onClick={() => onClick3(true)}
           />
         </div>
@@ -68,14 +67,13 @@ const NosotrosDescripcion = ({
           showText1 ? "descriptionWrapperMiddle" : ""
         } ${showText2 ? "descriptionWrapperRight" : ""}`}
       >
-        <div>
+        <div onClick={() => onClick2(true)}>
           <Image
             layout="fixed"
             width={imageWidth().width}
             height={imageWidth().height}
             src="/images/extra/SVG/nosotros/line3.png"
-            alt="aaaaaa"
-            onClick={() => onClick2(true)}
+            alt="Click to show information"
           />
         </div>
         {showText2 && (
