@@ -13,7 +13,7 @@ const LoadingLogo = () => {
           height={100}
           layout="fixed"
           src="/images/logopage/logopage.png"
-          alt="logo"
+          alt="logo ACQIT"
         />
         <p className={styles.text}>UNA MIRADA DIFERENTE DEL MERCADO IT.</p>
       </div>

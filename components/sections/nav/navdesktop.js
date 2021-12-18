@@ -47,6 +47,7 @@ const NavDesktop = ({ isFocused, goingUp, setEspLanguage, navHome }) => {
       <button
         className={styles.navBtnPosition}
         onClick={() => setIsVisible(!isVisible)}
+        type="button"
       >
         <Image
           width={60}
@@ -54,7 +55,7 @@ const NavDesktop = ({ isFocused, goingUp, setEspLanguage, navHome }) => {
           layout="fixed"
           className={styles.logo}
           src="/images/icons/SVG/logonav.svg"
-          alt=""
+          alt="logo. Click to return to home screen"
         />
       </button>
       <nav className={`${styles.nav} ${isVisible ? "navAnimation" : ""}`}>
