@@ -36,13 +36,6 @@ const ServicesTextDesktop = ({ isModalVisible, isEsp }) => {
       link: "/consultoria",
     },
     {
-      id: 4,
-      name: "computer",
-      title: language && language.services.webDesign,
-      text: language && language.services.webDesignDescription,
-      link: "/disenio",
-    },
-    {
       id: 3,
       name: "icon",
       title: language && language.services.itSecurity,

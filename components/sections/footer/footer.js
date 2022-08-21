@@ -37,11 +37,11 @@ const Footer = ({ name, autofocus }) => {
               alt="place icon"
             />
             <a
-              href="https://goo.gl/maps/nUsXBVnkfPPpEKfNA"
+              href="https://goo.gl/maps/ge8JXYQyc9d5q1Gq7"
               rel="noreferrer"
               target="_blank"
             >
-              Arcos 2836
+              Franklin D. Roosevelt 2445, CABA
             </a>
           </li>
         </ul>

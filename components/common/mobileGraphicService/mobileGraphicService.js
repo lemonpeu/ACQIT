@@ -82,7 +82,7 @@ const MobileGraphicServices = ({ isModalVisible, isEsp }) => {
                 </p>
               </div>
             </div>
-            <div className={styles.servicesItemContainer}>
+            {/* <div className={styles.servicesItemContainer}>
               <ServiceIcon name="computer" width={100} height={80} />
               <div className={styles.descriptionContainer}>
                 <Link href="/disenio" passHref>
@@ -96,7 +96,7 @@ const MobileGraphicServices = ({ isModalVisible, isEsp }) => {
                   P{language.services.webDesignDescription}
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

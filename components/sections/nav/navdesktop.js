@@ -97,9 +97,6 @@ const NavDesktop = ({ isFocused, goingUp, setEspLanguage, navHome }) => {
                       {language.nav.itSecurity}
                     </li>
                   </Link>
-                  <Link href="/disenio" passHref>
-                    <li className={styles.navItem}>{language.nav.webDesign}</li>
-                  </Link>
                 </ul>
               </li>
             </ul>

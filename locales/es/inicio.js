@@ -142,7 +142,7 @@ export const inicio = {
     parraph_2:
       "En nuestro equipo aplicamos nuestra experiencia y conocimientos al momento de construir soluciones sólidas orientadas a cada mercado, creando sitios profesionales que logren proyectar confianza, apoyándonos en un diseño atractivo y minimalista.",
     aclaration:
-      "DESARROLAMOS SITIOS INNOVADORES, FUNCIONALES Y ATRACTIVOS ENFOCADOS EN LAS NECESIDADES DEL CLIENTE",
+      "DESARROLLAMOS SITIOS INNOVADORES, FUNCIONALES Y ATRACTIVOS ENFOCADOS EN LAS NECESIDADES DEL CLIENTE",
     box1: "Diseño web para desktop (para computadoras)",
     box2: "Diseño web responsive (para celulares y tablets)",
   },

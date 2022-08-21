@@ -15,7 +15,6 @@
         "export": "next build && next export"
     },
     "dependencies": {
-        "@kaviar/email-bundle": "^1.1.2",
         "email-templates": "^8.0.8",
         "framer-motion": "^4.1.17",
         "html-entities": "^2.3.2",

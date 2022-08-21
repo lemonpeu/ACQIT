@@ -28,8 +28,6 @@ const NavMobile = ({ onClick, isFocused, setEspLanguage }) => {
     }
   }, [isEsp]);
 
-  
-
   return (
     <div className={styles.containerMobile}>
       <nav className={styles.nav}>
@@ -71,9 +69,6 @@ const NavMobile = ({ onClick, isFocused, setEspLanguage }) => {
           </Link>
           <Link href="/seguridadit" passHref>
             <li className={styles.navItem}>{language.nav.itSecurity} +</li>
-          </Link>
-          <Link href="/disenio" passHref>
-            <li className={styles.navItem}>{language.nav.webDesign} +</li>
           </Link>
           <div
             style={{ color: "white", marginTop: "2rem", marginLeft: "3rem" }}
